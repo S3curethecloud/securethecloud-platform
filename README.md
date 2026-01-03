@@ -33,12 +33,15 @@ This is where the real value is.
 
 4.1 Architecture Documentation
 arduino
-Copy code
+---
+```
 docs/architecture/
 ├── platform-overview.md
 ├── aws-hosting-architecture.md
 ├── security-controls.md
 └── future-saas-evolution.md
+```
+---
 These explain:
 
 Why static-first
