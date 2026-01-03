@@ -1,0 +1,25 @@
+/* =========================================================
+   SecureTheCloud — Home Page Styling
+   STC-CORE-DS v1.0
+========================================================= */
+
+/* Hero section refinements */
+.stc-hero {
+  padding-top: var(--sp-8);
+  padding-bottom: var(--sp-8);
+}
+
+/* Homepage subtitle */
+.stc-hero p {
+  max-width: 720px;
+}
+
+/* Control plane visual placeholder */
+.stc-control-plane {
+  margin-top: var(--sp-7);
+}
+
+/* Homepage section spacing */
+section + section {
+  margin-top: var(--sp-7);
+}
