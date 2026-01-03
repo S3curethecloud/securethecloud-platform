@@ -62,7 +62,7 @@ This architecture prioritizes:
 Detailed diagrams and rationale live under: `docs/architecture/`
 
 ---
-
+```
 ## Repository Structure
 securethecloud-platform/
 ├── site/ # Production website (S3-deployed)
@@ -72,8 +72,8 @@ securethecloud-platform/
 ├── .github/ # CI/CD workflows
 ├── CHANGELOG.md
 └── VERSION
-
-text
+```
+---
 
 The structure of `/site` mirrors the S3 production layout exactly.
 
