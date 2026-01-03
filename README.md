@@ -1,126 +1,142 @@
 # SecureTheCloud Platform
 
-SecureTheCloud is a unified platform for **multi-cloud security engineering**,
-**defensive intelligence (STI Shield & STI AI)**, **hands-on labs**, and
-**architect-grade education**.
+A unified platform for multi-cloud security engineering,
+defensive intelligence (STI Shield & STI AI),
+hands-on labs, and architect-grade education.
 
-This repository is the **system of record** for the SecureTheCloud platform.
-It contains the production website, design system, platform documentation,
-and AWS deployment logic.
-
----
-
-## What This Repository Is
-
-This repository serves as:
-
-- The **production frontend** for securethecloud.dev
-- The **design system** governing all platform interfaces
-- The **documentation hub** capturing architectural decisions
-- The **deployment source** for AWS S3 + CloudFront
-- A **living portfolio** demonstrating senior-level platform engineering
-
-This is not a marketing site.  
-It is a **platform built as code**.
-
----
+## What This Repo Is
+- The production website
+- The design system
+- The platform documentation
+- The deployment source for AWS
 
 ## Platform Pillars
-
-SecureTheCloud is organized around six core pillars:
-
-1. **STI Shield**  
-   A deployable, architecture-driven security framework spanning identity,
-   zero trust networking, workload protection, data security, and detection.
-
-2. **STI AI**  
-   A security reasoning and intelligence layer designed to analyze architecture,
-   correlate risk, and augment learning and decision-making.
-
-3. **Labs**  
-   A proof engine of real, hands-on security labs across AWS, Azure, and GCP,
-   mapped to controls, threats, and architecture patterns.
-
-4. **Academy**  
-   Structured mastery paths for cloud and security engineers, built on labs,
-   governed by STI Shield, and enhanced by STI AI.
-
-5. **Media**  
-   Technical education and architecture walkthroughs distributed via YouTube
-   and other channels, tightly integrated with labs and platform content.
-
-6. **Consulting**  
-   Premium advisory services that apply the same frameworks, labs, and
-   intelligence used throughout the platform.
-
----
+- STI Shield (Security Framework)
+- STI AI (Security Intelligence)
+- Labs (Proof Engine)
+- Academy (Mastery Paths)
+- Media (Authority Distribution)
+- Consulting (Applied Architecture)
 
 ## Architecture Overview
-
-The SecureTheCloud platform is designed using a **static-first, cloud-native**
-architecture:
-
-- Static frontend hosted on **AWS S3**
-- Global delivery via **CloudFront**
-- Secure origin access using **Origin Access Control (OAC)**
-- DNS managed in **Route 53** (domain registered with Squarespace)
-- CI/CD driven by **GitHub Actions**
-
-This architecture prioritizes:
-- Security
-- Performance
-- Cost efficiency
-- Long-term scalability
-
-Detailed diagrams and rationale live under:
-docs/architecture/
-
----
-```
-## Repository Structure
-
-securethecloud-platform/
-├── site/ # Production website (S3-deployed)
-├── design-system/ # Global UI tokens and components
-├── docs/ # Architecture, decisions, roadmap
-├── infra/ # AWS infrastructure definitions
-├── .github/ # CI/CD workflows
-├── CHANGELOG.md
-└── VERSION
-```
-
-The structure of `/site` mirrors the S3 production layout exactly.
-
----
+[link to docs/architecture]
 
 ## Deployment Model
-
-- Source of truth: GitHub
-- Build & deploy: GitHub Actions
-- Runtime: AWS S3 + CloudFront
-- Environments: dev / stage / prod
-
-No servers.  
-No runtime frameworks required for v1.
-
----
+AWS S3 + CloudFront + Route53
 
 ## Status
+Actively built, versioned, and deployed
+This alone separates you from 99% of portfolios.
 
-- Platform architecture: **defined**
-- Design system: **v1 locked**
-- Homepage: **under active build**
-- Labs, Shield, AI, Academy: **incremental rollout**
+4. docs/ — HOW WE “CAPTURE THE PROCESS”
+This is where the real value is.
 
-This repository is **actively built and versioned**.
+4.1 Architecture Documentation
+arduino
+Copy code
+docs/architecture/
+├── platform-overview.md
+├── aws-hosting-architecture.md
+├── security-controls.md
+└── future-saas-evolution.md
+These explain:
 
----
+Why static-first
 
-## License & Usage
+Why CloudFront + OAC
 
-All content, frameworks, and designs are proprietary to SecureTheCloud
-unless explicitly stated otherwise.
+How STI AI will evolve
 
----
+How Academy becomes gated
 
-> SecureTheCloud is built as a system — not a site.
+4.2 Design System Docs
+bash
+Copy code
+docs/design-system/
+├── design-principles.md
+├── color-tokens.md
+├── typography.md
+└── components.md
+This proves systems thinking.
+
+4.3 Architecture Decision Records (ADR) — NON-NEGOTIABLE
+swift
+Copy code
+docs/decisions/
+├── ADR-001-static-first.md
+├── ADR-002-aws-hosting.md
+├── ADR-003-sti-shield-framework.md
+├── ADR-004-ai-positioning.md
+└── ADR-005-github-first.md
+Each ADR answers:
+
+Context
+
+Decision
+
+Alternatives
+
+Consequences
+
+Recruiters and architects love this.
+
+4.4 Roadmap (Public but Controlled)
+bash
+Copy code
+docs/roadmap/
+├── v1-platform.md
+├── v2-sti-ai.md
+└── v3-academy-saas.md
+This shows vision without leaking IP.
+
+5. Branching & Build Discipline
+Branch Model (Simple & Senior)
+css
+Copy code
+main        → production
+develop     → active build
+feature/*   → scoped changes
+Examples:
+
+feature/homepage-hero
+
+feature/labs-index
+
+feature/design-system-v1
+
+No chaos. No long-lived junk branches.
+
+6. Commit Message Standard (Important)
+Use intent-based commits:
+
+scss
+Copy code
+feat(homepage): add control plane hero section
+docs(adr): record static-first hosting decision
+style(design-system): finalize color tokens v1
+chore(ci): add cloudfront invalidation step
+This makes your Git history readable and impressive.
+
+7. GitHub Actions (Minimal, Powerful)
+.github/workflows/deploy.yml (Phase 1)
+Pipeline intent:
+
+Validate structure
+
+Sync /site to S3
+
+Invalidate CloudFront
+
+We will implement this after homepage HTML is committed.
+
+8. VERSIONING & CHANGELOG (Signals Maturity)
+VERSION
+Copy code
+0.1.0
+CHANGELOG.md
+md
+Copy code
+## 0.1.0
+- Platform design system defined
+- Homepage wireframe implemented
+- AWS hosting architecture documented
