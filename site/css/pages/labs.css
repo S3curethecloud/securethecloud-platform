@@ -1,0 +1,159 @@
+/* =========================================================
+   SecureTheCloud — Labs Page Styling
+   STC-CORE-DS v1.0
+========================================================= */
+
+/* =========================
+   HERO (Labs)
+========================= */
+.stc-hero {
+  background: linear-gradient(
+    180deg,
+    var(--stc-black-900) 0%,
+    var(--stc-black-800) 100%
+  );
+  border-bottom: 1px solid var(--stc-border-subtle);
+}
+
+.stc-hero h1 {
+  margin-bottom: var(--sp-3);
+}
+
+.stc-hero p {
+  max-width: 720px;
+  color: var(--stc-gray-500);
+}
+
+/* =========================
+   FILTER PANEL
+========================= */
+.stc-labs-filters,
+.stc-card {
+  background: var(--stc-black-800);
+  border: 1px solid var(--stc-border-subtle);
+  border-radius: var(--radius-lg);
+}
+
+.stc-card h3 {
+  margin-bottom: var(--sp-4);
+}
+
+/* Select Inputs */
+select {
+  width: 100%;
+  padding: var(--sp-3);
+  background: var(--stc-black-900);
+  color: var(--stc-gray-300);
+  border: 1px solid var(--stc-border-subtle);
+  border-radius: var(--radius-md);
+  font-size: var(--fs-small);
+}
+
+select:focus {
+  outline: none;
+  border-color: var(--stc-blue-core);
+}
+
+/* =========================
+   LAB GRID
+========================= */
+#labs-grid {
+  margin-top: var(--sp-6);
+}
+
+/* Individual Lab Card */
+.stc-lab-card {
+  background: var(--stc-black-800);
+  border: 1px solid var(--stc-border-subtle);
+  border-radius: var(--radius-lg);
+  padding: var(--sp-6);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 120ms ease, border 120ms ease;
+}
+
+.stc-lab-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--stc-border-strong);
+}
+
+/* Lab Header */
+.stc-lab-title {
+  font-size: 18px;
+  color: var(--stc-white);
+  margin-bottom: var(--sp-2);
+}
+
+.stc-lab-meta {
+  font-size: 13px;
+  color: var(--stc-gray-500);
+  margin-bottom: var(--sp-4);
+}
+
+/* Metadata Pills */
+.stc-lab-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+  margin-bottom: var(--sp-4);
+}
+
+.stc-lab-tag {
+  padding: 2px 8px;
+  font-size: 12px;
+  border-radius: var(--radius-sm);
+  background: var(--stc-black-900);
+  border: 1px solid var(--stc-border-subtle);
+  color: var(--stc-gray-300);
+}
+
+/* Accent Variants */
+.stc-lab-tag.aws {
+  border-color: var(--stc-amber-core);
+  color: var(--stc-amber-core);
+}
+
+.stc-lab-tag.azure {
+  border-color: var(--stc-blue-core);
+  color: var(--stc-blue-core);
+}
+
+.stc-lab-tag.gcp {
+  border-color: var(--stc-green-core);
+  color: var(--stc-green-core);
+}
+
+/* Lab Description */
+.stc-lab-desc {
+  font-size: 14px;
+  color: var(--stc-gray-300);
+  margin-bottom: var(--sp-5);
+  flex-grow: 1;
+}
+
+/* Actions */
+.stc-lab-actions {
+  display: flex;
+  gap: var(--sp-3);
+}
+
+/* =========================
+   EMPTY / NO RESULTS
+========================= */
+.stc-labs-empty {
+  text-align: center;
+  padding: var(--sp-7);
+  color: var(--stc-gray-500);
+  border: 1px dashed var(--stc-border-subtle);
+  border-radius: var(--radius-lg);
+}
+
+/* =========================
+   RESPONSIVE TUNING
+========================= */
+@media (max-width: 900px) {
+  .stc-lab-card {
+    padding: var(--sp-5);
+  }
+}

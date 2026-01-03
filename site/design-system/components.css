@@ -1,0 +1,55 @@
+/* =========================================================
+   Core Components
+========================================================= */
+
+/* Buttons */
+.stc-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--sp-3) var(--sp-5);
+  border-radius: var(--radius-md);
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 120ms ease, color 120ms ease, border 120ms ease;
+}
+
+/* Primary */
+.stc-btn-primary {
+  background: var(--stc-blue-core);
+  color: var(--stc-black-900);
+}
+
+.stc-btn-primary:hover {
+  background: #2a96f0;
+}
+
+/* Secondary */
+.stc-btn-secondary {
+  background: transparent;
+  color: var(--stc-white);
+  border: 1px solid var(--stc-border-strong);
+}
+
+.stc-btn-secondary:hover {
+  border-color: var(--stc-blue-core);
+  color: var(--stc-blue-core);
+}
+
+/* Cards */
+.stc-card {
+  background: var(--stc-black-800);
+  border: 1px solid var(--stc-border-subtle);
+  border-radius: var(--radius-lg);
+  padding: var(--sp-6);
+}
+
+/* Lists */
+ul {
+  padding-left: var(--sp-5);
+}
+
+li {
+  margin-bottom: var(--sp-2);
+}

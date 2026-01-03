@@ -1,0 +1,45 @@
+# OS / Shell
+.bash_history
+.bashrc
+.profile
+.wget-hsts
+
+# Docker / Kubernetes / Cloud
+.docker/
+.kube/
+.gsutil/
+.aws/
+.vault-token
+
+# Terraform / IaC
+.terraform/
+.terraform.lock.hcl
+
+# Node / Package Managers
+.node_modules/
+.npm/
+
+# Secrets
+*.key
+*.pem
+*.pub
+.git-credentials
+.password-store/
+.gnupg/
+.ssh/
+
+# Logs / Caches
+logs/
+.cache/
+.local/
+
+# Archives
+*.zip
+
+# External repos / workspaces
+repos/
+stc-*
+securethecloud/
+multi-cloud-*
+trumindpsych-*
+united-airline-*

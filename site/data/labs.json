@@ -1,0 +1,156 @@
+{
+  "version": "1.0",
+  "lastUpdated": "2026-01-03",
+  "labs": [
+    {
+      "id": "aws-identity-federation-l4",
+      "title": "AWS ↔ Entra ID Workforce Identity Federation",
+      "cloud": "aws",
+      "secondaryCloud": "azure",
+      "domain": "identity",
+      "level": "L4",
+      "industry": ["enterprise", "healthcare"],
+      "status": "live",
+
+      "summary": "Implement workforce identity federation between AWS and Microsoft Entra ID using SAML and SCIM with least-privilege permission sets.",
+      "description": "This lab demonstrates architect-grade identity federation between AWS IAM Identity Center and Microsoft Entra ID, including SCIM provisioning, permission sets, and zero-trust access patterns.",
+
+      "architecture": {
+        "pattern": "Workforce Federation",
+        "components": [
+          "AWS IAM Identity Center",
+          "Microsoft Entra ID",
+          "SAML 2.0",
+          "SCIM"
+        ]
+      },
+
+      "controls": {
+        "frameworks": ["NIST 800-53", "Zero Trust"],
+        "shieldDomains": ["Identity Shield"],
+        "controlObjectives": [
+          "Centralized identity",
+          "Least privilege access",
+          "Just-in-time provisioning"
+        ]
+      },
+
+      "academy": {
+        "track": "identity-zero-trust",
+        "module": "federated-identity-foundations"
+      },
+
+      "media": {
+        "youtube": "https://youtube.com/watch?v=XXXXXXX",
+        "diagrams": ["/assets/images/diagrams/aws-entra-federation.png"]
+      },
+
+      "paths": {
+        "overview": "/labs/aws/identity/aws-entra-federation/",
+        "architecture": "/labs/aws/identity/aws-entra-federation/architecture.html",
+        "threatModel": "/labs/aws/identity/aws-entra-federation/threat-model.html"
+      },
+
+      "tags": ["AWS", "Entra ID", "SAML", "SCIM", "Zero Trust"]
+    },
+
+    {
+      "id": "aws-zero-trust-network-l3",
+      "title": "Zero Trust VPC Network Segmentation",
+      "cloud": "aws",
+      "domain": "network",
+      "level": "L3",
+      "industry": ["airline"],
+      "status": "live",
+
+      "summary": "Design and deploy zero trust network segmentation in AWS using VPCs, security groups, and routing controls.",
+      "description": "This lab covers east-west traffic isolation, subnet design, security group policy enforcement, and NIST-aligned zero trust networking principles.",
+
+      "architecture": {
+        "pattern": "Zero Trust Networking",
+        "components": [
+          "AWS VPC",
+          "Security Groups",
+          "Route Tables",
+          "NACLs"
+        ]
+      },
+
+      "controls": {
+        "frameworks": ["NIST 800-207"],
+        "shieldDomains": ["Network Shield"],
+        "controlObjectives": [
+          "East-west isolation",
+          "Explicit trust boundaries",
+          "Policy-driven routing"
+        ]
+      },
+
+      "academy": {
+        "track": "multicloud-security-architect",
+        "module": "zero-trust-networking"
+      },
+
+      "media": {
+        "youtube": "https://youtube.com/watch?v=YYYYYYY",
+        "diagrams": ["/assets/images/diagrams/aws-zero-trust-network.png"]
+      },
+
+      "paths": {
+        "overview": "/labs/aws/network/zero-trust-vpc/",
+        "architecture": "/labs/aws/network/zero-trust-vpc/architecture.html"
+      },
+
+      "tags": ["AWS", "VPC", "Zero Trust", "Networking"]
+    },
+
+    {
+      "id": "devsecops-ci-policy-l5",
+      "title": "Policy-as-Code Enforcement in CI/CD",
+      "cloud": "multi",
+      "domain": "devsecops",
+      "level": "L5",
+      "industry": ["banking"],
+      "status": "planned",
+
+      "summary": "Enforce security and compliance using policy-as-code across Terraform CI/CD pipelines.",
+      "description": "Advanced DevSecOps lab integrating Terraform, policy engines, and CI/CD pipelines to enforce compliance before deployment.",
+
+      "architecture": {
+        "pattern": "Policy Enforcement Pipeline",
+        "components": [
+          "Terraform",
+          "CI/CD Pipeline",
+          "Policy Engine",
+          "Cloud APIs"
+        ]
+      },
+
+      "controls": {
+        "frameworks": ["PCI DSS", "NIST 800-53"],
+        "shieldDomains": ["Workload Shield", "Detection & Response Shield"],
+        "controlObjectives": [
+          "Shift-left security",
+          "Automated compliance",
+          "Deployment gating"
+        ]
+      },
+
+      "academy": {
+        "track": "cloud-security-engineer",
+        "module": "policy-as-code"
+      },
+
+      "media": {
+        "youtube": null,
+        "diagrams": []
+      },
+
+      "paths": {
+        "overview": "/labs/multi/devsecops/policy-as-code/"
+      },
+
+      "tags": ["Terraform", "CI/CD", "Policy as Code", "DevSecOps"]
+    }
+  ]
+}

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Labs | SecureTheCloud</title>
+  <meta name="description"
+        content="Hands-on, real-world security labs across AWS, Azure, and GCP. Identity, Zero Trust, DevSecOps, and AI-driven security engineering." />
+
+  <!-- Design System -->
+  <link rel="stylesheet" href="/design-system/tokens.css" />
+  <link rel="stylesheet" href="/design-system/typography.css" />
+  <link rel="stylesheet" href="/design-system/layouts.css" />
+  <link rel="stylesheet" href="/design-system/components.css" />
+  <link rel="stylesheet" href="/design-system/motion.css" />
+
+  <!-- Global Styles -->
+  <link rel="stylesheet" href="/css/base.css" />
+  <link rel="stylesheet" href="/css/layout.css" />
+  <link rel="stylesheet" href="/css/pages/labs.css" />
+</head>
+
+<body>
+
+  <!-- =========================
+       GLOBAL NAV
+  ========================= -->
+  <header class="stc-nav">
+    <div class="stc-nav-inner">
+      <div class="stc-nav-logo">
+        <a href="/">
+          <img src="/assets/brand/logo.svg" alt="SecureTheCloud Logo">
+        </a>
+      </div>
+
+      <nav class="stc-nav-menu">
+        <a href="/platform/">Platform</a>
+        <a href="/shield/">Shield</a>
+        <a href="/ai/">AI</a>
+        <a href="/labs/" class="active">Labs</a>
+        <a href="/academy/">Academy</a>
+        <a href="/media/">Media</a>
+        <a href="/consulting/">Consulting</a>
+      </nav>
+
+      <button class="stc-nav-toggle" aria-expanded="false">☰</button>
+    </div>
+  </header>
+
+  <!-- =========================
+       HERO
+  ========================= -->
+  <section class="stc-hero">
+    <div class="stc-container">
+      <h1>Security Labs</h1>
+      <p>
+        Real-world, architected security labs across AWS, Azure, and GCP.
+        Every lab maps to frameworks, controls, and production patterns.
+      </p>
+    </div>
+  </section>
+
+  <!-- =========================
+       FILTER BAR
+  ========================= -->
+  <section>
+    <div class="stc-container">
+      <div class="stc-card">
+
+        <h3>Filter Labs</h3>
+
+        <div class="stc-grid-4">
+          <select id="filter-cloud">
+            <option value="">All Clouds</option>
+            <option value="aws">AWS</option>
+            <option value="azure">Azure</option>
+            <option value="gcp">GCP</option>
+          </select>
+
+          <select id="filter-domain">
+            <option value="">All Domains</option>
+            <option value="identity">Identity</option>
+            <option value="network">Network</option>
+            <option value="devsecops">DevSecOps</option>
+            <option value="ai">AI Security</option>
+          </select>
+
+          <select id="filter-level">
+            <option value="">All Levels</option>
+            <option value="L1">L1 – Foundations</option>
+            <option value="L3">L3 – Intermediate</option>
+            <option value="L5">L5 – Advanced</option>
+          </select>
+
+          <select id="filter-industry">
+            <option value="">All Industries</option>
+            <option value="airline">Airline</option>
+            <option value="banking">Banking</option>
+            <option value="healthcare">Healthcare</option>
+          </select>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================
+       LAB GRID
+  ========================= -->
+  <section>
+    <div class="stc-container">
+      <div id="labs-grid" class="stc-grid-3">
+        <!-- Lab cards injected by JS from /data/labs.json -->
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================
+       FOOTER
+  ========================= -->
+  <footer class="stc-footer">
+    <div class="stc-container">
+      © SecureTheCloud • Labs are the proof
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="/js/navigation.js"></script>
+  <script src="/js/filters.js"></script>
+
+</body>
+</html>

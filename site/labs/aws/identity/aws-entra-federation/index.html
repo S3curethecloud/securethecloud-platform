@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>AWS ↔ Entra ID Workforce Identity Federation | SecureTheCloud Labs</title>
+  <meta name="description"
+        content="Architect-grade lab implementing workforce identity federation between AWS IAM Identity Center and Microsoft Entra ID using SAML and SCIM." />
+
+  <!-- Design System -->
+  <link rel="stylesheet" href="/design-system/tokens.css" />
+  <link rel="stylesheet" href="/design-system/typography.css" />
+  <link rel="stylesheet" href="/design-system/layouts.css" />
+  <link rel="stylesheet" href="/design-system/components.css" />
+  <link rel="stylesheet" href="/design-system/motion.css" />
+
+  <!-- Global Styles -->
+  <link rel="stylesheet" href="/css/base.css" />
+  <link rel="stylesheet" href="/css/layout.css" />
+</head>
+
+<body>
+
+  <!-- =========================
+       GLOBAL NAV
+  ========================= -->
+  <header class="stc-nav">
+    <div class="stc-nav-inner">
+      <div class="stc-nav-logo">
+        <a href="/">
+          <img src="/assets/brand/logo.svg" alt="SecureTheCloud Logo" />
+        </a>
+      </div>
+
+      <nav class="stc-nav-menu">
+        <a href="/platform/">Platform</a>
+        <a href="/shield/">Shield</a>
+        <a href="/ai/">AI</a>
+        <a href="/labs/" class="active">Labs</a>
+        <a href="/academy/">Academy</a>
+        <a href="/media/">Media</a>
+        <a href="/consulting/">Consulting</a>
+      </nav>
+
+      <button class="stc-nav-toggle" aria-expanded="false">☰</button>
+    </div>
+  </header>
+
+  <!-- =========================
+       LAB HERO
+  ========================= -->
+  <section class="stc-hero">
+    <div class="stc-container">
+      <h1>AWS ↔ Entra ID Workforce Identity Federation</h1>
+
+      <p>
+        Implement workforce identity federation between AWS IAM Identity Center
+        and Microsoft Entra ID using SAML and SCIM with least-privilege access.
+      </p>
+
+      <div class="stc-lab-tags">
+        <span class="stc-lab-tag aws">AWS</span>
+        <span class="stc-lab-tag azure">Entra ID</span>
+        <span class="stc-lab-tag">Identity</span>
+        <span class="stc-lab-tag">L4</span>
+        <span class="stc-lab-tag">Zero Trust</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================
+       LAB OVERVIEW
+  ========================= -->
+  <section>
+    <div class="stc-container stc-grid-2">
+
+      <div>
+        <h2>Lab Overview</h2>
+        <p>
+          This lab demonstrates architect-grade workforce identity federation
+          between AWS and Microsoft Entra ID. It covers SAML trust establishment,
+          SCIM provisioning, permission set design, and identity-centric access
+          control aligned with Zero Trust principles.
+        </p>
+
+        <h3>What You Will Build</h3>
+        <ul>
+          <li>Federated authentication from Entra ID into AWS</li>
+          <li>Automated user and group provisioning via SCIM</li>
+          <li>Least-privilege AWS permission sets</li>
+          <li>Centralized identity governance</li>
+        </ul>
+      </div>
+
+      <div class="stc-card">
+        <h3>Lab Metadata</h3>
+        <ul>
+          <li><strong>Level:</strong> L4 – Advanced</li>
+          <li><strong>Cloud:</strong> AWS (Primary), Azure (Identity)</li>
+          <li><strong>Domain:</strong> Identity & Access Management</li>
+          <li><strong>Status:</strong> Live</li>
+          <li><strong>Industry:</strong> Enterprise / Healthcare</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================
+       ARCHITECTURE
+  ========================= -->
+  <section>
+    <div class="stc-container">
+      <h2>Architecture</h2>
+      <p>
+        The architecture uses Entra ID as the authoritative identity provider
+        and AWS IAM Identity Center as the service provider, with SAML for
+        authentication and SCIM for lifecycle management.
+      </p>
+
+      <!-- Diagram placeholder -->
+      <div class="stc-card">
+        <p><em>Architecture diagram placeholder</em></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================
+       SECURITY CONTROLS
+  ========================= -->
+  <section>
+    <div class="stc-container stc-grid-2">
+
+      <div>
+        <h2>Security Controls</h2>
+        <ul>
+          <li>Centralized identity provider</li>
+          <li>Least privilege permission sets</li>
+          <li>Just-in-time access patterns</li>
+          <li>Separation of authentication and authorization</li>
+        </ul>
+      </div>
+
+      <div>
+        <h2>Framework Alignment</h2>
+        <ul>
+          <li>NIST 800-53</li>
+          <li>NIST 800-207 (Zero Trust)</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================
+       ACADEMY & SHIELD MAPPING
+  ========================= -->
+  <section>
+    <div class="stc-container stc-grid-2">
+
+      <div class="stc-card">
+        <h3>STI Shield Mapping</h3>
+        <p>
+          This lab directly supports the <strong>Identity Shield</strong> domain
+          of the STI Shield framework.
+        </p>
+      </div>
+
+      <div class="stc-card">
+        <h3>Academy Mapping</h3>
+        <p>
+          Track: <strong>Identity & Zero Trust Specialist</strong><br />
+          Module: Federated Identity Foundations
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================
+       MEDIA
+  ========================= -->
+  <section>
+    <div class="stc-container">
+      <h2>Walkthrough & Media</h2>
+      <p>
+        A full video walkthrough accompanies this lab, explaining the
+        architecture, configuration steps, and security rationale.
+      </p>
+
+      <div class="stc-card">
+        <p><em>YouTube embed placeholder</em></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================
+       NEXT STEPS
+  ========================= -->
+  <section>
+    <div class="stc-container">
+      <h2>Next Steps</h2>
+      <ul>
+        <li>Extend federation to multi-account AWS environments</li>
+        <li>Integrate conditional access policies</li>
+        <li>Apply identity-centric monitoring and logging</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- =========================
+       FOOTER
+  ========================= -->
+  <footer class="stc-footer">
+    <div class="stc-container">
+      © SecureTheCloud • Identity is the new perimeter
+    </div>
+  </footer>
+
+  <script src="/js/navigation.js"></script>
+
+</body>
+</html>

@@ -1,1 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- =========================
+       METADATA
+  ========================= -->
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>SecureTheCloud | Security Engineering, Intelligence & Education</title>
+  <meta name="description"
+        content="SecureTheCloud is a unified platform for multi-cloud security engineering, defensive intelligence (STI Shield & STI AI), hands-on labs, and architect-grade education." />
+
+  <!-- =========================
+       DESIGN SYSTEM
+  ========================= -->
+  <link rel="stylesheet" href="/design-system/tokens.css" />
+  <link rel="stylesheet" href="/design-system/typography.css" />
+  <link rel="stylesheet" href="/design-system/components.css" />
+  <link rel="stylesheet" href="/design-system/layouts.css" />
+  <link rel="stylesheet" href="/design-system/motion.css" />
+
+  <!-- =========================
+       GLOBAL & PAGE STYLES
+  ========================= -->
+  <link rel="stylesheet" href="/css/base.css" />
+  <link rel="stylesheet" href="/css/layout.css" />
+  <link rel="stylesheet" href="/css/pages/home.css" />
+
+</head>
+<body>
+
+  <!-- =========================
+       GLOBAL NAVIGATION
+  ========================= -->
+  <header class="stc-nav">
+    <div class="stc-nav-inner">
+      <div class="stc-nav-logo">
+        <!-- Logo SVG / Image -->
+        <a href="/" aria-label="SecureTheCloud Home">
+          <img src="/assets/brand/logo.svg" alt="SecureTheCloud Logo" />
+        </a>
+      </div>
+
+      <nav class="stc-nav-menu">
+        <a href="/platform/">Platform</a>
+        <a href="/shield/">Shield</a>
+        <a href="/ai/">AI</a>
+        <a href="/labs/">Labs</a>
+        <a href="/academy/">Academy</a>
+        <a href="/media/">Media</a>
+        <a href="/consulting/">Consulting</a>
+      </nav>
+
+      <div class="stc-nav-cta">
+        <a href="/consulting/contact.html" class="stc-btn stc-btn-primary">
+          Get Access
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- =========================
+       HERO SECTION
+  ========================= -->
+  <main>
+
+    <section class="stc-hero">
+      <div class="stc-container stc-hero-inner">
+
+        <div class="stc-hero-content">
+          <h1>SecureTheCloud</h1>
+
+          <p class="stc-hero-subtitle">
+            A Unified Platform for<br />
+            <strong>Multi-Cloud Security Engineering</strong>,<br />
+            <strong>Defensive Intelligence</strong>, and<br />
+            <strong>Architect-Grade Education</strong>
+          </p>
+
+          <div class="stc-hero-actions">
+            <a href="/labs/" class="stc-btn stc-btn-primary">Enter Labs</a>
+            <a href="/shield/" class="stc-btn stc-btn-secondary">Explore STI Shield</a>
+            <a href="/ai/" class="stc-btn stc-btn-secondary">Activate STI AI</a>
+          </div>
+        </div>
+
+        <div class="stc-hero-visual">
+          <!-- Abstract grid / animated control plane graphic -->
+          <div class="stc-control-grid"></div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================
+         CONTROL PLANE STRIP
+    ========================= -->
+    <section class="stc-control-plane">
+      <div class="stc-container">
+
+        <h2>Platform Control Plane</h2>
+
+        <div class="stc-control-nodes">
+          <button data-node="clouds">Clouds</button>
+          <button data-node="identity">Identity</button>
+          <button data-node="policy">Policy</button>
+          <button data-node="shield">STI Shield</button>
+          <button data-node="ai">STI AI</button>
+          <button data-node="labs">Labs</button>
+          <button data-node="academy">Academy</button>
+        </div>
+
+        <div class="stc-control-expand">
+          <!-- JS injects expanded node content here -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================
+         PLATFORM PILLARS
+    ========================= -->
+    <section class="stc-pillars">
+      <div class="stc-container">
+
+        <h2>Platform Pillars</h2>
+
+        <div class="stc-pillar-grid">
+          <article class="stc-pillar-card">
+            <h3>STI Shield</h3>
+            <p>Deployable security framework spanning identity, zero trust, workloads, data, and detection.</p>
+          </article>
+
+          <article class="stc-pillar-card">
+            <h3>STI AI</h3>
+            <p>Security reasoning and intelligence layer for architecture analysis and risk correlation.</p>
+          </article>
+
+          <article class="stc-pillar-card">
+            <h3>Labs</h3>
+            <p>Hands-on, real-world security labs mapped to architecture and controls.</p>
+          </article>
+
+          <article class="stc-pillar-card">
+            <h3>Academy</h3>
+            <p>Mastery paths for security and cloud engineers.</p>
+          </article>
+
+          <article class="stc-pillar-card">
+            <h3>Media</h3>
+            <p>Architecture walkthroughs, lab deep dives, and technical education.</p>
+          </article>
+
+          <article class="stc-pillar-card">
+            <h3>Consulting</h3>
+            <p>Premium advisory applying the same frameworks and intelligence.</p>
+          </article>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================
+         LABS PREVIEW
+    ========================= -->
+    <section class="stc-labs-preview">
+      <div class="stc-container">
+
+        <h2>Live Security Labs</h2>
+
+        <div class="stc-labs-filters">
+          <!-- Filters populated via JS -->
+        </div>
+
+        <div class="stc-labs-grid">
+          <!-- Lab cards injected from /data/labs.json -->
+        </div>
+
+        <div class="stc-section-cta">
+          <a href="/labs/" class="stc-btn stc-btn-secondary">
+            View Full Lab Index
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================
+         STI SHIELD TEASER
+    ========================= -->
+    <section class="stc-shield-teaser">
+      <div class="stc-container">
+        <h2>STI Shield Framework</h2>
+        <p>
+          A deployable security framework aligned to real systems,
+          real threats, and real architectures.
+        </p>
+        <a href="/shield/" class="stc-btn stc-btn-secondary">Explore the Shield</a>
+      </div>
+    </section>
+
+    <!-- =========================
+         STI AI TEASER
+    ========================= -->
+    <section class="stc-ai-teaser">
+      <div class="stc-container">
+        <h2>STI AI</h2>
+        <p>
+          Architecture reasoning • Risk correlation • Learning intelligence
+        </p>
+        <a href="/ai/" class="stc-btn stc-btn-secondary">Enter STI AI</a>
+      </div>
+    </section>
+
+    <!-- =========================
+         ACADEMY TEASER
+    ========================= -->
+    <section class="stc-academy-teaser">
+      <div class="stc-container">
+        <h2>SecureTheCloud Academy</h2>
+        <ul>
+          <li>Multi-Cloud Security Architect</li>
+          <li>Identity & Zero Trust Specialist</li>
+          <li>Cloud Security Engineer</li>
+          <li>AI for Security Engineers</li>
+        </ul>
+        <a href="/academy/" class="stc-btn stc-btn-secondary">
+          View Learning Paths
+        </a>
+      </div>
+    </section>
+
+    <!-- =========================
+         MEDIA TEASER
+    ========================= -->
+    <section class="stc-media-teaser">
+      <div class="stc-container">
+        <h2>From the SecureTheCloud Channel</h2>
+        <div class="stc-media-grid">
+          <!-- YouTube embeds -->
+        </div>
+        <a href="/media/" class="stc-btn stc-btn-secondary">Visit Media Hub</a>
+      </div>
+    </section>
+
+    <!-- =========================
+         CONSULTING
+    ========================= -->
+    <section class="stc-consulting">
+      <div class="stc-container">
+        <h2>Apply What We Build</h2>
+        <p>
+          Architecture reviews, identity strategy, and zero trust design
+          backed by frameworks, labs, and intelligence.
+        </p>
+        <a href="/consulting/contact.html" class="stc-btn stc-btn-primary">
+          Request Advisory
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =========================
+       FOOTER
+  ========================= -->
+  <footer class="stc-footer">
+    <div class="stc-container">
+      <div class="stc-footer-links">
+        <a href="/docs/">Docs</a>
+        <a href="/labs/">Labs</a>
+        <a href="/shield/">Shield</a>
+        <a href="/ai/">AI</a>
+        <a href="/academy/">Academy</a>
+        <a href="/media/">Media</a>
+      </div>
+      <div class="stc-footer-meta">
+        © SecureTheCloud • Built on AWS • Architected for longevity
+      </div>
+    </div>
+  </footer>
+
+  <!-- =========================
+       SCRIPTS
+  ========================= -->
+  <script src="/js/main.js"></script>
+  <script src="/js/navigation.js"></script>
+  <script src="/js/filters.js"></script>
+
+</body>
+</html>
 
