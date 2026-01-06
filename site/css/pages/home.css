@@ -23,3 +23,34 @@
 section + section {
   margin-top: var(--sp-7);
 }
+
+/* =========================
+   HERO VISIBILITY FIX
+========================= */
+
+.hero {
+  position: relative;
+  background-color: #0b0f14;
+  padding: 4rem 1.5rem;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #f9fafb;
+  opacity: 1 !important;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.125rem;
+  color: #e5e7eb;
+  opacity: 1;
+  max-width: 48rem;
+}
+
+.hero .cta,
+.hero button {
+  background-color: #0ea5e9;
+  color: #0b0f14;
+}
