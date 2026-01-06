@@ -116,3 +116,14 @@ section:first-of-type {
   max-width: 48rem;
 }
 
+/* =========================
+   HERO → NEXT SECTION JOIN
+========================= */
+
+.stc-hero {
+  padding-bottom: 2.5rem; /* reduce hero bottom */
+}
+
+.stc-control-plane {
+  padding-top: 1.5rem;    /* pull section upward */
+}
