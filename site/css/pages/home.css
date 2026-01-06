@@ -54,3 +54,32 @@ section + section {
   background-color: #0ea5e9;
   color: #0b0f14;
 }
+
+/* =========================
+   HERO LAYER NORMALIZATION
+========================= */
+
+.stc-hero {
+  position: relative;
+  background-color: #0b0f14;
+  color: #f9fafb;
+  overflow: hidden;
+}
+
+/* =========================
+   HERO FOREGROUND LAYER
+========================= */
+
+.stc-hero p,
+.stc-hero .cta,
+.stc-hero button {
+  position: relative;
+  z-index: 2;
+}
+
+.stc-hero p {
+  font-size: 1.125rem;
+  color: #e5e7eb;
+  max-width: 48rem;
+}
+
