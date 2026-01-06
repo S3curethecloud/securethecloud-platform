@@ -22,11 +22,12 @@
   <link rel="stylesheet" href="/design-system/motion.css" />
 
   <!-- =========================
-       GLOBAL & PAGE STYLES
-  ========================= -->
-  <link rel="stylesheet" href="/css/base.css" />
-  <link rel="stylesheet" href="/css/layout.css" />
-  <link rel="stylesheet" href="/css/pages/home.css" />
+     GLOBAL & PAGE STYLES
+========================= -->
+<link rel="stylesheet" href="/css/base.css" />
+<link rel="stylesheet" href="/css/layout.css" />
+<link rel="stylesheet" href="/css/navigation.css" />
+<link rel="stylesheet" href="/css/pages/home.css" />
 
 </head>
 <body>
@@ -34,32 +35,34 @@
   <!-- =========================
        GLOBAL NAVIGATION
   ========================= -->
-  <header class="stc-nav">
-    <div class="stc-nav-inner">
-      <div class="stc-nav-logo">
-        <!-- Logo SVG / Image -->
-        <a href="/" aria-label="SecureTheCloud Home">
-          <img src="/assets/brand/logo.svg" alt="SecureTheCloud Logo" />
-        </a>
-      </div>
+  <nav class="stc-nav">
+  <div class="stc-nav-inner">
 
-      <nav class="stc-nav-menu">
-        <a href="/platform/">Platform</a>
-        <a href="/shield/">Shield</a>
-        <a href="/ai/">AI</a>
-        <a href="/labs/">Labs</a>
-        <a href="/academy/">Academy</a>
-        <a href="/media/">Media</a>
-        <a href="/consulting/">Consulting</a>
-      </nav>
+    <a href="/" class="stc-nav-logo" aria-label="SecureTheCloud Home">
+      <img src="/assets/brand/logo.svg" alt="SecureTheCloud Logo">
+    </a>
 
-      <div class="stc-nav-cta">
-        <a href="/consulting/contact.html" class="stc-btn stc-btn-primary">
-          Get Access
-        </a>
-      </div>
+    <button class="stc-nav-toggle" aria-label="Toggle navigation">
+      ☰
+    </button>
+
+    <div class="stc-nav-menu">
+      <a href="/platform/">Platform</a>
+      <a href="/shield/">Shield</a>
+      <a href="/ai/">AI</a>
+      <a href="/labs/">Labs</a>
+      <a href="/academy/">Academy</a>
+      <a href="/media/">Media</a>
+      <a href="/consulting/">Consulting</a>
     </div>
-  </header>
+
+    <div class="stc-nav-cta">
+      <a href="/access/" class="stc-btn">Get Access</a>
+    </div>
+
+  </div>
+</nav>
+
 
   <!-- =========================
        HERO SECTION
