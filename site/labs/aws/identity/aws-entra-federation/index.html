@@ -5,8 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>AWS ↔ Entra ID Workforce Identity Federation | SecureTheCloud Labs</title>
-  <meta name="description"
-        content="Architect-grade lab implementing workforce identity federation between AWS IAM Identity Center and Microsoft Entra ID using SAML and SCIM." />
+
+  <meta
+    name="description"
+    content="Architect-grade lab implementing workforce identity federation between AWS IAM Identity Center and Microsoft Entra ID using SAML and SCIM."
+  />
 
   <!-- Design System -->
   <link rel="stylesheet" href="/design-system/tokens.css" />
@@ -18,6 +21,8 @@
   <!-- Global Styles -->
   <link rel="stylesheet" href="/css/base.css" />
   <link rel="stylesheet" href="/css/layout.css" />
+  <!-- Page-Specific Styles -->
+  <link rel="stylesheet" href="/css/pages/labs.css" />
 </head>
 
 <body>
@@ -25,7 +30,7 @@
   <!-- =========================
        GLOBAL NAV
   ========================= -->
-  <header class="stc-nav">
+  <nav class="stc-nav">
     <div class="stc-nav-inner">
       <div class="stc-nav-logo">
         <a href="/">
@@ -43,68 +48,71 @@
         <a href="/consulting/">Consulting</a>
       </nav>
 
-      <button class="stc-nav-toggle" aria-expanded="false">☰</button>
     </div>
+  </nav>
+
+  <!-- =========================
+       LAB HEADER
+  ========================= -->
+  <header class="lab-hero">
+    <h1>AWS ↔ Entra ID Workforce Identity Federation</h1>
+
+    <p>
+      This lab guides you through configuring workforce identity federation
+      between AWS IAM Identity Center and Microsoft Entra ID using SAML and SCIM.
+    </p>
+
+    <p>
+      <strong>Cloud:</strong> AWS, Azure |
+      <strong>Domain:</strong> Identity |
+      <strong>Level:</strong> L4 |
+      <strong>Estimated time:</strong> 60–90 minutes
+    </p>
+
+    <a href="#start" class="lab-start-btn">
+      Start Lab →
+    </a>
   </header>
 
   <!-- =========================
-       LAB HERO
+       WHAT YOU’LL BUILD
   ========================= -->
-  <section class="stc-hero">
-    <div class="stc-container">
-      <h1>AWS ↔ Entra ID Workforce Identity Federation</h1>
+  <section class="lab-section">
+    <h2>What You’ll Build</h2>
 
-      <p>
-        Implement workforce identity federation between AWS IAM Identity Center
-        and Microsoft Entra ID using SAML and SCIM with least-privilege access.
-      </p>
-
-      <div class="stc-lab-tags">
-        <span class="stc-lab-tag aws">AWS</span>
-        <span class="stc-lab-tag azure">Entra ID</span>
-        <span class="stc-lab-tag">Identity</span>
-        <span class="stc-lab-tag">L4</span>
-        <span class="stc-lab-tag">Zero Trust</span>
-      </div>
-    </div>
+    <ul>
+      <li>AWS IAM Identity Center integrated with Microsoft Entra ID</li>
+      <li>SAML-based authentication between AWS and Entra</li>
+      <li>SCIM user and group provisioning</li>
+      <li>Role-based access across cloud environments</li>
+    </ul>
   </section>
 
   <!-- =========================
-       LAB OVERVIEW
+       PREREQUISITES
   ========================= -->
-  <section>
-    <div class="stc-container stc-grid-2">
+  <section class="lab-section">
+    <h2>Prerequisites</h2>
 
-      <div>
-        <h2>Lab Overview</h2>
-        <p>
-          This lab demonstrates architect-grade workforce identity federation
-          between AWS and Microsoft Entra ID. It covers SAML trust establishment,
-          SCIM provisioning, permission set design, and identity-centric access
-          control aligned with Zero Trust principles.
-        </p>
+    <ul>
+      <li>An AWS account with IAM Identity Center enabled</li>
+      <li>A Microsoft Entra ID tenant</li>
+      <li>Basic understanding of IAM and SAML concepts</li>
+    </ul>
+  </section>
 
-        <h3>What You Will Build</h3>
-        <ul>
-          <li>Federated authentication from Entra ID into AWS</li>
-          <li>Automated user and group provisioning via SCIM</li>
-          <li>Least-privilege AWS permission sets</li>
-          <li>Centralized identity governance</li>
-        </ul>
-      </div>
+  <!-- =========================
+       LAB STEPS START HERE
+  ========================= -->
+  <section class="lab-section" id="start">
+    <h2>Lab Steps</h2>
 
-      <div class="stc-card">
-        <h3>Lab Metadata</h3>
-        <ul>
-          <li><strong>Level:</strong> L4 – Advanced</li>
-          <li><strong>Cloud:</strong> AWS (Primary), Azure (Identity)</li>
-          <li><strong>Domain:</strong> Identity & Access Management</li>
-          <li><strong>Status:</strong> Live</li>
-          <li><strong>Industry:</strong> Enterprise / Healthcare</li>
-        </ul>
-      </div>
+    <p>
+      Follow the steps below to complete the lab. Each step builds on the
+      previous one and mirrors real-world production workflows.
+    </p>
 
-    </div>
+    <!-- Lab steps will be added here -->
   </section>
 
   <!-- =========================
@@ -114,12 +122,11 @@
     <div class="stc-container">
       <h2>Architecture</h2>
       <p>
-        The architecture uses Entra ID as the authoritative identity provider
-        and AWS IAM Identity Center as the service provider, with SAML for
+        Entra ID acts as the authoritative identity provider, while AWS IAM
+        Identity Center functions as the service provider using SAML for
         authentication and SCIM for lifecycle management.
       </p>
 
-      <!-- Diagram placeholder -->
       <div class="stc-card">
         <p><em>Architecture diagram placeholder</em></p>
       </div>
@@ -131,12 +138,11 @@
   ========================= -->
   <section>
     <div class="stc-container stc-grid-2">
-
       <div>
         <h2>Security Controls</h2>
         <ul>
           <li>Centralized identity provider</li>
-          <li>Least privilege permission sets</li>
+          <li>Least-privilege permission sets</li>
           <li>Just-in-time access patterns</li>
           <li>Separation of authentication and authorization</li>
         </ul>
@@ -149,7 +155,6 @@
           <li>NIST 800-207 (Zero Trust)</li>
         </ul>
       </div>
-
     </div>
   </section>
 
@@ -158,12 +163,11 @@
   ========================= -->
   <section>
     <div class="stc-container stc-grid-2">
-
       <div class="stc-card">
         <h3>STI Shield Mapping</h3>
         <p>
-          This lab directly supports the <strong>Identity Shield</strong> domain
-          of the STI Shield framework.
+          This lab supports the <strong>Identity Shield</strong> domain of the
+          STI Shield framework.
         </p>
       </div>
 
@@ -174,7 +178,6 @@
           Module: Federated Identity Foundations
         </p>
       </div>
-
     </div>
   </section>
 
@@ -184,11 +187,6 @@
   <section>
     <div class="stc-container">
       <h2>Walkthrough & Media</h2>
-      <p>
-        A full video walkthrough accompanies this lab, explaining the
-        architecture, configuration steps, and security rationale.
-      </p>
-
       <div class="stc-card">
         <p><em>YouTube embed placeholder</em></p>
       </div>
