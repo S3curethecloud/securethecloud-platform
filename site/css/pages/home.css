@@ -127,3 +127,36 @@ section:first-of-type {
 .stc-control-plane {
   padding-top: 1.5rem;    /* pull section upward */
 }
+
+/* =========================
+   SECTION SPACING TIGHTEN
+========================= */
+
+section {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+section:first-of-type {
+  padding-top: 0;
+}
+
+/* =========================
+   PLATFORM TAGS
+========================= */
+
+.stc-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+}
+
+.stc-tags span,
+.stc-tags a {
+  font-size: 0.875rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.375rem;
+  background-color: #f1f5f9;
+  color: #0f172a;
+}
