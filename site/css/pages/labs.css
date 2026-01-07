@@ -128,3 +128,75 @@
     font-size: 2.25rem;
   }
 }
+
+/* =========================
+   LAB CARD HIERARCHY
+========================= */
+
+/* Title */
+.lab-card h3,
+.lab-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+/* Meta tags row */
+.lab-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 0.75rem;
+}
+
+/* Tag base */
+.lab-tag {
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 0.15rem 0.45rem;
+  border-radius: 999px;
+  background-color: #f1f5f9;
+  color: #0f172a;
+}
+
+/* Cloud-specific tags (optional but nice) */
+.lab-tag.aws {
+  background-color: #fff7ed;
+  color: #9a3412;
+}
+
+.lab-tag.azure {
+  background-color: #eff6ff;
+  color: #1d4ed8;
+}
+
+.lab-tag.gcp {
+  background-color: #f0fdf4;
+  color: #166534;
+}
+
+/* Level emphasis */
+.lab-tag.level {
+  background-color: #e5e7eb;
+  color: #111827;
+}
+
+/* Summary text */
+.lab-summary {
+  font-size: 0.9rem;
+  line-height: 1.45;
+  color: var(--text-muted);
+  margin-bottom: 0.9rem;
+}
+
+/* CTA */
+.lab-cta {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 0.45rem 0.7rem;
+  border-radius: 0.375rem;
+  background-color: var(--accent-primary);
+  color: #fff;
+}
