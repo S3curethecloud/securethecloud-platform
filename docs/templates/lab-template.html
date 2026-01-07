@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>{{LAB_TITLE}} | SecureTheCloud</title>
+  <meta name="description" content="{{LAB_DESCRIPTION}}" />
+
+  <!-- Design System -->
+  <link rel="stylesheet" href="/design-system/tokens.css" />
+  <link rel="stylesheet" href="/design-system/typography.css" />
+  <link rel="stylesheet" href="/design-system/layouts.css" />
+  <link rel="stylesheet" href="/design-system/components.css" />
+  <link rel="stylesheet" href="/design-system/motion.css" />
+
+  <!-- Global Styles -->
+  <link rel="stylesheet" href="/css/base.css" />
+  <link rel="stylesheet" href="/css/layout.css" />
+  <link rel="stylesheet" href="/css/navigation.css" />
+
+  <!-- Lab Styles -->
+  <link rel="stylesheet" href="/css/pages/labs.css" />
+</head>
+
+<body>
+
+  <!-- Global Navigation -->
+  <nav class="stc-nav">
+    <!-- standard nav include -->
+  </nav>
+
+  <!-- =========================
+       LAB HEADER (TRUST ANCHOR)
+  ========================= -->
+  <header class="lab-hero">
+    <h1>{{LAB_TITLE}}</h1>
+
+    <!--
+      TAG RENDERING CONTRACT (OPTIONAL, FUTURE)
+      ----------------------------------------
+      {{LAB_TAGS}} should eventually expand to:
+
+      <span class="tag aws">AWS</span>
+      <span class="tag identity">Identity</span>
+      <span class="tag l4">L4</span>
+      <span class="tag time">60–90 mins</span>
+
+      This keeps lab-meta consistent, filter-friendly,
+      and machine-readable without enforcing it today.
+    -->
+    <div class="lab-meta">
+      {{LAB_TAGS}}
+    </div>
+
+    <p class="lab-intro">
+      {{LAB_INTRO}}
+    </p>
+
+    <a href="#start" class="lab-start-btn">
+      Start Lab →
+    </a>
+  </header>
+
+  <!-- =========================
+       WHAT YOU’LL BUILD
+  ========================= -->
+  <section class="lab-section">
+    <h2>What You’ll Build</h2>
+    <ul>
+      {{WHAT_YOU_WILL_BUILD}}
+    </ul>
+  </section>
+
+  <!-- =========================
+       PREREQUISITES
+  ========================= -->
+  <section class="lab-section">
+    <h2>Prerequisites</h2>
+    <ul>
+      {{PREREQUISITES}}
+    </ul>
+  </section>
+
+  <!-- =========================
+       LAB STEPS START
+  ========================= -->
+  <section class="lab-section" id="start">
+    <h2>Lab Steps</h2>
+
+    {{LAB_STEPS}}
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <!-- standard footer -->
+  </footer>
+
+  <!-- =========================================================
+       🧠 HOW THIS TEMPLATE IS USED (IMPORTANT)
+
+       For each new lab:
+
+       1) Copy this file
+       2) Paste into:
+          site/labs/<cloud>/<domain>/<lab-name>/index.html
+
+       3) Replace ONLY the following placeholders:
+
+          {{LAB_TITLE}}
+          {{LAB_DESCRIPTION}}
+          {{LAB_TAGS}}
+          {{LAB_INTRO}}
+          {{WHAT_YOU_WILL_BUILD}}
+          {{PREREQUISITES}}
+          {{LAB_STEPS}}
+
+       You never touch structure again.
+
+       ---------------------------------------------------------
+       🔍 OPTIONAL POLISH (PLANNED)
+
+       When refining mobile behavior, add this to /css/pages/labs.css:
+
+         #start {
+           scroll-margin-top: 72px;
+         }
+
+       This prevents the fixed nav from covering the
+       “Start Lab” anchor target.
+
+       ---------------------------------------------------------
+       🚫 WHAT THIS PREVENTS (WHY THIS MATTERS)
+
+       - Missing #start anchors
+       - Inconsistent navigation usage
+       - Labs missing prerequisites
+       - Mobile hero regressions
+       - Random section ordering
+       - Copy–paste drift across labs
+
+       This is platform hygiene, not content work.
+       ========================================================= -->
+
+</body>
+</html>
