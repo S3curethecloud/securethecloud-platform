@@ -108,3 +108,29 @@
     display: none;
   }
 }
+
+/* =========================
+   MOBILE NAV SAFE MODE
+========================= */
+
+@media (max-width: 768px) {
+  .stc-nav-inner {
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .stc-nav-menu {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .stc-nav-menu a {
+    font-size: 0.95rem;
+  }
+
+  .stc-nav-cta {
+    width: 100%;
+  }
+}
