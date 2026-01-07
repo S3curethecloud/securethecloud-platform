@@ -1,17 +1,24 @@
 /* =========================================================
    SecureTheCloud — Labs Filters
-   STC-CORE-DS v1.0
+   STC-CORE-DS v1.1 (Filters + Sorting)
 ========================================================= */
 
 const labsGrid = document.getElementById("labs-grid");
 const filtersContainer = document.querySelector(".labs-filters");
 
 let labsData = [];
+
+/* =========================
+   FILTER + SORT STATE
+========================= */
+
 let activeFilters = {
   cloud: null,
   domain: null,
   level: null
 };
+
+let activeSort = "newest";
 
 /* =========================
    INIT
@@ -34,7 +41,7 @@ async function fetchLabs() {
     labsData = json.labs.filter(lab => lab.status === "published");
 
     renderFilters(labsData);
-    renderLabs(labsData);
+    renderLabs(applySort(labsData));
   } catch (err) {
     console.error("Failed to load labs.json", err);
     labsGrid.innerHTML = "<p>Unable to load labs.</p>";
@@ -42,7 +49,7 @@ async function fetchLabs() {
 }
 
 /* =========================
-   FILTER RENDERING
+   FILTER + SORT RENDERING
 ========================= */
 
 function renderFilters(labs) {
@@ -57,9 +64,23 @@ function renderFilters(labs) {
   });
 
   filtersContainer.innerHTML = `
+    ${renderSortControls()}
     ${renderFilterGroup("Cloud", "cloud", [...clouds])}
     ${renderFilterGroup("Domain", "domain", [...domains])}
     ${renderFilterGroup("Level", "level", [...levels])}
+  `;
+
+  updateActiveSortButtons();
+}
+
+function renderSortControls() {
+  return `
+    <div class="filter-group">
+      <strong>Sort</strong>
+      <button class="sort-btn" data-sort="newest">Newest</button>
+      <button class="sort-btn" data-sort="level">Level</button>
+      <button class="sort-btn" data-sort="time">Time</button>
+    </div>
   `;
 }
 
@@ -86,20 +107,28 @@ function renderFilterGroup(label, key, values) {
 }
 
 /* =========================
-   FILTER HANDLING
+   FILTER + SORT HANDLING
 ========================= */
 
 filtersContainer.addEventListener("click", e => {
-  if (!e.target.matches("button[data-filter]")) return;
+  /* FILTER BUTTONS */
+  if (e.target.matches("button[data-filter]")) {
+    const { filter, value } = e.target.dataset;
 
-  const { filter, value } = e.target.dataset;
+    activeFilters[filter] =
+      activeFilters[filter] === value ? null : value;
 
-  // Toggle behavior
-  activeFilters[filter] =
-    activeFilters[filter] === value ? null : value;
+    updateActiveButtons();
+    applyFilters();
+  }
 
-  updateActiveButtons();
-  applyFilters();
+  /* SORT BUTTONS */
+  if (e.target.matches("button[data-sort]")) {
+    activeSort = e.target.dataset.sort;
+
+    updateActiveSortButtons();
+    applyFilters();
+  }
 });
 
 function applyFilters() {
@@ -111,11 +140,43 @@ function applyFilters() {
     );
   });
 
-  renderLabs(filtered);
+  renderLabs(applySort(filtered));
 }
 
 /* =========================
-   ACTIVE STATE
+   SORT LOGIC
+========================= */
+
+function applySort(labs) {
+  const sorted = [...labs];
+
+  switch (activeSort) {
+    case "level":
+      return sorted.sort(
+        (a, b) =>
+          parseInt(a.level.replace("L", "")) -
+          parseInt(b.level.replace("L", ""))
+      );
+
+    case "time":
+      return sorted.sort(
+        (a, b) => parseTime(a.estimated_time) - parseTime(b.estimated_time)
+      );
+
+    case "newest":
+    default:
+      return sorted.reverse();
+  }
+}
+
+function parseTime(timeStr) {
+  // Extract first number from "60–90 mins"
+  const match = timeStr.match(/\d+/);
+  return match ? parseInt(match[0], 10) : 999;
+}
+
+/* =========================
+   ACTIVE STATE (UI)
 ========================= */
 
 function updateActiveButtons() {
@@ -126,6 +187,17 @@ function updateActiveButtons() {
       btn.classList.toggle(
         "active",
         activeFilters[filter] === value
+      );
+    });
+}
+
+function updateActiveSortButtons() {
+  document
+    .querySelectorAll("button[data-sort]")
+    .forEach(btn => {
+      btn.classList.toggle(
+        "active",
+        btn.dataset.sort === activeSort
       );
     });
 }
