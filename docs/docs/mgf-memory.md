@@ -86,3 +86,44 @@ Execution resumes only when explicitly reactivated.
 Project frozen intentionally at this state.
 
 Resume instruction required to proceed.
+
+---
+
+## 🔐 LOCKED DIRECTIVE — Templatize Labs
+
+**Tag:** MGF-PLATFORM-ARCHITECT :: TEMPLATIZE LABS  
+**Status:** Locked (Deferred)  
+**Date Recorded:** 2026-01-07  
+**Scope:** SecureTheCloud Platform — Labs System
+
+### Context
+The Labs Index and first lab page reached a stable, production-grade state.
+At this point, further structural changes were intentionally paused to prevent
+scope creep during initial platform launch.
+
+### Intent
+Create a canonical, reusable lab page template that standardizes:
+- Lab header (trust anchor)
+- “What You’ll Build” section
+- Prerequisites block
+- Start-point anchor
+- Architecture diagram placement
+- Step-by-step walkthrough structure
+- Estimated time and level badges
+- Mobile-first layout rules
+
+### Explicit Non-Action
+This work is **NOT** to be executed during the current launch phase.
+
+No refactors, no new templates, and no retroactive changes to existing labs
+are permitted unless this directive is explicitly reactivated.
+
+### Reactivation Criteria
+This directive may be reactivated when **any** of the following are true:
+- ≥ 3 labs are published
+- Labs search or filtering requires structural reuse
+- Academy integration begins
+- Documentation automation is introduced
+
+Until reactivated, this item serves as **institutional memory only**.
+
