@@ -1,152 +1,166 @@
 /* =========================================================
-   SecureTheCloud — Labs Filter Engine
+   SecureTheCloud — Labs Filters
    STC-CORE-DS v1.0
 ========================================================= */
 
+const labsGrid = document.getElementById("labs-grid");
+const filtersContainer = document.querySelector(".labs-filters");
+
+let labsData = [];
+let activeFilters = {
+  cloud: null,
+  domain: null,
+  level: null
+};
+
+/* =========================
+   INIT
+========================= */
+
 document.addEventListener("DOMContentLoaded", () => {
-  const labsGrid = document.getElementById("labs-grid");
+  fetchLabs();
+});
 
-  const filterCloud = document.getElementById("filter-cloud");
-  const filterDomain = document.getElementById("filter-domain");
-  const filterLevel = document.getElementById("filter-level");
-  const filterIndustry = document.getElementById("filter-industry");
+/* =========================
+   DATA LOAD
+========================= */
 
-  if (!labsGrid) return;
+async function fetchLabs() {
+  try {
+    const res = await fetch("/data/labs.json");
+    const json = await res.json();
 
-  let labsData = [];
+    // Only published labs
+    labsData = json.labs.filter(lab => lab.status === "published");
 
-  /* =========================
-     Fetch Labs Data
-  ========================= */
-  fetch("/data/labs.json")
-    .then(response => response.json())
-    .then(data => {
-      labsData = data.labs || [];
-      renderLabs(labsData);
-    })
-    .catch(error => {
-      console.error("Failed to load labs.json", error);
-      labsGrid.innerHTML = renderEmptyState("Unable to load labs.");
-    });
+    renderFilters(labsData);
+    renderLabs(labsData);
+  } catch (err) {
+    console.error("Failed to load labs.json", err);
+    labsGrid.innerHTML = "<p>Unable to load labs.</p>";
+  }
+}
 
-  /* =========================
-     Event Listeners
-  ========================= */
-  [filterCloud, filterDomain, filterLevel, filterIndustry].forEach(select => {
-    if (select) {
-      select.addEventListener("change", applyFilters);
-    }
+/* =========================
+   FILTER RENDERING
+========================= */
+
+function renderFilters(labs) {
+  const clouds = new Set();
+  const domains = new Set();
+  const levels = new Set();
+
+  labs.forEach(lab => {
+    lab.cloud.forEach(c => clouds.add(c));
+    domains.add(lab.domain);
+    levels.add(lab.level);
   });
 
-  /* =========================
-     Filtering Logic
-  ========================= */
-  function applyFilters() {
-    const cloud = filterCloud.value;
-    const domain = filterDomain.value;
-    const level = filterLevel.value;
-    const industry = filterIndustry.value;
+  filtersContainer.innerHTML = `
+    ${renderFilterGroup("Cloud", "cloud", [...clouds])}
+    ${renderFilterGroup("Domain", "domain", [...domains])}
+    ${renderFilterGroup("Level", "level", [...levels])}
+  `;
+}
 
-    const filteredLabs = labsData.filter(lab => {
-      if (cloud && lab.cloud !== cloud && lab.secondaryCloud !== cloud) {
-        return false;
-      }
+function renderFilterGroup(label, key, values) {
+  return `
+    <div class="filter-group">
+      <strong>${label}</strong>
+      ${values
+        .sort()
+        .map(
+          val => `
+          <button
+            class="filter-btn"
+            data-filter="${key}"
+            data-value="${val}"
+          >
+            ${val.toUpperCase()}
+          </button>
+        `
+        )
+        .join("")}
+    </div>
+  `;
+}
 
-      if (domain && lab.domain !== domain) {
-        return false;
-      }
+/* =========================
+   FILTER HANDLING
+========================= */
 
-      if (level && lab.level !== level) {
-        return false;
-      }
+filtersContainer.addEventListener("click", e => {
+  if (!e.target.matches("button[data-filter]")) return;
 
-      if (industry && (!lab.industry || !lab.industry.includes(industry))) {
-        return false;
-      }
+  const { filter, value } = e.target.dataset;
 
-      return true;
-    });
+  // Toggle behavior
+  activeFilters[filter] =
+    activeFilters[filter] === value ? null : value;
 
-    renderLabs(filteredLabs);
-  }
-
-  /* =========================
-     Render Labs
-  ========================= */
-  function renderLabs(labs) {
-    if (!labs.length) {
-      labsGrid.innerHTML = renderEmptyState("No labs match the selected filters.");
-      return;
-    }
-
-    labsGrid.innerHTML = labs.map(renderLabCard).join("");
-  }
-
-  /* =========================
-     Render Lab Card
-  ========================= */
-  function renderLabCard(lab) {
-    const tags = [
-      lab.cloud,
-      lab.secondaryCloud,
-      lab.domain,
-      lab.level,
-      ...(lab.industry || [])
-    ]
-      .filter(Boolean)
-      .map(tag => renderTag(tag))
-      .join("");
-
-    return `
-      <article class="stc-lab-card stc-hover">
-        <div>
-          <h4 class="stc-lab-title">${lab.title}</h4>
-          <div class="stc-lab-meta">
-            Level ${lab.level} • ${lab.status.toUpperCase()}
-          </div>
-
-          <div class="stc-lab-tags">
-            ${tags}
-          </div>
-
-          <p class="stc-lab-desc">
-            ${lab.summary}
-          </p>
-        </div>
-
-        <div class="stc-lab-actions">
-          <a href="${lab.paths?.overview || '#'}"
-             class="stc-btn stc-btn-secondary">
-            View Lab
-          </a>
-        </div>
-      </article>
-    `;
-  }
-
-  /* =========================
-     Render Tag Pill
-  ========================= */
-  function renderTag(tag) {
-    const normalized = tag.toLowerCase();
-
-    let className = "stc-lab-tag";
-
-    if (["aws", "azure", "gcp"].includes(normalized)) {
-      className += ` ${normalized}`;
-    }
-
-    return `<span class="${className}">${tag}</span>`;
-  }
-
-  /* =========================
-     Empty State
-  ========================= */
-  function renderEmptyState(message) {
-    return `
-      <div class="stc-labs-empty">
-        ${message}
-      </div>
-    `;
-  }
+  updateActiveButtons();
+  applyFilters();
 });
+
+function applyFilters() {
+  const filtered = labsData.filter(lab => {
+    return (
+      (!activeFilters.cloud || lab.cloud.includes(activeFilters.cloud)) &&
+      (!activeFilters.domain || lab.domain === activeFilters.domain) &&
+      (!activeFilters.level || lab.level === activeFilters.level)
+    );
+  });
+
+  renderLabs(filtered);
+}
+
+/* =========================
+   ACTIVE STATE
+========================= */
+
+function updateActiveButtons() {
+  document
+    .querySelectorAll("button[data-filter]")
+    .forEach(btn => {
+      const { filter, value } = btn.dataset;
+      btn.classList.toggle(
+        "active",
+        activeFilters[filter] === value
+      );
+    });
+}
+
+/* =========================
+   LAB CARD RENDER
+========================= */
+
+function renderLabs(labs) {
+  if (!labs.length) {
+    labsGrid.innerHTML = "<p>No labs match your filters.</p>";
+    return;
+  }
+
+  labsGrid.innerHTML = labs
+    .map(
+      lab => `
+      <article class="lab-card">
+        <h3 class="lab-title">${lab.title}</h3>
+
+        <div class="lab-meta">
+          ${lab.cloud
+            .map(c => `<span class="lab-tag ${c}">${c.toUpperCase()}</span>`)
+            .join("")}
+          <span class="lab-tag level">${lab.level}</span>
+          <span class="lab-tag domain">${lab.domain}</span>
+        </div>
+
+        <p class="lab-summary">${lab.summary}</p>
+
+        <a class="lab-cta" href="${lab.path}">
+          Open Lab →
+        </a>
+      </article>
+    `
+    )
+    .join("");
+}

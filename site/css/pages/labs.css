@@ -200,3 +200,12 @@
   background-color: var(--accent-primary);
   color: #fff;
 }
+
+/* =========================
+   FILTER ACTIVE STATE
+========================= */
+
+.filter-btn.active {
+  background-color: var(--accent-primary);
+  color: #fff;
+}
