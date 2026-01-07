@@ -89,41 +89,16 @@ Resume instruction required to proceed.
 
 ---
 
-## 🔐 LOCKED DIRECTIVE — Templatize Labs
+🔒 Freeze: Minor Optional Tweaks (Not Required)
 
-**Tag:** MGF-PLATFORM-ARCHITECT :: TEMPLATIZE LABS  
-**Status:** Locked (Deferred)  
-**Date Recorded:** 2026-01-07  
-**Scope:** SecureTheCloud Platform — Labs System
+These are explicitly nice-to-haves, not blockers, and must not slow execution:
 
-### Context
-The Labs Index and first lab page reached a stable, production-grade state.
-At this point, further structural changes were intentionally paused to prevent
-scope creep during initial platform launch.
+Slightly increase contrast on inactive filter pills (accessibility)
 
-### Intent
-Create a canonical, reusable lab page template that standardizes:
-- Lab header (trust anchor)
-- “What You’ll Build” section
-- Prerequisites block
-- Start-point anchor
-- Architecture diagram placement
-- Step-by-step walkthrough structure
-- Estimated time and level badges
-- Mobile-first layout rules
+Add hover elevation to lab cards (desktop delight)
 
-### Explicit Non-Action
-This work is **NOT** to be executed during the current launch phase.
+Sticky filter bar on scroll (future enhancement)
 
-No refactors, no new templates, and no retroactive changes to existing labs
-are permitted unless this directive is explicitly reactivated.
+These are deferred by design, not forgotten.
 
-### Reactivation Criteria
-This directive may be reactivated when **any** of the following are true:
-- ≥ 3 labs are published
-- Labs search or filtering requires structural reuse
-- Academy integration begins
-- Documentation automation is introduced
-
-Until reactivated, this item serves as **institutional memory only**.
-
+👉 This freeze is correct and safe.
