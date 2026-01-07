@@ -227,3 +227,13 @@
   background-color: var(--accent-primary);
   color: #fff;
 }
+
+/* =========================
+   ESTIMATED TIME BADGE
+========================= */
+
+.lab-tag.time {
+  background-color: #ecfeff;
+  color: #155e75;
+  font-weight: 600;
+}

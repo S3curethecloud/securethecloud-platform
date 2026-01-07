@@ -215,24 +215,33 @@ function renderLabs(labs) {
   labsGrid.innerHTML = labs
     .map(
       lab => `
-      <article class="lab-card">
-        <h3 class="lab-title">${lab.title}</h3>
+        <article class="lab-card">
+          <h3 class="lab-title">${lab.title}</h3>
 
-        <div class="lab-meta">
-          ${lab.cloud
-            .map(c => `<span class="lab-tag ${c}">${c.toUpperCase()}</span>`)
-            .join("")}
-          <span class="lab-tag level">${lab.level}</span>
-          <span class="lab-tag domain">${lab.domain}</span>
-        </div>
+          <div class="lab-meta">
+            ${lab.cloud
+              .map(
+                c =>
+                  `<span class="lab-tag ${c}">${c.toUpperCase()}</span>`
+              )
+              .join("")}
 
-        <p class="lab-summary">${lab.summary}</p>
+            <span class="lab-tag level">${lab.level}</span>
+            <span class="lab-tag domain">${lab.domain}</span>
 
-        <a class="lab-cta" href="${lab.path}">
-          Open Lab →
-        </a>
-      </article>
-    `
+            <span class="lab-tag time">
+              ⏱ ${lab.estimated_time}
+            </span>
+          </div>
+
+          <p class="lab-summary">${lab.summary}</p>
+
+          <a class="lab-cta" href="${lab.path}">
+            Open Lab →
+          </a>
+        </article>
+      `
     )
     .join("");
 }
+
