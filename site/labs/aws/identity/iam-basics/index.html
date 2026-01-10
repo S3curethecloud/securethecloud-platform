@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>AWS IAM Basics: Users, Groups, and Permissions | SecureTheCloud</title>
+  <meta
+    name="description"
+    content="Learn the basics of AWS Identity and Access Management (IAM), including users, groups, and permission policies."
+  />
+
+  <!-- Design System -->
+  <link rel="stylesheet" href="/design-system/tokens.css" />
+  <link rel="stylesheet" href="/design-system/typography.css" />
+  <link rel="stylesheet" href="/design-system/layouts.css" />
+  <link rel="stylesheet" href="/design-system/components.css" />
+  <link rel="stylesheet" href="/design-system/motion.css" />
+
+  <!-- Global Styles -->
+  <link rel="stylesheet" href="/css/base.css" />
+  <link rel="stylesheet" href="/css/layout.css" />
+  <link rel="stylesheet" href="/css/navigation.css" />
+
+  <!-- Lab Styles -->
+  <link rel="stylesheet" href="/css/pages/labs.css" />
+</head>
+
+<body>
+
+  <!-- Global Navigation -->
+  <nav class="stc-nav">
+    <!-- standard nav include -->
+  </nav>
+
+  <!-- =========================
+       LAB HEADER (TRUST ANCHOR)
+  ========================= -->
+  <header class="lab-hero">
+    <h1>AWS IAM Basics: Users, Groups, and Permissions</h1>
+
+    <div class="lab-meta">
+      <span class="tag aws">AWS</span>
+      <span class="tag identity">Identity</span>
+      <span class="tag l1">L1</span>
+      <span class="tag time">30–45 mins</span>
+    </div>
+
+    <p class="lab-intro">
+      This lab introduces AWS Identity and Access Management (IAM) and teaches
+      how to create users, groups, and permissions safely using best practices.
+    </p>
+
+    <a href="#start" class="lab-start-btn">
+      Start Lab →
+    </a>
+  </header>
+
+  <!-- =========================
+       WHAT YOU’LL BUILD
+  ========================= -->
+  <section class="lab-section">
+    <h2>What You’ll Build</h2>
+    <ul>
+      <li>An IAM user for day-to-day access</li>
+      <li>An IAM group with attached permissions</li>
+      <li>A least-privilege access model</li>
+      <li>An understanding of why the root user should not be used</li>
+    </ul>
+  </section>
+
+  <!-- =========================
+       PREREQUISITES
+  ========================= -->
+  <section class="lab-section">
+    <h2>Prerequisites</h2>
+    <ul>
+      <li>An AWS account</li>
+      <li>Access to the AWS Management Console</li>
+      <li>No prior IAM experience required</li>
+    </ul>
+  </section>
+
+  <!-- =========================
+       LAB STEPS START
+  ========================= -->
+  <section class="lab-section" id="start">
+    <h2>Lab Steps</h2>
+
+    <!-- STEP 1 -->
+    <h3>Step 1 — Understand IAM and the Root User</h3>
+    <p><strong>Objective</strong></p>
+    <p>
+      Understand what IAM is and why the root user should not be used for
+      everyday work.
+    </p>
+
+    <p><strong>Simple Explanation</strong></p>
+    <p>
+      AWS IAM controls who can do what in your AWS account.
+    </p>
+
+    <p>The root user:</p>
+    <ul>
+      <li>Has full control of the account</li>
+      <li>Cannot be restricted</li>
+      <li>Should only be used for initial setup</li>
+    </ul>
+
+    <p><strong>What You Should Do</strong></p>
+    <ul>
+      <li>Log in to AWS as the root user</li>
+      <li>Notice the warning banners</li>
+      <li>Do not use the root user for daily work</li>
+    </ul>
+
+    <!-- STEP 2 -->
+    <h3>Step 2 — Create an IAM Group</h3>
+    <p><strong>Objective</strong></p>
+    <p>Create a group to manage permissions centrally.</p>
+
+    <ol>
+      <li>Open the IAM console</li>
+      <li>Click <strong>User groups</strong></li>
+      <li>Click <strong>Create group</strong></li>
+      <li>Name the group <code>Developers</code></li>
+      <li>Attach the <strong>ReadOnlyAccess</strong> policy</li>
+      <li>Create the group</li>
+    </ol>
+
+    <p><strong>Why This Matters</strong></p>
+    <p>
+      Groups prevent permission sprawl and reduce mistakes by managing access
+      in one place.
+    </p>
+
+    <!-- STEP 3 -->
+    <h3>Step 3 — Create an IAM User and Add to the Group</h3>
+    <p><strong>Objective</strong></p>
+    <p>Create a non-root IAM user for daily work.</p>
+
+    <ol>
+      <li>Go to <strong>Users</strong> in IAM</li>
+      <li>Click <strong>Create user</strong></li>
+      <li>Name the user <code>dev-user</code></li>
+      <li>Enable <strong>AWS Management Console access</strong></li>
+      <li>Add the user to the <code>Developers</code> group</li>
+      <li>Complete user creation</li>
+    </ol>
+
+    <p><strong>Verification</strong></p>
+    <ul>
+      <li>Sign in as <code>dev-user</code></li>
+      <li>Confirm access is read-only</li>
+    </ul>
+
+    <!-- STEP 4 -->
+    <h3>Step 4 — Attach Least-Privilege Policies</h3>
+    <p><strong>Objective</strong></p>
+    <p>
+      Replace overly broad permissions with a safer, least-privilege model.
+    </p>
+
+    <p><strong>Simple Explanation</strong></p>
+    <p>
+      Least privilege means giving users only the permissions they need—nothing more.
+    </p>
+
+    <ol>
+      <li>Open the IAM console</li>
+      <li>Go to <strong>User groups</strong> → <code>Developers</code></li>
+      <li>Attach a more specific policy (for example, <strong>AmazonS3ReadOnlyAccess</strong>)</li>
+      <li>Remove policies that are not required</li>
+    </ol>
+
+    <p><strong>Why This Matters</strong></p>
+    <p>
+      Least privilege limits blast radius if an account is compromised.
+    </p>
+
+    <!-- STEP 5 -->
+    <h3>Step 5 — Enable Multi-Factor Authentication (MFA)</h3>
+    <p><strong>Objective</strong></p>
+    <p>
+      Protect IAM users with a second authentication factor.
+    </p>
+
+    <p><strong>Simple Explanation</strong></p>
+    <p>
+      MFA requires something you know (password) and something you have (code).
+    </p>
+
+    <ol>
+      <li>Open IAM</li>
+      <li>Select <strong>Users</strong> → <code>dev-user</code></li>
+      <li>Open <strong>Security credentials</strong></li>
+      <li>Assign a virtual MFA device</li>
+      <li>Complete MFA setup</li>
+    </ol>
+
+    <p><strong>Verification</strong></p>
+    <ul>
+      <li>Sign out</li>
+      <li>Sign back in</li>
+      <li>Confirm MFA is required</li>
+    </ul>
+
+    <p><strong>Why This Matters</strong></p>
+    <p>
+      MFA significantly reduces the risk of account takeover.
+    </p>
+
+    <!-- STEP 6 -->
+    <h3>Step 6 — Audit IAM Activity Using CloudTrail</h3>
+    <p><strong>Objective</strong></p>
+    <p>
+      Learn how to see and prove what actions IAM users perform.
+    </p>
+
+    <p><strong>Simple Explanation</strong></p>
+    <p>
+      Security teams must answer: “Who did what, and when?”
+    </p>
+
+    <ol>
+      <li>Open the AWS CloudTrail console</li>
+      <li>Go to <strong>Event history</strong></li>
+      <li>Filter by <code>iam.amazonaws.com</code></li>
+      <li>Review recent IAM actions</li>
+    </ol>
+
+    <p><strong>What This Proves</strong></p>
+    <ul>
+      <li>IAM activity is logged</li>
+      <li>Changes are auditable</li>
+      <li>Incidents can be investigated</li>
+    </ul>
+
+    <p><strong>End of Step 6 — Lab Complete</strong></p>
+    <ul>
+      <li>IAM users are created safely</li>
+      <li>Permissions follow least privilege</li>
+      <li>MFA protects identities</li>
+      <li>Activity is auditable and reviewable</li>
+    </ul>
+
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <!-- standard footer -->
+  </footer>
+
+</body>
+</html>
