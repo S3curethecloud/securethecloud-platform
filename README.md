@@ -1,3 +1,4 @@
+![](logo.webp)
 # SecureTheCloud Platform
 
 SecureTheCloud is a unified platform for **multi-cloud security engineering**, **defensive intelligence (STI Shield & STI AI)**, **hands-on labs**, and **architect-grade education**.
