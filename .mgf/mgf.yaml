@@ -1,0 +1,30 @@
+mgf_version: "1.0"
+
+authority:
+  mode: MGF-AUTHORITY-ALL
+  source: stc-intelligence-core
+  required: true
+
+repo:
+  name: securethecloud-platform
+ type: <lab | theory | project | dataset | platform>
+  owner: SecureTheCloud
+  canonical: false
+
+sync:
+  enabled: true
+  mode: delta
+
+classification:
+  domains:
+    - <identity | compute | zero_trust | siem | threat_model | compliance | kubernetes | labs>
+  clouds:
+    - <aws | azure | gcp | multi>
+  use_cases:
+    - student
+    
+
+evidence:
+  labs: true
+  diagrams: true
+  deployments: false
