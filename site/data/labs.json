@@ -3,7 +3,7 @@
     {
       "id": "aws-identity-federation-l4",
       "title": "AWS ↔ Entra ID Workforce Identity Federation",
-      "summary": "Implement workforce identity federation between AWS IAM Identity Center and Microsoft Entra ID using SAML and SCIM for centralized access and automated provisioning.",
+      "summary": "Implement workforce identity federation between AWS IAM Identity Center and Microsoft Entra ID using SAML and SCIM.",
       "cloud": ["aws", "azure"],
       "domain": "identity",
       "level": "L4",
@@ -27,7 +27,7 @@
     {
       "id": "devsecops-ci-policy-l5",
       "title": "Policy-as-Code Enforcement in CI/CD",
-      "summary": "Enforce security and compliance using policy-as-code across Terraform CI/CD pipelines with deployment gating and automated compliance checks.",
+      "summary": "Enforce security and compliance using policy-as-code across Terraform CI/CD pipelines with deployment gating and automated checks.",
       "cloud": ["aws", "azure", "gcp"],
       "domain": "devsecops",
       "level": "L5",
@@ -35,6 +35,30 @@
       "path": "/labs/multi/devsecops/policy-as-code/",
       "tags": ["policy-as-code", "terraform", "ci-cd", "devsecops", "compliance", "deployment-gating"],
       "status": "draft"
+    },
+    {
+      "id": "aws-s3-encryption-basics",
+      "title": "AWS S3 Encryption Basics",
+      "summary": "Learn how to protect data at rest in Amazon S3 using SSE-S3 and SSE-KMS.",
+      "cloud": ["aws"],
+      "domain": "storage",
+      "level": "L1",
+      "estimated_time": "30–45 mins",
+      "path": "/labs/aws/storage/s3-encryption/",
+      "tags": ["s3", "encryption", "kms", "data-protection"],
+      "status": "published"
+    },
+    {
+      "id": "aws-s3-public-access-block-l1",
+      "title": "AWS S3 Public Access Block & Bucket Policy Enforcement",
+      "summary": "Prevent public data exposure in Amazon S3 using Public Access Block settings and bucket policies.",
+      "cloud": ["aws"],
+      "domain": "storage",
+      "level": "L1",
+      "estimated_time": "25–40 mins",
+      "path": "/labs/aws/storage/s3-public-access-block/",
+      "tags": ["s3", "public-access", "bucket-policy", "data-security"],
+      "status": "published"
     }
   ]
 }

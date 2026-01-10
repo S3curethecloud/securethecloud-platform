@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>AWS S3 Public Access Block & Bucket Policy Enforcement | SecureTheCloud</title>
+  <meta
+    name="description"
+    content="Learn how to prevent public data exposure in Amazon S3 using Public Access Block settings and bucket policies."
+  />
+
+  <!-- Design System -->
+  <link rel="stylesheet" href="/design-system/tokens.css" />
+  <link rel="stylesheet" href="/design-system/typography.css" />
+  <link rel="stylesheet" href="/design-system/layouts.css" />
+  <link rel="stylesheet" href="/design-system/components.css" />
+  <link rel="stylesheet" href="/design-system/motion.css" />
+
+  <!-- Global Styles -->
+  <link rel="stylesheet" href="/css/base.css" />
+  <link rel="stylesheet" href="/css/layout.css" />
+  <link rel="stylesheet" href="/css/navigation.css" />
+
+  <!-- Lab Styles -->
+  <link rel="stylesheet" href="/css/pages/labs.css" />
+</head>
+
+<body>
+
+  <!-- Global Navigation -->
+  <nav class="stc-nav">
+    <!-- standard nav include -->
+  </nav>
+
+  <!-- =========================
+       LAB HEADER (TRUST ANCHOR)
+  ========================= -->
+  <header class="lab-hero">
+    <h1>AWS S3 Public Access Block & Bucket Policy Enforcement</h1>
+
+    <div class="lab-meta">
+      <span class="tag aws">AWS</span>
+      <span class="tag storage">Storage</span>
+      <span class="tag l1">L1</span>
+      <span class="tag time">25–40 mins</span>
+    </div>
+
+    <p class="lab-intro">
+      This lab teaches how to prevent accidental public access to S3 buckets
+      using AWS Public Access Block settings and bucket policies.
+    </p>
+
+    <a href="#start" class="lab-start-btn">
+      Start Lab →
+    </a>
+  </header>
+
+  <!-- =========================
+       WHAT YOU’LL BUILD
+  ========================= -->
+  <section class="lab-section">
+    <h2>What You’ll Build</h2>
+    <ul>
+      <li>An S3 bucket with public access fully blocked</li>
+      <li>Public Access Block settings applied and verified</li>
+      <li>A bucket policy that denies public access</li>
+      <li>Validation that objects cannot be accessed publicly</li>
+    </ul>
+  </section>
+
+  <!-- =========================
+       PREREQUISITES
+  ========================= -->
+  <section class="lab-section">
+    <h2>Prerequisites</h2>
+    <ul>
+      <li>An AWS account</li>
+      <li>Access to the AWS Management Console</li>
+      <li>Basic understanding of Amazon S3</li>
+    </ul>
+  </section>
+
+  <!-- =========================
+       LAB STEPS START
+  ========================= -->
+  <section class="lab-section" id="start">
+    <h2>Lab Steps</h2>
+
+    <!-- STEP 1 -->
+    <h3>Step 1 — Understand Public Access Risks</h3>
+
+    <p><strong>Objective</strong></p>
+    <p>
+      Understand how S3 buckets accidentally become public and why this is a
+      common cause of cloud data breaches.
+    </p>
+
+    <p><strong>Simple Explanation</strong></p>
+    <p>
+      If an S3 bucket is public, anyone on the internet can read the data.
+      No login is required.
+    </p>
+
+    <p>
+      This is one of the most common causes of accidental data exposure in the cloud.
+    </p>
+
+    <p><strong>Key Concepts</strong></p>
+    <ul>
+      <li>Public bucket policies</li>
+      <li>Public ACLs</li>
+      <li>Anonymous access</li>
+    </ul>
+
+    <!-- STEP 2 -->
+    <h3>Step 2 — Enable S3 Public Access Block</h3>
+
+    <p><strong>Objective</strong></p>
+    <p>
+      Block all forms of public access at the bucket level.
+    </p>
+
+    <p><strong>Actions</strong></p>
+    <ol>
+      <li>Open the Amazon S3 console</li>
+      <li>Select your bucket</li>
+      <li>Go to the <strong>Permissions</strong> tab</li>
+      <li>Open <strong>Block public access</strong></li>
+      <li>Enable all block public access options</li>
+      <li>Save changes</li>
+    </ol>
+
+    <p><strong>What This Does</strong></p>
+    <ul>
+      <li>Prevents public ACLs</li>
+      <li>Prevents public bucket policies</li>
+      <li>Overrides accidental misconfigurations</li>
+    </ul>
+
+    <!-- STEP 3 -->
+    <h3>Step 3 — Test Public Access (Should Fail)</h3>
+
+    <p><strong>Objective</strong></p>
+    <p>
+      Confirm that the bucket is not publicly accessible.
+    </p>
+
+    <p><strong>Actions</strong></p>
+    <ol>
+      <li>Upload a test file to the bucket</li>
+      <li>Copy the object URL</li>
+      <li>Open the URL in an incognito browser</li>
+    </ol>
+
+    <p><strong>Expected Result</strong></p>
+    <p>
+      Access is denied. The file is not readable.
+    </p>
+
+    <p><strong>Why This Matters</strong></p>
+    <p>
+      Security controls must be verified, not assumed.
+    </p>
+
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <!-- standard footer -->
+  </footer>
+
+</body>
+</html>
