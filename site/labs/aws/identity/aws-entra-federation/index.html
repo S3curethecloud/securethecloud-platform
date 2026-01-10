@@ -91,7 +91,6 @@
 
     <!-- STEP 1 -->
     <h3>Step 1 — Prepare Identity Systems (Foundation)</h3>
-
     <p><strong>Objective</strong></p>
     <p>
       Ensure both identity systems (AWS and Microsoft Entra ID) are ready to
@@ -106,81 +105,117 @@
 
     <p><strong>Actions</strong></p>
     <ul>
-      <li>Confirm AWS IAM Identity Center is enabled in the AWS account</li>
-      <li>Confirm Microsoft Entra ID tenant access with admin permissions</li>
-      <li>Decide which workforce users and groups will be federated</li>
+      <li>Confirm AWS IAM Identity Center is enabled</li>
+      <li>Confirm Entra ID tenant admin access</li>
+      <li>Identify workforce users and groups</li>
     </ul>
 
     <p><strong>Why This Matters</strong></p>
     <p>
-      Federation failures are commonly caused by misaligned identity foundations.
-      This step ensures both systems are prepared before trust is established.
+      Federation failures often stem from misaligned foundations. This step
+      ensures readiness before trust is established.
     </p>
 
     <!-- STEP 2 -->
     <h3>Step 2 — Create the Federation Trust (SAML)</h3>
-
     <p><strong>Objective</strong></p>
     <p>
-      Establish SAML-based authentication trust between Entra ID and AWS IAM
-      Identity Center.
+      Establish SAML-based authentication trust between Entra ID and AWS.
     </p>
-
-    <p><strong>What You Are Building</strong></p>
-    <ul>
-      <li>Entra ID authenticates workforce users</li>
-      <li>AWS trusts Entra’s SAML assertions</li>
-    </ul>
 
     <p><strong>Actions</strong></p>
     <ul>
-      <li>Configure an external SAML identity provider in AWS IAM Identity Center</li>
-      <li>Download AWS SAML metadata</li>
-      <li>Create an Enterprise Application in Entra ID</li>
-      <li>Upload AWS metadata and configure SAML claims</li>
+      <li>Configure SAML provider in AWS IAM Identity Center</li>
+      <li>Create Entra Enterprise Application</li>
+      <li>Upload AWS metadata and configure claims</li>
     </ul>
 
     <p><strong>Why This Matters</strong></p>
     <p>
-      This step defines the cryptographic trust boundary. If SAML trust is
-      incorrect, authentication will fail regardless of downstream configuration.
+      This defines the cryptographic trust boundary. Errors here break all access.
     </p>
 
     <!-- STEP 3 -->
     <h3>Step 3 — Enable SCIM Provisioning (Authorization)</h3>
-
     <p><strong>Objective</strong></p>
     <p>
       Automate user and group lifecycle management from Entra ID into AWS.
     </p>
 
-    <p><strong>What You Are Building</strong></p>
-    <ul>
-      <li>Automated user provisioning</li>
-      <li>Group-to-permission-set mapping</li>
-      <li>Continuous authorization enforcement</li>
-    </ul>
-
     <p><strong>Actions</strong></p>
     <ul>
-      <li>Generate a SCIM endpoint and access token in AWS IAM Identity Center</li>
+      <li>Generate SCIM endpoint and token in AWS</li>
       <li>Configure SCIM provisioning in Entra ID</li>
-      <li>Enable user and group provisioning</li>
-      <li>Assign Entra groups to the AWS enterprise application</li>
+      <li>Enable user and group sync</li>
     </ul>
-
-    <p><strong>Why This Matters</strong></p>
-    <p>
-      SAML answers who the user is. SCIM defines what they are allowed to do.
-      Without SCIM, authorization drifts and deprovisioning becomes unreliable.
-    </p>
 
     <p><strong>End of Step 3 — What You Have Achieved</strong></p>
     <ul>
       <li>Authentication flows from Entra ID to AWS</li>
-      <li>Authorization is group-driven and automated</li>
-      <li>AWS access is centrally governed</li>
-      <li>Manual IAM user management is eliminated</li>
+      <li>Authorization is automated</li>
+      <li>Manual IAM users eliminated</li>
+    </ul>
+
+    <!-- STEP 4 -->
+    <h3>Step 4 — Configure Permission Sets & Group Mapping</h3>
+    <p><strong>Objective</strong></p>
+    <p>
+      Define what federated users are allowed to do in AWS.
+    </p>
+
+    <p><strong>Actions</strong></p>
+    <ul>
+      <li>Create permission sets (ReadOnly, PowerUser, etc.)</li>
+      <li>Attach IAM policies</li>
+      <li>Assign permission sets to accounts</li>
+      <li>Map Entra ID groups to permission sets</li>
+    </ul>
+
+    <p><strong>Why This Matters</strong></p>
+    <p>
+      This establishes RBAC. Access is granted only through group membership.
+    </p>
+
+    <!-- STEP 5 -->
+    <h3>Step 5 — Validate Federated Access & Sessions</h3>
+    <p><strong>Objective</strong></p>
+    <p>
+      Confirm authentication and authorization work end-to-end.
+    </p>
+
+    <p><strong>Actions</strong></p>
+    <ul>
+      <li>Sign in via Entra My Apps</li>
+      <li>Launch AWS application</li>
+      <li>Select account and role</li>
+      <li>Verify permissions</li>
+    </ul>
+
+    <p><strong>Why This Matters</strong></p>
+    <p>
+      Confirms the federation pipeline is functional.
+    </p>
+
+    <!-- STEP 6 -->
+    <h3>Step 6 — Audit, Monitor, and Harden the Federation</h3>
+    <p><strong>Objective</strong></p>
+    <p>
+      Ensure federation remains secure and auditable.
+    </p>
+
+    <p><strong>Actions</strong></p>
+    <ul>
+      <li>Review CloudTrail federated sign-ins</li>
+      <li>Test SCIM deprovisioning</li>
+      <li>Apply Entra conditional access policies</li>
+    </ul>
+
+    <p><strong>End of Step 6 — Lab Complete</strong></p>
+    <ul>
+      <li>Authentication centralized</li>
+      <li>Authorization group-driven</li>
+      <li>Access auditable and enforced</li>
+      <li>AWS identity fully modernized</li>
     </ul>
 
   </section>
