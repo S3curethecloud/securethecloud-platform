@@ -3,7 +3,7 @@
     {
       "id": "aws-identity-federation-l4",
       "title": "AWS ↔ Entra ID Workforce Identity Federation",
-      "summary": "Implement workforce identity federation between AWS IAM Identity Center and Microsoft Entra ID using SAML and SCIM.",
+      "summary": "Implement workforce identity federation between AWS IAM Identity Center and Microsoft Entra ID.",
       "cloud": ["aws", "azure"],
       "domain": "identity",
       "level": "L4",
@@ -15,7 +15,7 @@
     {
       "id": "aws-zero-trust-network-l3",
       "title": "Zero Trust VPC Network Segmentation",
-      "summary": "Design and deploy zero trust segmentation in AWS using VPCs, security groups, NACLs, and route controls to reduce lateral movement.",
+      "summary": "Design and deploy zero trust segmentation in AWS using VPCs, security groups, NACLs, and routing.",
       "cloud": ["aws"],
       "domain": "network",
       "level": "L3",
@@ -27,7 +27,7 @@
     {
       "id": "devsecops-ci-policy-l5",
       "title": "Policy-as-Code Enforcement in CI/CD",
-      "summary": "Enforce security and compliance using policy-as-code across Terraform CI/CD pipelines with deployment gating and automated checks.",
+      "summary": "Enforce security and compliance using policy-as-code across Terraform CI/CD pipelines.",
       "cloud": ["aws", "azure", "gcp"],
       "domain": "devsecops",
       "level": "L5",
@@ -58,6 +58,18 @@
       "estimated_time": "25–40 mins",
       "path": "/labs/aws/storage/s3-public-access-block/",
       "tags": ["s3", "public-access", "bucket-policy", "data-security"],
+      "status": "published"
+    },
+    {
+      "id": "aws-kms-basics-l1",
+      "title": "AWS KMS Basics: Keys, Encryption, and Trust",
+      "summary": "Learn AWS KMS fundamentals by creating and using a customer-managed key and auditing key usage.",
+      "cloud": ["aws"],
+      "domain": "security",
+      "level": "L1",
+      "estimated_time": "30–45 mins",
+      "path": "/labs/aws/security/kms-basics/",
+      "tags": ["kms", "encryption", "keys", "audit", "trust"],
       "status": "published"
     }
   ]
