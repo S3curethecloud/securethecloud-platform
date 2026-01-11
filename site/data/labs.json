@@ -71,6 +71,28 @@
       "path": "/labs/aws/security/kms-basics/",
       "tags": ["kms", "encryption", "keys", "audit", "trust"],
       "status": "published"
+    },
+    {
+      "id": "aws-logging-cloudtrail-l1",
+      "title": "AWS Logging Basics: CloudTrail and Audit Visibility",
+      "summary": "Learn how AWS CloudTrail records activity and provides audit visibility for security, compliance, and Zero Trust observability.",
+      "cloud": ["aws"],
+      "domain": "security",
+      "level": "L1",
+      "estimated_time": "30–45 mins",
+      "path": "/labs/aws/security/logging-cloudtrail/",
+      "tags": [
+        "cloudtrail",
+        "logging",
+        "audit",
+        "observability",
+        "zero-trust"
+      ],
+      "zero_trust": {
+        "pillar": "observability",
+        "focus": ["audit", "visibility", "accountability"]
+      },
+      "status": "published"
     }
   ]
 }
