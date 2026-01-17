@@ -14,17 +14,25 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v2
+        uses: aws-actions/configure-aws-credentials@v4
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
 
+      - name: Build Lambda zip (ai_chat)
+        run: |
+          cd infra
+          mkdir -p lambda_functions/ai_chat
+          zip -j lambda_functions/ai_chat/ai_chat.zip lambda_functions/ai_chat/index.js
+
       - name: Install Terraform
         uses: hashicorp/setup-terraform@v3
 
-      - name: Deploy STC Infra
+      - name: Terraform Init
         working-directory: ./infra
-        run: |
-          terraform init -input=false
-          terraform apply -auto-approve
+        run: terraform init -input=false
+
+      - name: Terraform Apply
+        working-directory: ./infra
+        run: terraform apply -auto-approve -input=false
