@@ -20,12 +20,18 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
 
+      # ----------------------------
+      # Lambda build
+      # ----------------------------
       - name: Build Lambda zip (ai_chat)
         run: |
           cd infra
           mkdir -p lambda_functions/ai_chat
           zip -j lambda_functions/ai_chat/ai_chat.zip lambda_functions/ai_chat/index.js
 
+      # ----------------------------
+      # Terraform
+      # ----------------------------
       - name: Install Terraform
         uses: hashicorp/setup-terraform@v3
 
@@ -36,3 +42,16 @@ jobs:
       - name: Terraform Apply
         working-directory: ./infra
         run: terraform apply -auto-approve -input=false
+
+      # ----------------------------
+      # Frontend deploy (NEW)
+      # ----------------------------
+      - name: Deploy frontend to S3
+        run: |
+          aws s3 sync site/ s3://${{ secrets.FRONTEND_BUCKET }} --delete
+
+      - name: Invalidate CloudFront cache
+        run: |
+          aws cloudfront create-invalidation \
+            --distribution-id ${{ secrets.CLOUDFRONT_DIST_ID }} \
+            --paths "/*"
