@@ -43,3 +43,17 @@ securethecloud/
 multi-cloud-*
 trumindpsych-*
 united-airline-*
+
+# Terraform
+infra/terraform.tfstate*
+infra/.terraform/
+
+# Node
+node_modules/
+package-lock.json
+
+# Local env
+.env.local
+
+# Build artifacts
+lambda_functions/
