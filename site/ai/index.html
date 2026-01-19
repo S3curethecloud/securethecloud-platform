@@ -5,8 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>STI AI | SecureTheCloud</title>
-  <meta name="description"
-        content="STI AI is SecureTheCloud’s intelligence layer for reasoning over security architecture, labs, and risk." />
+  <meta
+    name="description"
+    content="STI AI is SecureTheCloud’s intelligence layer for reasoning over security architecture, labs, and risk."
+  />
 
   <!-- Design System -->
   <link rel="stylesheet" href="/design-system/tokens.css" />
@@ -18,6 +20,10 @@
   <!-- Global Styles -->
   <link rel="stylesheet" href="/css/base.css" />
   <link rel="stylesheet" href="/css/layout.css" />
+
+  <!-- AI wiring -->
+  <script src="/site/js/config.js"></script>
+  <script src="/site/js/ai.js"></script>
 </head>
 
 <body>
@@ -48,39 +54,22 @@
   </div>
 </section>
 
-<section>
-  <div class="stc-container stc-grid-2">
-
-    <div>
-      <h2>What STI AI Will Do</h2>
-      <ul>
-        <li>Correlate labs to STI Shield domains</li>
-        <li>Identify control coverage gaps</li>
-        <li>Recommend next labs or learning paths</li>
-        <li>Explain architectural risk posture</li>
-      </ul>
-    </div>
-
-    <div class="stc-card">
-      <h3>Design Constraints</h3>
-      <ul>
-        <li>Explainable reasoning</li>
-        <li>No black-box scoring</li>
-        <li>Architecture-aware</li>
-        <li>Human-in-the-loop</li>
-      </ul>
-    </div>
-
-  </div>
-</section>
-
-<section>
+<!-- ============================= -->
+<!-- STEP 4 — Streaming AI UI     -->
+<!-- ============================= -->
+<section class="stc-ai-chat">
   <div class="stc-container">
-    <h2>Status</h2>
-    <p>
-      STI AI is currently in the design and correlation phase.
-      Implementation will follow validated architecture and data models.
-    </p>
+    <h2>Ask STI AI</h2>
+
+    <textarea
+      id="ai-question"
+      rows="4"
+      placeholder="Ask a security architecture question..."
+    ></textarea>
+
+    <button onclick="handleAskAI()">Ask</button>
+
+    <pre id="ai-response"></pre>
   </div>
 </section>
 
@@ -91,5 +80,22 @@
 </footer>
 
 <script src="/js/navigation.js"></script>
+
+<script>
+  async function handleAskAI() {
+    const input = document.getElementById("ai-question");
+    const output = document.getElementById("ai-response");
+
+    output.textContent = "Thinking…";
+
+    try {
+      await askSTCAI(input.value);
+    } catch (err) {
+      output.textContent = "Error talking to STI AI.";
+      console.error(err);
+    }
+  }
+</script>
+
 </body>
 </html>

@@ -1,25 +1,44 @@
+############################
+# Terraform / IaC (CRITICAL)
+############################
+*.tfstate
+*.tfstate.backup
+*.plan
+.terraform/
+.terraform.lock.hcl
+infra/terraform.tfstate*
+infra/.terraform/
+
+############################
+# Node / Frontend
+############################
+node_modules/
+.node_modules/
+.npm/
+package-lock.json
+.env.local
+
+############################
 # OS / Shell
+############################
+.DS_Store
 .bash_history
 .bashrc
 .profile
 .wget-hsts
 
+############################
 # Docker / Kubernetes / Cloud
+############################
 .docker/
 .kube/
 .gsutil/
 .aws/
 .vault-token
 
-# Terraform / IaC
-.terraform/
-.terraform.lock.hcl
-
-# Node / Package Managers
-.node_modules/
-.npm/
-
-# Secrets
+############################
+# Secrets / Credentials
+############################
 *.key
 *.pem
 *.pub
@@ -28,15 +47,21 @@
 .gnupg/
 .ssh/
 
+############################
 # Logs / Caches
+############################
 logs/
 .cache/
 .local/
 
+############################
 # Archives
+############################
 *.zip
 
+############################
 # External repos / workspaces
+############################
 repos/
 stc-*
 securethecloud/
@@ -44,16 +69,8 @@ multi-cloud-*
 trumindpsych-*
 united-airline-*
 
-# Terraform
-infra/terraform.tfstate*
-infra/.terraform/
-
-# Node
-node_modules/
-package-lock.json
-
-# Local env
-.env.local
-
+############################
 # Build artifacts
+############################
 lambda_functions/
+src/lib/
