@@ -10,16 +10,22 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # ----------------------------
+      # Checkout
+      # ----------------------------
       - name: Checkout repo
         uses: actions/checkout@v4
 
       # ----------------------------
-      # Update config.js with Lambda URL
+      # Update frontend API base
       # ----------------------------
       - name: Update config.js with Lambda Function URL
         run: |
           sed -i 's|API_BASE: "https://wszwjntpp3.execute-api.us-east-1.amazonaws.com/prod"|API_BASE: "https://c7afc46lrh33c5ttne2ldpvrdi0qzrfk.lambda-url.us-east-1.on.aws/"|g' site/config.js
 
+      # ----------------------------
+      # AWS credentials
+      # ----------------------------
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
@@ -28,16 +34,15 @@ jobs:
           aws-region: us-east-1
 
       # ----------------------------
-      # Lambda build
+      # Lambda build (ZIP function code)
       # ----------------------------
       - name: Build Lambda zip (ai_chat)
         run: |
-          cd infra
-          mkdir -p lambda_functions/ai_chat
-          zip -j lambda_functions/ai_chat/ai_chat.zip lambda_functions/ai_chat/index.js
+          cd infra/lambda_functions/ai_chat
+          zip ../../ai_chat.zip index.js
 
       # ----------------------------
-      # Terraform
+      # Terraform setup
       # ----------------------------
       - name: Install Terraform
         uses: hashicorp/setup-terraform@v3
@@ -49,6 +54,10 @@ jobs:
       - name: Terraform Apply
         working-directory: ./infra
         run: terraform apply -auto-approve -input=false
+
+      - name: Show Terraform Outputs
+        working-directory: ./infra
+        run: terraform output
 
       # ----------------------------
       # Frontend deploy
