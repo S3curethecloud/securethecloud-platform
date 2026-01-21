@@ -4,7 +4,7 @@ resource "aws_api_gateway_rest_api" "stc_api" {
 }
 
 resource "aws_lambda_permission" "api_gw_ai_chat" {
-  statement_id  = "AllowAPIGatewayInvokeAIChat"
+  statement_id  = "AllowAPIGatewayInvokeAIChatV2"
   action        = "lambda:InvokeFunction"
   function_name = aws_lambda_function.ai_chat_fn.function_name
   principal     = "apigateway.amazonaws.com"

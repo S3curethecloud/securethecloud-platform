@@ -1,34 +1,21 @@
-import OpenAI from "openai";
+exports.handler = async (event) => {
+  const { prompt } = JSON.parse(event.body || '{}');
 
-const client = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY
-});
+  const words = [`Processing`, `:`, prompt, `...`, `Done.`];
+  let response = '';
 
-export const handler = async (event) => {
-  const body = JSON.parse(event.body || "{}");
-  const question = body.question || "Hello";
-
-  const stream = await client.chat.completions.create({
-    model: "gpt-4o-mini",
-    messages: [{ role: "user", content: question }],
-    stream: true
-  });
-
-  const encoder = new TextEncoder();
+  // Simulate delay between words
+  for (let i = 0; i < words.length; i++) {
+    response += words[i] + ' ';
+    await new Promise((resolve) => setTimeout(resolve, 300));
+  }
 
   return {
     statusCode: 200,
     headers: {
-      "Content-Type": "text/plain; charset=utf-8",
-      "Transfer-Encoding": "chunked"
+      'Content-Type': 'text/plain',
+      'Access-Control-Allow-Origin': '*',
     },
-    body: ReadableStream.from(async function* () {
-      for await (const chunk of stream) {
-        const token = chunk.choices?.[0]?.delta?.content;
-        if (token) {
-          yield encoder.encode(token);
-        }
-      }
-    })()
+    body: response
   };
 };
