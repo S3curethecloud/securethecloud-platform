@@ -28,6 +28,6 @@ resource "aws_lambda_function" "ai_chat_fn" {
   runtime       = "nodejs20.x"
   timeout       = 15
 
-  filename         = "${path.module}/lambda_functions/ai_chat/ai_chat.zip"
-  source_code_hash = filebase64sha256("${path.module}/lambda_functions/ai_chat/ai_chat.zip")
-}
+  filename         = "${path.module}/ai_chat.zip"
+source_code_hash = filebase64sha256("${path.module}/ai_chat.zip")
+
