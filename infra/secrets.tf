@@ -1,6 +1,10 @@
 resource "aws_secretsmanager_secret" "openai_key" {
   name        = var.openai_key_secret_name
   description = "OpenAI API Key"
+
+  lifecycle {
+    prevent_destroy = true
+  }
 }
 
 resource "aws_secretsmanager_secret_version" "openai_key_value" {
@@ -10,6 +14,10 @@ resource "aws_secretsmanager_secret_version" "openai_key_value" {
 
 resource "aws_secretsmanager_secret" "supabase_url" {
   name = var.supabase_url_secret_name
+
+  lifecycle {
+    prevent_destroy = true
+  }
 }
 
 resource "aws_secretsmanager_secret_version" "supabase_url_val" {
@@ -19,6 +27,10 @@ resource "aws_secretsmanager_secret_version" "supabase_url_val" {
 
 resource "aws_secretsmanager_secret" "supabase_anon_key" {
   name = var.supabase_anon_key_secret_name
+
+  lifecycle {
+    prevent_destroy = true
+  }
 }
 
 resource "aws_secretsmanager_secret_version" "supabase_anon_key_val" {
