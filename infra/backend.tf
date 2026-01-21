@@ -29,5 +29,6 @@ resource "aws_lambda_function" "ai_chat_fn" {
   timeout       = 15
 
   filename         = "${path.module}/ai_chat.zip"
-source_code_hash = filebase64sha256("${path.module}/ai_chat.zip")
+  source_code_hash = filebase64sha256("${path.module}/ai_chat.zip")
+}
 
