@@ -1,101 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>STI AI | SecureTheCloud</title>
-  <meta
-    name="description"
-    content="STI AI is SecureTheCloud’s intelligence layer for reasoning over security architecture, labs, and risk."
-  />
+    <title>STI AI | SecureTheCloud</title>
+    <meta
+      name="description"
+      content="STI AI is SecureTheCloud’s intelligence layer for reasoning over security architecture, labs, and risk."
+    />
 
-  <!-- Design System -->
-  <link rel="stylesheet" href="/design-system/tokens.css" />
-  <link rel="stylesheet" href="/design-system/typography.css" />
-  <link rel="stylesheet" href="/design-system/layouts.css" />
-  <link rel="stylesheet" href="/design-system/components.css" />
-  <link rel="stylesheet" href="/design-system/motion.css" />
+    <!-- Design System -->
+    <link rel="stylesheet" href="/design-system/tokens.css" />
+    <link rel="stylesheet" href="/design-system/typography.css" />
+    <link rel="stylesheet" href="/design-system/layouts.css" />
+    <link rel="stylesheet" href="/design-system/components.css" />
+    <link rel="stylesheet" href="/design-system/motion.css" />
 
-  <!-- Global Styles -->
-  <link rel="stylesheet" href="/css/base.css" />
-  <link rel="stylesheet" href="/css/layout.css" />
+    <!-- Global Styles -->
+    <link rel="stylesheet" href="/css/base.css" />
+    <link rel="stylesheet" href="/css/layout.css" />
+  </head>
 
-  <!-- AI wiring -->
-  <script src="/site/js/config.js"></script>
-  <script src="/site/js/ai.js"></script>
-</head>
+  <body>
+    <!-- NAV -->
+    <header class="stc-nav">
+      <div class="stc-nav-inner">
+        <div class="stc-nav-logo">
+          <a href="/">
+            <img src="/assets/brand/logo.svg" alt="SecureTheCloud Logo" />
+          </a>
+        </div>
 
-<body>
+        <nav class="stc-nav-menu">
+          <a href="/platform/">Platform</a>
+          <a href="/shield/">Shield</a>
+          <a href="/ai/" class="active">AI</a>
+          <a href="/labs/">Labs</a>
+          <a href="/academy/">Academy</a>
+        </nav>
 
-<header class="stc-nav">
-  <div class="stc-nav-inner">
-    <div class="stc-nav-logo">
-      <a href="/"><img src="/assets/brand/logo.svg" alt="SecureTheCloud Logo" /></a>
-    </div>
-    <nav class="stc-nav-menu">
-      <a href="/platform/">Platform</a>
-      <a href="/shield/">Shield</a>
-      <a href="/ai/" class="active">AI</a>
-      <a href="/labs/">Labs</a>
-      <a href="/academy/">Academy</a>
-    </nav>
-    <button class="stc-nav-toggle">☰</button>
-  </div>
-</header>
+        <button class="stc-nav-toggle">☰</button>
+      </div>
+    </header>
 
-<section class="stc-hero">
-  <div class="stc-container">
-    <h1>STI AI</h1>
-    <p>
-      STI AI is the intelligence layer that reasons over SecureTheCloud’s labs,
-      frameworks, and architectures — producing explainable insights, not black boxes.
-    </p>
-  </div>
-</section>
+    <!-- HERO -->
+    <section class="stc-hero">
+      <div class="stc-container">
+        <h1>STI AI</h1>
+        <p>
+          STI AI reasons over SecureTheCloud’s labs, architectures, and threat
+          models to produce explainable, security-focused answers.
+        </p>
+      </div>
+    </section>
 
-<!-- ============================= -->
-<!-- STEP 4 — Streaming AI UI     -->
-<!-- ============================= -->
-<section class="stc-ai-chat">
-  <div class="stc-container">
-    <h2>Ask STI AI</h2>
+    <!-- ============================= -->
+    <!-- ASK STI AI — CANONICAL BLOCK -->
+    <!-- ============================= -->
+    <section id="ai-chat">
+      <div class="stc-container">
+        <h2>Ask STI AI</h2>
 
-    <textarea
-      id="ai-question"
-      rows="4"
-      placeholder="Ask a security architecture question..."
-    ></textarea>
+        <form id="ai-form">
+          <input
+            type="text"
+            id="ai-input"
+            placeholder="Ask a security architecture question..."
+            style="width: 100%; max-width: 600px;"
+          />
+          <br /><br />
+          <button type="submit">Send</button>
+        </form>
 
-    <button onclick="handleAskAI()">Ask</button>
+        <div
+          id="loading"
+          style="display: none; margin-top: 1rem;"
+        >
+          ⏳ Loading...
+        </div>
 
-    <pre id="ai-response"></pre>
-  </div>
-</section>
+        <pre
+          id="ai-output"
+          style="
+            margin-top: 1rem;
+            padding: 1rem;
+            background: #0b0f14;
+            color: #e6edf3;
+            white-space: pre-wrap;
+            min-height: 120px;
+          "
+        ></pre>
+      </div>
+    </section>
 
-<footer class="stc-footer">
-  <div class="stc-container">
-    © SecureTheCloud • Intelligence without opacity
-  </div>
-</footer>
+    <!-- FOOTER -->
+    <footer class="stc-footer">
+      <div class="stc-container">
+        © SecureTheCloud • Intelligence without opacity
+      </div>
+    </footer>
 
-<script src="/js/navigation.js"></script>
+    <!-- SCRIPTS -->
+    <script src="/js/navigation.js"></script>
 
-<script>
-  async function handleAskAI() {
-    const input = document.getElementById("ai-question");
-    const output = document.getElementById("ai-response");
-
-    output.textContent = "Thinking…";
-
-    try {
-      await askSTCAI(input.value);
-    } catch (err) {
-      output.textContent = "Error talking to STI AI.";
-      console.error(err);
-    }
-  }
-</script>
-
-</body>
+    <!-- ⚠️ ORDER IS CRITICAL -->
+    <script src="/js/config.js"></script>
+    <script type="module" src="/js/ai.js"></script>
+  </body>
 </html>
