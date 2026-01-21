@@ -15,7 +15,7 @@ output "deployer_trigger" {
 }
 
 output "ai_chat_lambda_url" {
-  value = aws_lambda_function_url.ai_chat.function_url
+  value       = aws_lambda_function_url.ai_chat.function_url
   description = "Public Lambda Function URL for streaming AI chat responses"
 }
 

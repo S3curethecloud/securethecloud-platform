@@ -19,3 +19,13 @@ resource "aws_iam_role_policy_attachment" "lambda_logging" {
   role       = aws_iam_role.lambda_exec.name
   policy_arn = "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
 }
+
+resource "aws_iam_role" "lambda_role" {
+  name = "stc_lambda_role"
+  assume_role_policy = data.aws_iam_policy_document.lambda_assume.json
+
+  lifecycle {
+    prevent_destroy = true
+    ignore_changes = [name]
+  }
+}
