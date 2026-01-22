@@ -1,6 +1,4 @@
 terraform {
-  backend "local" {}
-
   required_providers {
     aws = {
       source  = "hashicorp/aws"
@@ -15,6 +13,9 @@ provider "aws" {
   region = var.aws_region
 }
 
+# --------------------------------------------
+# Lambda Function URL (public endpoint)
+# --------------------------------------------
 resource "aws_lambda_function_url" "ai_chat" {
   function_name      = aws_lambda_function.ai_chat.function_name
   authorization_type = "NONE"
@@ -26,13 +27,15 @@ resource "aws_lambda_function_url" "ai_chat" {
   }
 }
 
+# --------------------------------------------
+# Lambda Function (ZIP comes from ai_chat.zip)
+# --------------------------------------------
 resource "aws_lambda_function" "ai_chat" {
   function_name = "stc-ai-chat"
   role          = aws_iam_role.lambda_exec.arn
   handler       = "index.handler"
   runtime       = "nodejs18.x"
 
-  # ✅ Updated to match GitHub Actions output path
   filename         = "${path.module}/ai_chat.zip"
   source_code_hash = filebase64sha256("${path.module}/ai_chat.zip")
 
