@@ -4,6 +4,7 @@ resource "aws_secretsmanager_secret" "openai_key" {
 
   lifecycle {
     prevent_destroy = true
+    ignore_changes = [name]
   }
 }
 
@@ -17,6 +18,7 @@ resource "aws_secretsmanager_secret" "supabase_url" {
 
   lifecycle {
     prevent_destroy = true
+    ignore_changes = [name]
   }
 }
 
@@ -30,6 +32,7 @@ resource "aws_secretsmanager_secret" "supabase_anon_key" {
 
   lifecycle {
     prevent_destroy = true
+    ignore_changes = [name]
   }
 }
 
