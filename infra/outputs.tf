@@ -1,5 +1,6 @@
 output "frontend_bucket" {
-  value = aws_s3_bucket.stc_frontend.bucket
+  value       = aws_s3_bucket.stc_frontend.id
+  description = "Name of the S3 bucket hosting the frontend"
 }
 
 output "cloudfront_domain" {
@@ -18,4 +19,3 @@ output "ai_chat_lambda_url" {
   value       = aws_lambda_function_url.ai_chat.function_url
   description = "Public Lambda Function URL for streaming AI chat responses"
 }
-

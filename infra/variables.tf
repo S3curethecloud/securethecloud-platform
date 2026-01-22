@@ -23,3 +23,12 @@ variable "supabase_anon_key_secret_name" {
   description = "AWS Secrets Manager name for Supabase anon key"
   type        = string
 }
+
+# ----------------------------
+# Optional: Frontend bucket prefix
+# ----------------------------
+variable "frontend_bucket_prefix" {
+  description = "Prefix for the frontend S3 bucket name"
+  type        = string
+  default     = "stc-platform-frontend"
+}

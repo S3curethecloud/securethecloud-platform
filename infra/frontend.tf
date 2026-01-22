@@ -2,24 +2,42 @@ resource "random_id" "bucket_suffix" {
   byte_length = 4
 }
 
+# ----------------------------
+# S3 Frontend Bucket
+# ----------------------------
 resource "aws_s3_bucket" "stc_frontend" {
-  bucket = "stc-platform-frontend-${random_id.bucket_suffix.hex}"
+  bucket = "${var.frontend_bucket_prefix}-${random_id.bucket_suffix.hex}"
+}
 
-  website {
-    index_document = "index.html"
-    error_document = "404.html"
+# ----------------------------
+# S3 Website Configuration
+# ----------------------------
+resource "aws_s3_bucket_website_configuration" "frontend_website" {
+  bucket = aws_s3_bucket.stc_frontend.id
+
+  index_document {
+    suffix = "index.html"
+  }
+
+  error_document {
+    key = "index.html"
   }
 }
 
-# ✅ Explicit ownership controls (avoids ACL conflicts)
+# ----------------------------
+# S3 Ownership Controls
+# ----------------------------
 resource "aws_s3_bucket_ownership_controls" "frontend_controls" {
   bucket = aws_s3_bucket.stc_frontend.id
 
   rule {
-    object_ownership = "BucketOwnerEnforced"
+    object_ownership = "BucketOwnerPreferred"
   }
 }
 
+# ----------------------------
+# CloudFront Distribution
+# ----------------------------
 resource "aws_cloudfront_distribution" "stc_cdn" {
   origin {
     domain_name = aws_s3_bucket.stc_frontend.bucket_regional_domain_name
@@ -45,7 +63,6 @@ resource "aws_cloudfront_distribution" "stc_cdn" {
     viewer_protocol_policy = "redirect-to-https"
   }
 
-  # ✅ REQUIRED BY AWS — even if unrestricted
   restrictions {
     geo_restriction {
       restriction_type = "none"
