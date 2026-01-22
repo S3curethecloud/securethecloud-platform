@@ -74,3 +74,5 @@ united-airline-*
 ############################
 lambda_functions/
 src/lib/
+move-docs.sh
+site/css/site/
