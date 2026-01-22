@@ -11,22 +11,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # ----------------------------
-      # Checkout
-      # ----------------------------
+      # Checkout repo
       - name: Checkout repo
         uses: actions/checkout@v4
 
-      # ----------------------------
-      # Update frontend API base
-      # ----------------------------
+      # Update frontend API base URL
       - name: Update config.js with Lambda Function URL
         run: |
-          sed -i 's|API_BASE: "https://wszwjntpp3.execute-api.us-east-1.amazonaws.com/prod"|API_BASE: "https://c7afc46lrh33c5ttne2ldpvrdi0qzrfk.lambda-url.us-east-1.on.aws/"|g' site/js/config.js
+          sed -i 's|API_BASE: ".*"|API_BASE: "https://c7afc46lrh33c5ttne2ldpvrdi0qzrfk.lambda-url.us-east-1.on.aws/"|g' site/js/config.js
 
-      # ----------------------------
-      # AWS credentials
-      # ----------------------------
+      # Configure AWS credentials
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
@@ -34,20 +28,17 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
 
-      # ----------------------------
-      # Lambda build (ZIP function code)
-      # ----------------------------
+      # Build Lambda zip
       - name: Build Lambda zip (ai_chat)
         run: |
           cd infra/lambda_functions/ai_chat
-          zip -r ../../ai_chat.zip index.js
+          zip -o ../../ai_chat.zip index.js
 
-      # ----------------------------
-      # Terraform setup
-      # ----------------------------
+      # Install Terraform
       - name: Install Terraform
         uses: hashicorp/setup-terraform@v3
 
+      # Terraform init & apply
       - name: Terraform Init
         working-directory: ./infra
         run: terraform init -input=false
@@ -60,17 +51,19 @@ jobs:
         working-directory: ./infra
         run: terraform apply -auto-approve -input=false
 
+      # Show Terraform Outputs
       - name: Show Terraform Outputs
         working-directory: ./infra
         run: terraform output
 
-      # ----------------------------
-      # Frontend deploy
-      # ----------------------------
+      # Deploy frontend to S3 (future-safe reference)
       - name: Deploy frontend to S3
+        working-directory: ./infra
         run: |
-          aws s3 sync site/ s3://${{ secrets.FRONTEND_BUCKET }} --delete
+          bucket=$(terraform output -raw frontend_bucket)
+          aws s3 sync ../site/ s3://$bucket --delete
 
+      # Invalidate CloudFront cache
       - name: Invalidate CloudFront cache
         run: |
           aws cloudfront create-invalidation \
