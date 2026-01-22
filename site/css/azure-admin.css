@@ -1,42 +1,218 @@
+/* =========================================================
+   SecureTheCloud – Dark Azure Hybrid Theme
+   Azure-style control plane UX
+   ========================================================= */
 
-body, html {
-  height: 100%;
+/* -------------------------------
+   Design Tokens
+-------------------------------- */
+:root {
+  --stc-bg-dark: #0f172a;        /* sidebar */
+  --stc-bg-darker: #020617;
+  --stc-bg-light: #f8fafc;       /* main area */
+  --stc-card-bg: #ffffff;
+
+  --stc-border: #e5e7eb;
+
+  --stc-text-light: #e5e7eb;
+  --stc-text-muted: #94a3b8;
+  --stc-text-dark: #0f172a;
+
+  --stc-azure: #2563eb;
+  --stc-azure-soft: #60a5fa;
+
+  --stc-radius: 10px;
+  --stc-shadow: 0 6px 20px rgba(0,0,0,0.06);
+}
+
+/* -------------------------------
+   Global Reset
+-------------------------------- */
+body {
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: var(--stc-bg-light);
+  color: var(--stc-text-dark);
 }
 
+/* -------------------------------
+   Layout
+-------------------------------- */
 #admin-dashboard {
-  height: 100vh;
-}
-
-.sidebar {
-  width: 220px;
   min-height: 100vh;
-  border-right: 1px solid #ddd;
 }
 
+/* -------------------------------
+   Sidebar (Dark Azure)
+-------------------------------- */
+.sidebar {
+  width: 240px;
+  background: linear-gradient(
+    180deg,
+    var(--stc-bg-dark),
+    var(--stc-bg-darker)
+  );
+  color: var(--stc-text-light);
+  border-right: 1px solid rgba(255,255,255,0.05);
+}
+
+.sidebar-header h4 {
+  margin: 0;
+  font-weight: 600;
+  color: #fff;
+}
+
+/* Sidebar Nav */
 .sidebar .nav-link {
-  font-size: 0.95rem;
-  color: #333;
+  color: var(--stc-text-muted);
+  border-radius: 8px;
+  padding: 10px 14px;
+  margin: 4px 0;
+  transition: all 0.2s ease;
 }
 
 .sidebar .nav-link:hover {
-  background: #e7e7e7;
-  border-radius: 0.375rem;
+  background: rgba(96,165,250,0.12);
+  color: #fff;
 }
 
+.sidebar .nav-link.active {
+  background: rgba(37,99,235,0.25);
+  color: #fff;
+  font-weight: 600;
+}
+
+/* -------------------------------
+   Main Content Area
+-------------------------------- */
 .main {
-  background-color: #f8f9fa;
+  background: var(--stc-bg-light);
 }
 
+/* Header */
+.main header h2 {
+  font-weight: 600;
+  color: var(--stc-text-dark);
+}
+
+.breadcrumb {
+  background: transparent;
+  margin-bottom: 0;
+}
+
+/* -------------------------------
+   Cards
+-------------------------------- */
 .card {
-  border-radius: 0.5rem;
+  background: var(--stc-card-bg);
+  border-radius: var(--stc-radius);
+  border: 1px solid var(--stc-border);
+  box-shadow: var(--stc-shadow);
 }
 
 .card-title {
-  font-weight: bold;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
 }
 
-.breadcrumb .breadcrumb-item + .breadcrumb-item::before {
-  content: ">";
+.card-text {
+  color: #475569;
+}
+
+/* -------------------------------
+   Buttons
+-------------------------------- */
+.btn-primary {
+  background: var(--stc-azure);
+  border: none;
+  border-radius: 8px;
+  padding: 8px 14px;
+}
+
+.btn-primary:hover {
+  background: #1d4ed8;
+}
+
+.btn-secondary {
+  background: #6b7280;
+  border: none;
+  border-radius: 8px;
+}
+
+.btn-info {
+  background: var(--stc-azure-soft);
+  border: none;
+  color: #0f172a;
+  border-radius: 8px;
+}
+
+.btn-info:hover {
+  background: #38bdf8;
+}
+
+/* -------------------------------
+   Mobile Adjustments
+-------------------------------- */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 200px;
+  }
+
+  .main {
+    padding: 1rem;
+  }
+}
+
+/* ===============================
+   🌙 Dark Mode Theme (Azure Hybrid)
+   =============================== */
+
+:root {
+  --bg-main: #ffffff;
+  --bg-sidebar: #f8f9fa;
+  --text-main: #1a1a1a;
+  --text-muted: #6c757d;
+  --card-bg: #ffffff;
+  --border-color: #e0e0e0;
+  --accent: #2563eb;
+}
+
+html[data-theme="dark"] {
+  --bg-main: #0f172a;
+  --bg-sidebar: #020617;
+  --text-main: #e5e7eb;
+  --text-muted: #94a3b8;
+  --card-bg: #020617;
+  --border-color: #1e293b;
+  --accent: #38bdf8;
+}
+
+/* Apply variables */
+body {
+  background-color: var(--bg-main);
+  color: var(--text-main);
+}
+
+.sidebar {
+  background-color: var(--bg-sidebar) !important;
+  border-right: 1px solid var(--border-color);
+}
+
+.card {
+  background-color: var(--card-bg);
+  border-color: var(--border-color);
+}
+
+.nav-link {
+  color: var(--text-muted);
+}
+
+.nav-link.active,
+.nav-link:hover {
+  color: var(--accent);
+}
+
+.btn-primary {
+  background-color: var(--accent);
+  border-color: var(--accent);
 }

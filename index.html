@@ -4,9 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>SecureTheCloud Dashboard</title>
+
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="/site/azure-admin/css/azure-admin.css" rel="stylesheet">
+  <link rel="stylesheet" href="/site/css/base.css">
+  <link rel="stylesheet" href="/site/css/azure-admin.css">
+  <link rel="stylesheet" href="/site/css/navigation.css">
 </head>
+
 <body>
   <div class="d-flex" id="admin-dashboard">
     <!-- Sidebar -->
@@ -34,11 +38,23 @@
     <div class="main flex-grow-1 px-4 py-3">
       <header class="d-flex justify-content-between align-items-center mb-3">
         <h2>Dashboard</h2>
-        <nav aria-label="breadcrumb">
-          <ol class="breadcrumb mb-0">
-            <li class="breadcrumb-item active">Home</li>
-          </ol>
-        </nav>
+
+        <!-- Header actions (top right) -->
+        <div class="d-flex align-items-center gap-2">
+          <button
+            class="btn btn-sm btn-outline-secondary"
+            onclick="toggleTheme()"
+            title="Toggle dark mode"
+          >
+            🌙
+          </button>
+
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb mb-0">
+              <li class="breadcrumb-item active">Home</li>
+            </ol>
+          </nav>
+        </div>
       </header>
 
       <!-- Cards -->
@@ -76,7 +92,9 @@
     </div> <!-- main -->
   </div> <!-- #admin-dashboard -->
 
+  <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="/site/azure-admin/js/azure-admin.js"></script>
+  <script src="/site/js/theme-toggle.js"></script>
+  <script src="/site/js/azure-admin.js"></script>
 </body>
 </html>
