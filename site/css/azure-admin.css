@@ -1,1 +1,42 @@
 
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+#admin-dashboard {
+  height: 100vh;
+}
+
+.sidebar {
+  width: 220px;
+  min-height: 100vh;
+  border-right: 1px solid #ddd;
+}
+
+.sidebar .nav-link {
+  font-size: 0.95rem;
+  color: #333;
+}
+
+.sidebar .nav-link:hover {
+  background: #e7e7e7;
+  border-radius: 0.375rem;
+}
+
+.main {
+  background-color: #f8f9fa;
+}
+
+.card {
+  border-radius: 0.5rem;
+}
+
+.card-title {
+  font-weight: bold;
+}
+
+.breadcrumb .breadcrumb-item + .breadcrumb-item::before {
+  content: ">";
+}
