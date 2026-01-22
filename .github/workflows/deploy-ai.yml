@@ -1,0 +1,14 @@
+name: Notify Cloudflare Pages for STC AI
+
+on:
+  push:
+    paths:
+      - 'ai/**'
+  workflow_dispatch:
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo Change
+        run: echo "Changes detected in /ai — Cloudflare Pages will auto-deploy."
