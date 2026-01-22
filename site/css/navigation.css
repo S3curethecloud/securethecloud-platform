@@ -3,6 +3,18 @@
    STC-CORE-DS v1.0
 ========================================================= */
 
+/* -----------------------------------------
+   Global Logo Utility (Admin / Platform)
+----------------------------------------- */
+.logo {
+  height: 40px;
+  margin-right: 12px;
+  vertical-align: middle;
+}
+
+/* -----------------------------------------
+   STC Primary Navigation
+----------------------------------------- */
 .stc-nav {
   position: sticky;
   top: 0;
@@ -20,7 +32,7 @@
   justify-content: space-between;
 }
 
-/* Logo */
+/* Logo (STC Primary Nav) */
 .stc-nav-logo img {
   height: 36px;
   display: block;
@@ -112,7 +124,6 @@
 /* =========================
    MOBILE NAV SAFE MODE
 ========================= */
-
 @media (max-width: 768px) {
   .stc-nav-inner {
     flex-wrap: wrap;
