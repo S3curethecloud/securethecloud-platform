@@ -40,7 +40,7 @@ jobs:
       - name: Build Lambda zip (ai_chat)
         run: |
           cd infra/lambda_functions/ai_chat
-          zip -o ../../ai_chat.zip index.js
+          zip -r ../../ai_chat.zip index.js
 
       # ----------------------------
       # Terraform setup
