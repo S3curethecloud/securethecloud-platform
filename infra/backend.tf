@@ -32,13 +32,4 @@ resource "aws_lambda_function" "ai_chat_fn" {
   source_code_hash = filebase64sha256("${path.module}/ai_chat.zip")
 }
 
-resource "aws_iam_role" "lambda_exec" {
-  name = "stc-lambda-exec-role"
-  assume_role_policy = data.aws_iam_policy_document.lambda_assume.json
-
-  lifecycle {
-    prevent_destroy = true
-    ignore_changes = [name]
-  }
-}
 
