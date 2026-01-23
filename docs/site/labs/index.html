@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Labs | SecureTheCloud</title>
+  <meta
+    name="description"
+    content="Hands-on, real-world security labs across AWS, Azure, and GCP covering identity, zero trust, networking, and AI security."
+  />
+
+  <!-- =========================
+       DESIGN SYSTEM & GLOBAL CSS
+  ========================= -->
+  <link rel="stylesheet" href="/css/base.css" />
+  <link rel="stylesheet" href="/css/layout.css" />
+  <link rel="stylesheet" href="/css/navigation.css" />
+  <link rel="stylesheet" href="/css/pages/labs.css" />
+</head>
+
+<body>
+
+  <!-- =========================
+       GLOBAL NAVIGATION
+  ========================= -->
+  <nav class="stc-nav">
+    <div class="stc-nav-inner">
+      <a href="/" class="stc-nav-logo" aria-label="SecureTheCloud Home">
+        <img src="/assets/brand/logo.svg" alt="SecureTheCloud Logo" />
+      </a>
+
+      <div class="stc-nav-menu">
+        <a href="/platform/">Platform</a>
+        <a href="/shield/">Shield</a>
+        <a href="/ai/">AI</a>
+        <a href="/labs/">Labs</a>
+        <a href="/academy/">Academy</a>
+        <a href="/media/">Media</a>
+        <a href="/consulting/">Consulting</a>
+      </div>
+
+      <div class="stc-nav-cta">
+        <a href="/access/" class="stc-btn">Get Access</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- =========================
+       LABS MAIN CONTENT
+  ========================= -->
+  <main class="labs container">
+
+    <!-- Header -->
+    <header class="labs-header">
+      <h1>Security Labs</h1>
+      <p>
+        Hands-on, architecture-mapped labs designed for real-world
+        multi-cloud security engineering.
+      </p>
+    </header>
+
+    <!-- Filters -->
+    <section class="labs-filters" aria-label="Lab filters">
+      <!-- filters.js will populate / bind here -->
+    </section>
+
+    <!-- Labs Grid -->
+    <section class="labs-grid" id="labs-grid">
+      <!-- Lab cards injected by filters.js -->
+    </section>
+
+  </main>
+
+  <!-- =========================
+       SCRIPTS
+  ========================= -->
+  <script src="/js/navigation.js" defer></script>
+  <script src="/js/filters.js" defer></script>
+
+</body>
+</html>

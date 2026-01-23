@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>AWS Logging Basics: CloudTrail and Audit Visibility | SecureTheCloud</title>
+  <meta
+    name="description"
+    content="Learn how AWS CloudTrail records activity and how to audit who did what in your AWS account."
+  />
+
+  <!-- Design System -->
+  <link rel="stylesheet" href="/design-system/tokens.css" />
+  <link rel="stylesheet" href="/design-system/typography.css" />
+  <link rel="stylesheet" href="/design-system/layouts.css" />
+  <link rel="stylesheet" href="/design-system/components.css" />
+  <link rel="stylesheet" href="/design-system/motion.css" />
+
+  <!-- Global Styles -->
+  <link rel="stylesheet" href="/css/base.css" />
+  <link rel="stylesheet" href="/css/layout.css" />
+  <link rel="stylesheet" href="/css/navigation.css" />
+
+  <!-- Lab Styles -->
+  <link rel="stylesheet" href="/css/pages/labs.css" />
+</head>
+
+<body>
+
+  <!-- Global Navigation -->
+  <nav class="stc-nav">
+    <!-- standard nav include -->
+  </nav>
+
+  <!-- =========================
+       LAB HEADER (TRUST ANCHOR)
+  ========================= -->
+  <header class="lab-hero">
+    <h1>AWS Logging Basics: CloudTrail and Audit Visibility</h1>
+
+    <div class="lab-meta">
+      <span class="tag aws">AWS</span>
+      <span class="tag security">Security</span>
+      <span class="tag l1">L1</span>
+      <span class="tag time">30–45 mins</span>
+    </div>
+
+    <p class="lab-intro">
+      This lab introduces AWS CloudTrail and explains how logging provides
+      visibility, accountability, and security assurance.
+    </p>
+
+    <a href="#start" class="lab-start-btn">
+      Start Lab →
+    </a>
+  </header>
+
+  <!-- =========================
+       WHAT YOU’LL BUILD
+  ========================= -->
+  <section class="lab-section">
+    <h2>What You’ll Build</h2>
+    <ul>
+      <li>An AWS account with CloudTrail enabled</li>
+      <li>Visibility into API activity</li>
+      <li>Audit records for user actions</li>
+      <li>Confidence in “who did what”</li>
+    </ul>
+  </section>
+
+  <!-- =========================
+       ZERO TRUST MAPPING
+  ========================= -->
+  <section class="lab-section">
+    <h2>Zero Trust Mapping — Observability & Audit</h2>
+
+    <p>
+      This lab directly maps to the <strong>Zero Trust principle of Observability</strong>.
+      Zero Trust assumes breach and therefore requires continuous visibility into
+      all actions taken across systems.
+    </p>
+
+    <ul>
+      <li><strong>Visibility:</strong> CloudTrail records all API activity across the account</li>
+      <li><strong>Accountability:</strong> Every action is tied to an identity</li>
+      <li><strong>Auditability:</strong> Logs are immutable and time-ordered</li>
+      <li><strong>Detection & Response:</strong> Audit logs enable investigations and forensics</li>
+    </ul>
+
+    <p>
+      Without logging, Zero Trust cannot function. Observability is the foundation
+      that allows trust decisions to be verified rather than assumed.
+    </p>
+  </section>
+
+  <!-- =========================
+       PREREQUISITES
+  ========================= -->
+  <section class="lab-section">
+    <h2>Prerequisites</h2>
+    <ul>
+      <li>An AWS account</li>
+      <li>Access to the AWS Management Console</li>
+      <li>No prior logging experience required</li>
+    </ul>
+  </section>
+
+  <!-- =========================
+       LAB STEPS START
+  ========================= -->
+  <section class="lab-section" id="start">
+    <h2>Lab Steps</h2>
+
+    <h3>Step 1 — Understand What Logging Is</h3>
+
+    <h4>Objective</h4>
+    <p>
+      Understand why logging exists in cloud security.
+    </p>
+
+    <h4>Simple Explanation</h4>
+    <p><strong>“Who did what, and when?”</strong></p>
+
+    <ul>
+      <li>You cannot investigate incidents without logs</li>
+      <li>You cannot prove compliance without logs</li>
+      <li>You cannot trust security controls without logs</li>
+    </ul>
+
+    <p>
+      CloudTrail is AWS’s source of truth for account activity.
+    </p>
+
+    <h3>Step 2 — Enable CloudTrail</h3>
+
+    <h4>Objective</h4>
+    <p>
+      Turn on CloudTrail to start recording activity.
+    </p>
+
+    <ol>
+      <li>Open CloudTrail</li>
+      <li>Click <strong>Create trail</strong></li>
+      <li>Name the trail: <code>stc-cloudtrail-basics</code></li>
+      <li>Select <strong>All regions</strong></li>
+      <li>Enable <strong>Management events</strong></li>
+      <li>Create or select an S3 bucket for logs</li>
+      <li>Create the trail</li>
+    </ol>
+
+    <h3>Step 3 — Generate and View Audit Events</h3>
+
+    <h4>Objective</h4>
+    <p>
+      See real audit records in action.
+    </p>
+
+    <ol>
+      <li>Create an AWS resource (for example, an S3 bucket)</li>
+      <li>Return to CloudTrail</li>
+      <li>Open <strong>Event history</strong></li>
+      <li>Filter by event name or username</li>
+    </ol>
+
+    <p>
+      This is how security teams investigate incidents.
+    </p>
+
+  </section>
+
+  <footer class="site-footer">
+    <!-- standard footer -->
+  </footer>
+
+</body>
+</html>

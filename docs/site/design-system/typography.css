@@ -1,0 +1,49 @@
+/* =========================================================
+   Typography System
+========================================================= */
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--stc-gray-300);
+  line-height: 1.6;
+}
+
+/* Headings */
+h1, h2, h3, h4 {
+  color: var(--stc-white);
+  font-weight: 600;
+  margin: 0 0 var(--sp-4);
+}
+
+h1 { font-size: 48px; line-height: 1.15; }
+h2 { font-size: 36px; }
+h3 { font-size: 28px; }
+h4 { font-size: 22px; }
+
+/* Body */
+p {
+  margin: 0 0 var(--sp-4);
+}
+
+small {
+  font-size: 13px;
+  color: var(--stc-gray-500);
+}
+
+/* Code */
+code, pre {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 14px;
+  background: var(--stc-black-800);
+  border: 1px solid var(--stc-border-subtle);
+  border-radius: var(--radius-sm);
+}
+
+pre {
+  padding: var(--sp-4);
+  overflow-x: auto;
+}

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Network Shield | STI Shield Framework</title>
+  <meta name="description"
+        content="Network Shield defines zero trust network architecture, segmentation, and policy-driven traffic control for cloud environments." />
+
+  <!-- Design System -->
+  <link rel="stylesheet" href="/design-system/tokens.css" />
+  <link rel="stylesheet" href="/design-system/typography.css" />
+  <link rel="stylesheet" href="/design-system/layouts.css" />
+  <link rel="stylesheet" href="/design-system/components.css" />
+  <link rel="stylesheet" href="/design-system/motion.css" />
+
+  <!-- Global + Page Styles -->
+  <link rel="stylesheet" href="/css/base.css" />
+  <link rel="stylesheet" href="/css/layout.css" />
+  <link rel="stylesheet" href="/css/pages/shield.css" />
+</head>
+
+<body>
+
+<!-- =========================
+     GLOBAL NAV
+========================= -->
+<header class="stc-nav">
+  <div class="stc-nav-inner">
+    <div class="stc-nav-logo">
+      <a href="/"><img src="/assets/brand/logo.svg" alt="SecureTheCloud Logo" /></a>
+    </div>
+    <nav class="stc-nav-menu">
+      <a href="/platform/">Platform</a>
+      <a href="/shield/" class="active">Shield</a>
+      <a href="/ai/">AI</a>
+      <a href="/labs/index.html">Labs</a>
+      <a href="/academy/">Academy</a>
+    </nav>
+    <button class="stc-nav-toggle">☰</button>
+  </div>
+</header>
+
+<!-- =========================
+     HERO
+========================= -->
+<section class="stc-hero">
+  <div class="stc-container">
+    <h1>Network Shield</h1>
+    <p>
+      Network Shield applies Zero Trust principles to cloud networking,
+      enforcing explicit trust boundaries, segmentation, and policy-driven
+      traffic control.
+    </p>
+  </div>
+</section>
+
+<!-- =========================
+     PURPOSE & PRINCIPLES
+========================= -->
+<section>
+  <div class="stc-container stc-grid-2">
+
+    <div>
+      <h2>Purpose</h2>
+      <p>
+        Network Shield eliminates implicit trust within networks.
+        Every connection is explicitly allowed, monitored, and constrained
+        based on identity, workload role, and policy.
+      </p>
+
+      <h3>Core Principles</h3>
+      <ul>
+        <li>Zero Trust networking (no flat networks)</li>
+        <li>Explicit east–west traffic controls</li>
+        <li>Policy before routing</li>
+        <li>Environment isolation</li>
+      </ul>
+    </div>
+
+    <div class="stc-card">
+      <h3>Threats Addressed</h3>
+      <ul>
+        <li>Lateral movement</li>
+        <li>Over-permissive network access</li>
+        <li>Flat network blast radius</li>
+        <li>Unmonitored east–west traffic</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- =========================
+     ARCHITECTURE PATTERNS
+========================= -->
+<section>
+  <div class="stc-container">
+    <h2>Architecture Patterns</h2>
+    <ul>
+      <li>Tiered VPC / VNet segmentation</li>
+      <li>Security group / NSG micro-segmentation</li>
+      <li>Route-table enforced trust zones</li>
+      <li>Ingress and egress control points</li>
+    </ul>
+  </div>
+</section>
+
+<!-- =========================
+     LAB VALIDATION
+========================= -->
+<section>
+  <div class="stc-container">
+    <h2>Validated by Labs</h2>
+    <p>
+      Network Shield patterns are validated through hands-on labs that
+      implement Zero Trust networking, segmented VPC design,
+      and east–west traffic enforcement.
+    </p>
+
+    <a href="/labs/index.html" class="stc-btn stc-btn-secondary">
+      View Network Labs
+    </a>
+  </div>
+</section>
+
+<!-- =========================
+     FOOTER
+========================= -->
+<footer class="stc-footer">
+  <div class="stc-container">
+    © SecureTheCloud • Networks enforce trust boundaries
+  </div>
+</footer>
+
+<script src="/js/navigation.js"></script>
+</body>
+</html>
