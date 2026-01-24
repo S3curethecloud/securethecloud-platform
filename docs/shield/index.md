@@ -43,6 +43,22 @@ Shield is organized by **threat domains**, not services.
 
 ---
 
+### 🌐 Network Shield
+**Threats**
+- Lateral movement
+- Public network exposure
+- Over-permissive firewall rules
+
+**Primary Controls**
+- Network segmentation
+- Security groups and NACLs
+- Private endpoints and routing controls
+
+**Mapped Labs**
+- AWS Network Security Basics  
+  → `labs/aws/network/network-security-basics/`
+
+
 ### 👁️ Detection & Visibility Shield
 **Threats**
 - Undetected malicious activity
