@@ -58,6 +58,25 @@ Shield is organized by **threat domains**, not services.
 - AWS Network Security Basics  
   → `labs/aws/network/network-security-basics/`
 
+---
+
+### 🧮 Zero Trust Compute Shield
+**Threats**
+- Compromised workloads
+- Credential abuse from compute
+- Lateral movement via service roles
+
+**Primary Controls**
+- Least-privilege IAM roles for workloads
+- Strong identity boundaries between services
+- Encryption and secrets isolation
+- Mandatory logging and telemetry
+
+**Mapped Labs**
+- AWS IAM Basics  
+  → `labs/aws/identity/iam-basics/`
+- AWS KMS Basics  
+  → `labs/aws/security/kms-basics/`
 
 ### 👁️ Detection & Visibility Shield
 **Threats**

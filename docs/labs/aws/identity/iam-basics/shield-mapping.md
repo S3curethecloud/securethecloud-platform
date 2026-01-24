@@ -1,36 +1,32 @@
-# Shield Mapping — AWS IAM Basics
+# Shield Mapping — IAM Basics (Zero Trust Compute)
 
 ## Threat Scenario
-Compromised credentials or over-permissioned identities allow attackers
-to escalate privileges and access sensitive resources.
+Over-permissive IAM roles allow compromised workloads
+to access unrelated services and sensitive data.
 
 ## Attack Path
-Credential compromise or misuse of excessive permissions enables
-unauthorized actions across AWS services.
-
-Compromised credentials
-→ Excessive IAM permissions
-→ Privilege escalation
-→ Resource takeover
+Compromised compute workload
+→ Excessive IAM role permissions
+→ Unauthorized service access
+→ Data exfiltration or persistence
 
 markdown
 Copy code
 
 ## Defensive Controls
-- IAM least-privilege policies
-- Use of IAM roles instead of long-lived users
-- Regular access reviews
+- Least-privilege IAM roles for workloads
+- Separation of duties between services
+- Explicit deny policies where applicable
+- Avoid long-lived IAM users
 
 ## Detection & Signals
-- CloudTrail events:
-  - `AttachUserPolicy`
-  - `PutRolePolicy`
-  - `CreateAccessKey`
+- CloudTrail role usage anomalies
 - IAM Access Analyzer findings
+- Unusual service-to-service API calls
 
 ## Shield Domain
-Identity Shield
+Zero Trust Compute Shield
 
 ## Related Labs
-- AWS S3 Public Access Block
+- AWS KMS Basics
 - AWS CloudTrail Logging & Audit Visibility
