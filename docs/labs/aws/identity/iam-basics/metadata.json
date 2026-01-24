@@ -1,0 +1,13 @@
+{
+  "id": "aws-iam-basics",
+  "title": "AWS IAM Basics",
+  "cloud": "aws",
+  "domain": "identity",
+  "level": "L1",
+  "estimated_time": "30–45 minutes",
+  "skills": ["iam", "identity", "least-privilege"],
+  "threats": ["credential-abuse", "privilege-escalation"],
+  "controls": ["IAM Policies", "IAM Roles"],
+  "related_labs": ["aws-s3-public-access-block"],
+  "status": "published"
+}

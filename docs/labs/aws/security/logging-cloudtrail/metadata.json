@@ -1,0 +1,13 @@
+{
+  "id": "aws-cloudtrail-logging",
+  "title": "AWS CloudTrail Logging & Audit Visibility",
+  "cloud": "aws",
+  "domain": "security",
+  "level": "L1",
+  "estimated_time": "30–45 minutes",
+  "skills": ["cloudtrail", "logging", "audit"],
+  "threats": ["undetected-activity"],
+  "controls": ["CloudTrail"],
+  "related_labs": ["aws-iam-basics"],
+  "status": "published"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "aws-s3-public-access-block",
+  "title": "AWS S3 Public Access Block",
+  "cloud": "aws",
+  "domain": "storage",
+  "level": "L1",
+  "estimated_time": "30–45 minutes",
+  "skills": ["s3", "data-protection", "least-privilege"],
+  "threats": ["public-data-exposure"],
+  "controls": ["S3 Public Access Block"],
+  "related_labs": ["aws-iam-basics"],
+  "status": "published"
+}
