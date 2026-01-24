@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SecureTheCloud AI</title>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, sans-serif;
+      background: radial-gradient(circle at top, #0b1220, #05070d 70%);
+      color: #e5e7eb;
+      line-height: 1.6;
+    }
+
+    a { text-decoration: none; color: inherit; }
+
+    /* NAV (aligned with homepage) */
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 48px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .nav-brand {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: #38bdf8;
+    }
+
+    .nav-links a {
+      margin-left: 24px;
+      font-size: 0.95rem;
+      color: #cbd5f5;
+    }
+
+    .nav-links a:hover {
+      color: #ffffff;
+    }
+
+    /* CONTENT */
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 96px 48px;
+    }
+
+    h1 {
+      font-size: 2.6rem;
+      margin-bottom: 16px;
+    }
+
+    p.lead {
+      font-size: 1.15rem;
+      color: #cbd5f5;
+      margin-bottom: 36px;
+      max-width: 760px;
+    }
+
+    .pill-strip {
+      margin-bottom: 40px;
+    }
+
+    .pill {
+      display: inline-block;
+      margin: 6px 8px 0 0;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      background: rgba(255,255,255,0.08);
+      color: #cbd5f5;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    .card h3 {
+      margin-bottom: 6px;
+      font-size: 1.1rem;
+      color: #e5e7eb;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      color: #cbd5f5;
+    }
+
+    footer {
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 32px 48px;
+      font-size: 0.85rem;
+      color: #9ca3af;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <header class="nav">
+    <div class="nav-brand">SecureTheCloud</div>
+    <nav class="nav-links">
+      <a href="/">Home</a>
+      <a href="/dashboard/">Platform</a>
+      <a href="/labs/">Labs</a>
+      <a href="/shield/">Shield</a>
+      <a href="/ai/">AI</a>
+      <a href="https://www.youtube.com/@SecureTheCloud-dev"
+         target="_blank"
+         rel="noopener noreferrer">
+        Media
+      </a>
+    </nav>
+  </header>
+
+  <!-- CONTENT -->
+  <main class="container">
+    <h1>SecureTheCloud AI</h1>
+
+    <p class="lead">
+      SecureTheCloud AI is an intelligence layer designed to reason about cloud
+      architecture, security posture, and operational risk — not a generic chat bot.
+    </p>
+
+    <div class="pill-strip">
+      <span class="pill">Architecture Reasoning</span>
+      <span class="pill">Threat Context</span>
+      <span class="pill">Labs-Aware</span>
+      <span class="pill">Security-First</span>
+    </div>
+
+    <div class="card">
+      <h3>What It Will Do</h3>
+      <p>
+        Analyze architectures, explain security tradeoffs, correlate lab outcomes,
+        and assist with design and investigation workflows.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>What It Is Not</h3>
+      <p>
+        This is not a marketing chatbot or a prompt playground.
+        It is a reasoning engine grounded in SecureTheCloud’s labs,
+        models, and architectural knowledge.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Status</h3>
+      <p>
+        The SecureTheCloud AI interface is under active development.
+        This page represents the canonical entry point and design direction.
+      </p>
+    </div>
+  </main>
+
+  <footer>
+    © SecureTheCloud · AI built for security engineers
+  </footer>
+
+</body>
+</html>
