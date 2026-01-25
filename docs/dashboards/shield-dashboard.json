@@ -1,0 +1,10 @@
+{
+  "version": "v1",
+  "domains": [
+    {"name": "Identity Shield", "status": "unknown"},
+    {"name": "Data Protection Shield", "status": "unknown"},
+    {"name": "Detection & Visibility Shield", "status": "unknown"},
+    {"name": "Network Shield", "status": "unknown"},
+    {"name": "Zero Trust Compute Shield", "status": "unknown"}
+  ]
+}
