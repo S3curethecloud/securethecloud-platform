@@ -1,33 +1,31 @@
 # Shield Mapping — AWS Network Security Basics
 
 ## Threat Scenario
-Overly permissive network access allows attackers to move laterally
-between resources and access services that should be isolated.
+Flat or over-permissive networks allow attackers to move laterally
+after gaining an initial foothold.
 
 ## Attack Path
-Weak segmentation and open ingress rules expose internal resources.
-
-Public or compromised entry point
-→ Open security group or routing rule
+Initial access
+→ Open ingress rules
 → Lateral movement
-→ Resource compromise
+→ Multi-resource compromise
 
 markdown
 Copy code
 
 ## Defensive Controls
-- Security group least privilege
-- Network segmentation by tier
-- Restrictive ingress and egress rules
+- Tiered network segmentation
+- Restrictive security group rules
+- Minimal ingress exposure
 
 ## Detection & Signals
 - VPC Flow Logs
 - Security Hub network findings
-- Unexpected east-west traffic patterns
+- Unexpected east-west traffic
 
 ## Shield Domain
 Network Shield
 
 ## Related Labs
+- Secure Network Access (Composite)
 - AWS IAM Basics
-- AWS CloudTrail Logging & Audit Visibility
