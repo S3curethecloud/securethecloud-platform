@@ -1,10 +1,36 @@
 {
   "version": "v1",
+  "last_updated": null,
   "domains": [
-    {"name": "Identity Shield", "status": "unknown"},
-    {"name": "Data Protection Shield", "status": "unknown"},
-    {"name": "Detection & Visibility Shield", "status": "unknown"},
-    {"name": "Network Shield", "status": "unknown"},
-    {"name": "Zero Trust Compute Shield", "status": "unknown"}
+    {
+      "name": "Identity Shield",
+      "status": "unknown",
+      "key_risks": [],
+      "recommended_labs": []
+    },
+    {
+      "name": "Data Protection Shield",
+      "status": "unknown",
+      "key_risks": [],
+      "recommended_labs": []
+    },
+    {
+      "name": "Detection & Visibility Shield",
+      "status": "unknown",
+      "key_risks": [],
+      "recommended_labs": []
+    },
+    {
+      "name": "Network Shield",
+      "status": "unknown",
+      "key_risks": [],
+      "recommended_labs": []
+    },
+    {
+      "name": "Zero Trust Compute Shield",
+      "status": "unknown",
+      "key_risks": [],
+      "recommended_labs": []
+    }
   ]
 }

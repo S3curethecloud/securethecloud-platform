@@ -39,3 +39,31 @@ Reason per Shield domain. Avoid tool bias. Explain blast radius and detection co
 - Action
 - Shield domain
 - Validation lab
+
+---
+
+## Dashboard Output Contract (v1)
+
+When generating results, also emit a machine-readable object
+that updates the Shield dashboard.
+
+### Required JSON Shape
+```json
+{
+  "version": "v1",
+  "generated_at": "<ISO-8601>",
+  "domains": [
+    {
+      "name": "Identity Shield",
+      "status": "Strong | Partial | Weak",
+      "key_risks": ["..."],
+      "recommended_labs": ["aws-iam-basics"]
+    },
+    {
+      "name": "Data Protection Shield",
+      "status": "Strong | Partial | Weak",
+      "key_risks": ["..."],
+      "recommended_labs": ["aws-s3-public-access-block", "aws-kms-basics"]
+    }
+  ]
+}
