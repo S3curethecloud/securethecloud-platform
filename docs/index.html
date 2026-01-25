@@ -3,23 +3,30 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>SecureTheCloud</title>
+  <title>SecureTheCloud Docs</title>
 
   <!-- Base Reset -->
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, sans-serif; }
-    a { text-decoration: none; color: inherit; }
-  </style>
-
-  <!-- Homepage Theme -->
-  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
     body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, Ubuntu, sans-serif;
       background: radial-gradient(circle at top, #0b1220, #05070d 70%);
       color: #e5e7eb;
       line-height: 1.6;
     }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+  </style>
 
+  <!-- Docs Theme -->
+  <style>
     /* NAV */
     .nav {
       display: flex;
@@ -45,30 +52,36 @@
       color: #ffffff;
     }
 
-    /* HERO */
+    /* HERO (AUTHORITY) */
     .hero {
       max-width: 1100px;
       margin: 0 auto;
-      padding: 96px 48px 72px;
+      padding: 96px 48px 64px;
     }
 
     .hero h1 {
       font-size: 3rem;
       font-weight: 700;
-      margin-bottom: 16px;
+      margin-bottom: 14px;
     }
 
-    .hero p {
-      max-width: 720px;
+    .hero p.subhead {
+      max-width: 760px;
       font-size: 1.15rem;
       color: #cbd5f5;
+      margin-bottom: 18px;
+    }
+
+    .hero p.credibility {
+      font-size: 0.95rem;
+      color: #9ca3af;
       margin-bottom: 36px;
     }
 
     .hero-actions a {
       display: inline-block;
       margin-right: 16px;
-      padding: 12px 20px;
+      padding: 12px 22px;
       border-radius: 8px;
       font-size: 0.95rem;
       font-weight: 500;
@@ -92,24 +105,77 @@
       background: rgba(255,255,255,0.08);
     }
 
-    /* PLATFORM STRIP */
-    .pill-strip {
-      margin-top: 40px;
+    /* PLATFORM PILLARS */
+    .pillars {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 48px 72px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
     }
 
-    .pill {
-      display: inline-block;
-      margin: 6px 8px 0 0;
-      padding: 6px 10px;
-      border-radius: 999px;
-      font-size: 0.75rem;
-      background: rgba(255,255,255,0.08);
+    .pillar {
+      padding: 20px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.03);
+    }
+
+    .pillar h3 {
+      margin-bottom: 6px;
+      font-size: 1.05rem;
+      color: #ffffff;
+    }
+
+    .pillar p {
+      font-size: 0.9rem;
       color: #cbd5f5;
     }
 
-    /* FOOTER */
+    /* TRUST SECTION */
+    .trust {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 48px 64px;
+    }
+
+    .trust h2 {
+      font-size: 1.4rem;
+      margin-bottom: 12px;
+    }
+
+    .trust p {
+      font-size: 0.95rem;
+      color: #cbd5f5;
+    }
+
+    /* AUDIENCE */
+    .audience {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 48px 72px;
+    }
+
+    .audience ul {
+      list-style: none;
+      margin-top: 12px;
+    }
+
+    .audience li {
+      margin-bottom: 8px;
+      font-size: 0.95rem;
+      color: #cbd5f5;
+    }
+
+    /* FINAL CTA */
+    .final-cta {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 48px 96px;
+    }
+
     footer {
-      margin-top: 96px;
       padding: 32px 48px;
       border-top: 1px solid rgba(255,255,255,0.06);
       font-size: 0.85rem;
@@ -120,52 +186,102 @@
 
 <body>
 
-  <!-- NAVIGATION -->
-  <header class="nav">
-    <div class="nav-brand">SecureTheCloud</div>
-    <nav class="nav-links">
-      <a href="/">Home</a>
-      <a href="/dashboard/">Platform</a>
-      <a href="/labs/">Labs</a>
-      <a href="/shield/">Shield</a>
-      <a href="/ai/">AI</a>
-      <a href="https://www.youtube.com/@SecureTheCloud-dev"
-         target="_blank"
-         rel="noopener noreferrer"
-         aria-label="SecureTheCloud YouTube Channel (opens in new tab)">
-        Media
-      </a>
-      <a href="/consulting/">Consulting</a>
-    </nav>
-  </header>
+<!-- NAV -->
+<header class="nav">
+  <div class="nav-brand">SecureTheCloud</div>
+  <nav class="nav-links">
+    <a href="/">Home</a>
+    <a href="/docs/">Docs</a>
+    <a href="/docs/labs/">Labs</a>
+    <a href="/docs/shield/">Shield</a>
+    <a href="/docs/ai/">AI</a>
+    <a href="/docs/consulting/">Consulting</a>
+  </nav>
+</header>
 
-  <!-- HERO -->
-  <main class="hero">
-    <h1>SecureTheCloud</h1>
+<!-- HERO (AUTHORITY) -->
+<main class="hero">
+  <h1>SecureTheCloud</h1>
+
+  <p class="subhead">
+    A practitioner-built platform for cloud security labs, threat modeling,
+    and zero-trust architecture.
+  </p>
+
+  <p class="credibility">
+    Built from real-world AWS, Azure, and GCP security work — not demos.
+  </p>
+
+  <div class="hero-actions">
+    <a class="btn-primary" href="/docs/labs/">Explore Labs</a>
+    <a class="btn-secondary" href="/docs/shield/">View Shield Framework</a>
+  </div>
+</main>
+
+<!-- PLATFORM PILLARS -->
+<section class="pillars">
+  <a class="pillar" href="/docs/labs/">
+    <h3>Labs</h3>
     <p>
-      Security engineering, defensive intelligence, and architect-grade education —
-      unified into a single platform for modern cloud systems.
+      Hands-on security labs covering identity, network, storage,
+      logging, and zero trust across AWS and multi-cloud.
     </p>
+  </a>
 
-    <div class="hero-actions">
-      <a class="btn-primary" href="/labs/">Enter Labs</a>
-      <a class="btn-secondary" href="/shield/">Explore Shield</a>
-      <a class="btn-secondary" href="/ai/">Activate AI</a>
-    </div>
+  <a class="pillar" href="/docs/shield/">
+    <h3>Shield</h3>
+    <p>
+      Threat scenarios, attack paths, detections, and defensive mappings
+      aligned to real cloud incidents.
+    </p>
+  </a>
 
-    <div class="pill-strip">
-      <span class="pill">Multi-Cloud</span>
-      <span class="pill">Identity & Zero Trust</span>
-      <span class="pill">Detection & Response</span>
-      <span class="pill">Architecture Reasoning</span>
-      <span class="pill">Hands-On Labs</span>
-    </div>
-  </main>
+  <a class="pillar" href="/docs/ai/">
+    <h3>AI</h3>
+    <p>
+      An intelligence layer connecting labs, threats, and architecture
+      into a unified reasoning system.
+    </p>
+  </a>
 
-  <!-- FOOTER -->
-  <footer>
-    © SecureTheCloud · Built on AWS · Architected for longevity
-  </footer>
+  <a class="pillar" href="/docs/consulting/">
+    <h3>Consulting</h3>
+    <p>
+      Advisory and architecture work grounded in the same systems
+      documented on this platform.
+    </p>
+  </a>
+</section>
+
+<!-- WHY THIS EXISTS -->
+<section class="trust">
+  <h2>Why SecureTheCloud Exists</h2>
+  <p>
+    Most cloud security material is either theoretical or tool-driven.
+    SecureTheCloud is different: everything here is built from operational
+    experience, mapped to real attack paths, and validated through
+    hands-on labs.
+  </p>
+</section>
+
+<!-- AUDIENCE -->
+<section class="audience">
+  <strong>For:</strong>
+  <ul>
+    <li>• Cloud & Security Engineers sharpening real-world skills</li>
+    <li>• Architects designing zero-trust and multi-cloud environments</li>
+    <li>• Teams and leaders evaluating cloud risk beyond checklists</li>
+  </ul>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <a class="btn-primary" href="/docs/labs/">Start with the Labs</a>
+</section>
+
+<footer>
+  © SecureTheCloud · Practitioner-built · Architected for longevity
+</footer>
 
 </body>
 </html>
