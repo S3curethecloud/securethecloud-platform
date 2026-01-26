@@ -23,6 +23,10 @@ Shield is organized by **threat domains**, not services.
 **Mapped Labs**
 - AWS IAM Basics  
   → `labs/aws/identity/iam-basics/`
+- AWS Entra ID Federation  
+  → `labs/aws/identity/aws-entra-federation/`
+- Composite: Secure Identity & Network  
+  → `labs/aws/composite/secure-identity-network/`
 
 ---
 
@@ -57,6 +61,10 @@ Shield is organized by **threat domains**, not services.
 **Mapped Labs**
 - AWS Network Security Basics  
   → `labs/aws/network/network-security-basics/`
+- Composite: Secure Identity & Network  
+  → `labs/aws/composite/secure-identity-network/`
+- Composite: Secure Network Access  
+  → `labs/aws/composite/secure-network-access/`
 
 ---
 
@@ -77,6 +85,12 @@ Shield is organized by **threat domains**, not services.
   → `labs/aws/identity/iam-basics/`
 - AWS KMS Basics  
   → `labs/aws/security/kms-basics/`
+- Composite: Secure Identity & Network  
+  → `labs/aws/composite/secure-identity-network/`
+- Composite: Secure Network Access  
+  → `labs/aws/composite/secure-network-access/`
+
+---
 
 ### 👁️ Detection & Visibility Shield
 **Threats**
@@ -105,13 +119,3 @@ Shield powers:
 
 Each Shield domain is backed by **hands-on labs** that demonstrate
 how controls are implemented and validated in real environments.
-
----
-
-## 🚀 Next Expansion
-
-Future Shield additions will include:
-- Network Shield
-- Application Shield
-- Zero Trust Compute Shield
-- AI & Model Security Shield
