@@ -11,189 +11,108 @@
   />
 
   <!-- Design System -->
-  <link rel="stylesheet" href="/design-system/tokens.css" />
-  <link rel="stylesheet" href="/design-system/typography.css" />
-  <link rel="stylesheet" href="/design-system/layouts.css" />
-  <link rel="stylesheet" href="/design-system/components.css" />
-  <link rel="stylesheet" href="/design-system/motion.css" />
+  <link rel="stylesheet" href="/docs/design-system/tokens.css" />
+  <link rel="stylesheet" href="/docs/design-system/typography.css" />
+  <link rel="stylesheet" href="/docs/design-system/layouts.css" />
+  <link rel="stylesheet" href="/docs/design-system/components.css" />
+  <link rel="stylesheet" href="/docs/design-system/motion.css" />
 
   <!-- Global Styles -->
-  <link rel="stylesheet" href="/css/base.css" />
-  <link rel="stylesheet" href="/css/layout.css" />
-  <link rel="stylesheet" href="/css/navigation.css" />
+  <link rel="stylesheet" href="/docs/css/base.css" />
+  <link rel="stylesheet" href="/docs/css/layout.css" />
+  <link rel="stylesheet" href="/docs/css/navigation.css" />
 
   <!-- Lab Styles -->
-  <link rel="stylesheet" href="/css/pages/labs.css" />
+  <link rel="stylesheet" href="/docs/css/pages/labs.css" />
 </head>
 
 <body>
 
-  <!-- Global Navigation -->
-  <nav class="stc-nav">
-    <!-- standard nav include -->
-  </nav>
+  <!-- REQUIRED: PRIMARY PAGE H1 -->
+  <h1>Secure S3 End-to-End with IAM, KMS, Policies, and CloudTrail</h1>
+
+  <!-- REQUIRED: OBJECTIVE LINE -->
+  <p>
+    Learn how to secure Amazon S3 end-to-end by combining IAM permissions,
+    KMS encryption, bucket policies, and CloudTrail auditing to enforce Zero Trust.
+  </p>
+
+  <!-- REQUIRED: WHAT YOU’LL LEARN -->
+  <h2>What You’ll Learn</h2>
+  <ul>
+    <li>How IAM and bucket policies restrict S3 access</li>
+    <li>How KMS enforces encryption and key usage</li>
+    <li>How CloudTrail proves access and enforcement decisions</li>
+  </ul>
 
   <!-- =========================
-       LAB HEADER (TRUST ANCHOR)
-  ========================= -->
-  <header class="lab-hero">
-    <h1>Secure S3 End-to-End with IAM, KMS, Policies, and CloudTrail</h1>
-
-    <div class="lab-meta">
-      <span class="tag aws">AWS</span>
-      <span class="tag composite">Composite</span>
-      <span class="tag l2">L2</span>
-      <span class="tag time">60–90 mins</span>
-    </div>
-
-    <p class="lab-intro">
-      This lab combines multiple AWS security controls to build a fully secured
-      S3 bucket with enforced encryption, controlled access, and audit visibility.
-    </p>
-
-    <a href="#start" class="lab-start-btn">
-      Start Lab →
-    </a>
-  </header>
-
-  <!-- =========================
-       WHAT YOU’LL BUILD
+       OVERVIEW (CANONICAL)
   ========================= -->
   <section class="lab-section">
-    <h2>What You’ll Build</h2>
-    <ul>
-      <li>An S3 bucket protected end-to-end</li>
-      <li>IAM permissions enforcing least privilege</li>
-      <li>KMS-controlled encryption keys</li>
-      <li>Bucket policies preventing misconfiguration</li>
-      <li>Audit trails proving security enforcement</li>
-    </ul>
-  </section>
-
-  <!-- =========================
-       ZERO TRUST MAPPING
-  ========================= -->
-  <section class="lab-section">
-    <h2>Zero Trust Mapping — Identity, Data Protection, Observability</h2>
-
+    <h2>Overview</h2>
     <p>
-      This composite lab intentionally maps to multiple Zero Trust pillars.
-      Rather than treating controls in isolation, it demonstrates how trust is
-      enforced continuously across identity, data, and audit layers.
-    </p>
-
-    <ul>
-      <li>
-        <strong>Identity:</strong> IAM roles and policies define exactly
-        who is allowed to access S3 and use encryption keys.
-      </li>
-      <li>
-        <strong>Data Protection:</strong> KMS-backed encryption and S3 bucket
-        policies ensure data remains protected even if access is attempted.
-      </li>
-      <li>
-        <strong>Observability:</strong> CloudTrail provides immutable audit logs
-        proving who acted, what was accessed, and when.
-      </li>
-    </ul>
-
-    <p>
-      Together, these controls enforce Zero Trust by design:
-      trust is never assumed, access is explicitly granted, and every action
-      is observable and provable.
+      In this composite lab, you will build a production-grade S3 bucket that enforces
+      least privilege, mandatory encryption, safe-by-default policies, and auditable access.
     </p>
   </section>
 
   <!-- =========================
-       PREREQUISITES
-  ========================= -->
-  <section class="lab-section">
-    <h2>Prerequisites</h2>
-    <ul>
-      <li>Completion of L1 IAM, S3, KMS, and Logging labs</li>
-      <li>An AWS account</li>
-      <li>Access to the AWS Management Console</li>
-    </ul>
-  </section>
-
-  <!-- =========================
-       LAB STEPS START
+       STEPS (CANONICAL — COMPOSITE)
   ========================= -->
   <section class="lab-section" id="start">
-    <h2>Lab Steps</h2>
-
-    <h3>Step 1 — Design the Security Model (Before Building)</h3>
-
-    <h4>Objective</h4>
-    <p>Define how identity, data, keys, and logs work together.</p>
-
-    <ul>
-      <li>IAM controls who can act</li>
-      <li>KMS controls who can encrypt and decrypt</li>
-      <li>S3 policies control what is allowed</li>
-      <li>CloudTrail proves what happened</li>
-    </ul>
-
-    <p>Security must be designed before resources exist.</p>
-
-    <h3>Step 2 — Create IAM Role and Permissions</h3>
+    <h2>Steps</h2>
 
     <ol>
-      <li>Create an IAM role or user for S3 access</li>
-      <li>Grant <code>s3:PutObject</code> and <code>s3:GetObject</code></li>
-      <li>Grant permission to use a specific KMS key</li>
-      <li>Do <strong>not</strong> grant admin permissions</li>
+      <li>
+        Design the security model by defining how IAM, KMS, S3 policies, and CloudTrail
+        work together before creating any resources.
+      </li>
+      <li>
+        Create an IAM identity with least-privilege permissions for S3 access and
+        controlled use of a specific KMS key.
+      </li>
+      <li>
+        Create a customer-managed KMS key and an S3 bucket with SSE-KMS encryption
+        enabled and all public access blocked.
+      </li>
+      <li>
+        Apply S3 bucket policies that deny unencrypted uploads and prevent public access
+        or unauthorized principals.
+      </li>
+      <li>
+        Test allowed and denied scenarios to confirm misconfigurations fail safely
+        and intended access succeeds.
+      </li>
+      <li>
+        Review CloudTrail logs to verify who accessed S3, which KMS key was used,
+        and when actions occurred.
+      </li>
     </ol>
-
-    <p>Least privilege is enforced at the identity layer.</p>
-
-    <h3>Step 3 — Create KMS Key and Secure S3 Bucket</h3>
-
-    <ol>
-      <li>Create a customer-managed KMS key</li>
-      <li>Create an S3 bucket</li>
-      <li>Enable SSE-KMS using your CMK</li>
-      <li>Block all public access</li>
-    </ol>
-
-    <p>Data is protected even if access is attempted.</p>
-
-    <h3>Step 4 — Enforce Security with Bucket Policies</h3>
-
-    <ul>
-      <li>Deny unencrypted uploads</li>
-      <li>Deny public access explicitly</li>
-      <li>Bind encryption to your CMK</li>
-    </ul>
-
-    <p><strong>Outcome:</strong> Misconfigurations fail safely.</p>
-
-    <h3>Step 5 — Validate and Attempt Violations</h3>
-
-    <ul>
-      <li>Upload without encryption → fails</li>
-      <li>Attempt public access → fails</li>
-      <li>Access with correct IAM role → succeeds</li>
-    </ul>
-
-    <p><strong>Outcome:</strong> Controls behave as designed.</p>
-
-    <h3>Step 6 — Audit with CloudTrail</h3>
-
-    <ul>
-      <li>Review CloudTrail events</li>
-      <li>Confirm who accessed S3</li>
-      <li>Confirm which KMS key was used</li>
-      <li>Confirm when actions occurred</li>
-    </ul>
-
-    <p><strong>Outcome:</strong> Security is provable.</p>
-
   </section>
 
-  <footer class="site-footer">
-    <!-- standard footer -->
-  </footer>
+  <!-- =========================
+       VALIDATION (CANONICAL)
+  ========================= -->
+  <section class="lab-section">
+    <h2>Validation</h2>
+    <ul>
+      <li>Unencrypted or public access attempts are denied</li>
+      <li>Authorized access succeeds using the correct IAM identity</li>
+      <li>All actions are visible and attributable in CloudTrail</li>
+    </ul>
+  </section>
+
+  <!-- =========================
+       TEARDOWN (CANONICAL)
+  ========================= -->
+  <section class="lab-section">
+    <h2>Teardown</h2>
+    <ul>
+      <li>Delete test IAM identities or detach permissions</li>
+      <li>Remove the S3 bucket and KMS key if no longer required</li>
+      <li>Confirm no residual access paths remain</li>
+    </ul>
+  </section>
 
 </body>
 </html>
