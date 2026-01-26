@@ -11,200 +11,109 @@
   />
 
   <!-- Design System -->
-  <link rel="stylesheet" href="/design-system/tokens.css" />
-  <link rel="stylesheet" href="/design-system/typography.css" />
-  <link rel="stylesheet" href="/design-system/layouts.css" />
-  <link rel="stylesheet" href="/design-system/components.css" />
-  <link rel="stylesheet" href="/design-system/motion.css" />
+  <link rel="stylesheet" href="/docs/design-system/tokens.css" />
+  <link rel="stylesheet" href="/docs/design-system/typography.css" />
+  <link rel="stylesheet" href="/docs/design-system/layouts.css" />
+  <link rel="stylesheet" href="/docs/design-system/components.css" />
+  <link rel="stylesheet" href="/docs/design-system/motion.css" />
 
   <!-- Global Styles -->
-  <link rel="stylesheet" href="/css/base.css" />
-  <link rel="stylesheet" href="/css/layout.css" />
-  <link rel="stylesheet" href="/css/navigation.css" />
+  <link rel="stylesheet" href="/docs/css/base.css" />
+  <link rel="stylesheet" href="/docs/css/layout.css" />
+  <link rel="stylesheet" href="/docs/css/navigation.css" />
 
   <!-- Lab Styles -->
-  <link rel="stylesheet" href="/css/pages/labs.css" />
+  <link rel="stylesheet" href="/docs/css/pages/labs.css" />
 </head>
 
 <body>
 
-  <!-- Global Navigation -->
-  <nav class="stc-nav">
-    <!-- standard nav include -->
-  </nav>
+  <!-- REQUIRED: PRIMARY PAGE H1 -->
+  <h1>Secure Network Access with IAM, Security Groups, and CloudTrail</h1>
+
+  <!-- REQUIRED: OBJECTIVE LINE -->
+  <p>
+    Learn how to enforce Zero Trust network access by combining IAM identity,
+    least-privilege network controls, and CloudTrail audit evidence.
+  </p>
+
+  <!-- REQUIRED: WHAT YOU’LL LEARN -->
+  <h2>What You’ll Learn</h2>
+  <ul>
+    <li>How identity and network controls jointly authorize access</li>
+    <li>How Security Groups and Network ACLs restrict traffic paths</li>
+    <li>How CloudTrail proves access and denial decisions</li>
+  </ul>
 
   <!-- =========================
-       LAB HEADER (TRUST ANCHOR)
+       OVERVIEW (CANONICAL)
   ========================= -->
-  <header class="lab-hero">
-    <h1>Secure Network Access with IAM, Security Groups, and CloudTrail</h1>
-
-    <div class="lab-meta">
-      <span class="tag aws">AWS</span>
-      <span class="tag composite">Composite</span>
-      <span class="tag l2">L2</span>
-      <span class="tag time">60–90 mins</span>
-    </div>
-
-    <p class="lab-intro">
-      This lab combines identity, network controls, and audit logging to enforce
-      Zero Trust access to cloud resources.
+  <section class="lab-section">
+    <h2>Overview</h2>
+    <p>
+      In this composite lab, you will design and validate a Zero Trust network access
+      model where identity, network controls, and audit logging must all agree before
+      access is granted.
     </p>
-
-    <a href="#start" class="lab-start-btn">
-      Start Lab →
-    </a>
-  </header>
-
-  <!-- =========================
-       WHAT YOU’LL BUILD
-  ========================= -->
-  <section class="lab-section">
-    <h2>What You’ll Build</h2>
-    <ul>
-      <li>An EC2 instance protected by identity and network controls</li>
-      <li>Security Groups enforcing least privilege access</li>
-      <li>Network ACLs providing subnet-level guardrails</li>
-      <li>CloudTrail evidence of access attempts</li>
-    </ul>
   </section>
 
   <!-- =========================
-       PREREQUISITES
-  ========================= -->
-  <section class="lab-section">
-    <h2>Prerequisites</h2>
-    <ul>
-      <li>Completion of L1 IAM, Network, and Logging labs</li>
-      <li>An AWS account</li>
-      <li>Access to the AWS Management Console</li>
-    </ul>
-  </section>
-
-  <!-- =========================
-       LAB STEPS START
+       STEPS (CANONICAL — COMPOSITE)
   ========================= -->
   <section class="lab-section" id="start">
-    <h2>Lab Steps</h2>
+    <h2>Steps</h2>
 
-    <!-- =========================
-         STEP 1
-    ========================= -->
-    <h3>Step 1 — Design the Zero Trust Network Model</h3>
-
-    <h4>Objective</h4>
-    <p>
-      Define how identity and network controls work together.
-    </p>
-
-    <h4>Key Principles</h4>
-    <ul>
-      <li>IAM controls who can initiate actions</li>
-      <li>Security Groups control what traffic is allowed</li>
-      <li>Network ACLs act as a safety net</li>
-      <li>CloudTrail records who attempted what</li>
-    </ul>
-
-    <h4>Why This Matters</h4>
-    <p>
-      Network security without identity is weak.<br />
-      Identity without network controls is incomplete.
-    </p>
-
-    <!-- =========================
-         STEP 2
-    ========================= -->
-    <h3>Step 2 — Create IAM Identity and EC2 Resource</h3>
-
-    <h4>Actions</h4>
     <ol>
-      <li>Create an IAM user or role with EC2 read access</li>
-      <li>Ensure no admin permissions are granted</li>
-      <li>Launch an EC2 instance in a VPC</li>
-      <li>Do not assign a public IP initially</li>
+      <li>
+        Design the Zero Trust model by defining how IAM identity, Security Groups,
+        Network ACLs, and CloudTrail interact to control access.
+      </li>
+      <li>
+        Create an IAM identity with limited permissions and launch an EC2 instance
+        without public exposure.
+      </li>
+      <li>
+        Apply Security Group rules that allow access only from approved sources and
+        deny all other traffic by default.
+      </li>
+      <li>
+        Add Network ACL guardrails to prevent accidental exposure caused by
+        misconfigured Security Groups.
+      </li>
+      <li>
+        Test allowed and denied access scenarios by changing identity and network
+        conditions.
+      </li>
+      <li>
+        Review CloudTrail logs to confirm all access attempts and enforcement
+        decisions are auditable.
+      </li>
     </ol>
-
-    <h4>Why This Matters</h4>
-    <p>
-      Resources should exist before access is granted.
-    </p>
-
-    <!-- =========================
-         STEP 3
-    ========================= -->
-    <h3>Step 3 — Enforce Access with Security Groups</h3>
-
-    <h4>Actions</h4>
-    <ol>
-      <li>Create a Security Group</li>
-      <li>Allow SSH (port 22) only from your IP address</li>
-      <li>Deny all other inbound traffic (default behavior)</li>
-    </ol>
-
-    <h4>Outcome</h4>
-    <ul>
-      <li>Access is explicitly allowed</li>
-      <li>Everything else is denied</li>
-    </ul>
-
-    <!-- =========================
-         STEP 4
-    ========================= -->
-    <h3>Step 4 — Add Network ACL Guardrails</h3>
-
-    <h4>Actions</h4>
-    <ol>
-      <li>Create a Network ACL for the subnet</li>
-      <li>Allow required ports</li>
-      <li>Explicitly deny unnecessary traffic</li>
-    </ol>
-
-    <h4>Outcome</h4>
-    <p>
-      Misconfigured Security Groups cannot expose the resource.
-    </p>
-
-    <!-- =========================
-         STEP 5
-    ========================= -->
-    <h3>Step 5 — Attempt and Validate Access</h3>
-
-    <h4>Actions</h4>
-    <ul>
-      <li>Access from allowed IP → succeeds</li>
-      <li>Access from disallowed IP → fails</li>
-      <li>Remove IAM permissions temporarily → access denied</li>
-    </ul>
-
-    <h4>Outcome</h4>
-    <p>
-      Identity and network controls are both required.
-    </p>
-
-    <!-- =========================
-         STEP 6
-    ========================= -->
-    <h3>Step 6 — Audit with CloudTrail</h3>
-
-    <h4>Actions</h4>
-    <ul>
-      <li>Open CloudTrail</li>
-      <li>Review EC2 actions</li>
-      <li>Review Security Group modifications</li>
-      <li>Review failed access attempts</li>
-    </ul>
-
-    <h4>Outcome</h4>
-    <p>
-      Zero Trust is provable, not assumed.
-    </p>
-
   </section>
 
-  <!-- Footer -->
-  <footer class="site-footer">
-    <!-- standard footer -->
-  </footer>
+  <!-- =========================
+       VALIDATION (CANONICAL)
+  ========================= -->
+  <section class="lab-section">
+    <h2>Validation</h2>
+    <ul>
+      <li>Access succeeds only when identity and network rules permit it</li>
+      <li>Denied access attempts are visible in CloudTrail</li>
+      <li>No resource is reachable without explicit authorization</li>
+    </ul>
+  </section>
+
+  <!-- =========================
+       TEARDOWN (CANONICAL)
+  ========================= -->
+  <section class="lab-section">
+    <h2>Teardown</h2>
+    <ul>
+      <li>Delete temporary IAM identities or roles</li>
+      <li>Remove Security Group and Network ACL test rules</li>
+      <li>Terminate the EC2 instance if no longer required</li>
+    </ul>
+  </section>
 
 </body>
 </html>
