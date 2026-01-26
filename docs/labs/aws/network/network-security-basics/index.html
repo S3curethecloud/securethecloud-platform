@@ -11,176 +11,103 @@
   />
 
   <!-- Design System -->
-  <link rel="stylesheet" href="/design-system/tokens.css" />
-  <link rel="stylesheet" href="/design-system/typography.css" />
-  <link rel="stylesheet" href="/design-system/layouts.css" />
-  <link rel="stylesheet" href="/design-system/components.css" />
-  <link rel="stylesheet" href="/design-system/motion.css" />
+  <link rel="stylesheet" href="/docs/design-system/tokens.css" />
+  <link rel="stylesheet" href="/docs/design-system/typography.css" />
+  <link rel="stylesheet" href="/docs/design-system/layouts.css" />
+  <link rel="stylesheet" href="/docs/design-system/components.css" />
+  <link rel="stylesheet" href="/docs/design-system/motion.css" />
 
   <!-- Global Styles -->
-  <link rel="stylesheet" href="/css/base.css" />
-  <link rel="stylesheet" href="/css/layout.css" />
-  <link rel="stylesheet" href="/css/navigation.css" />
+  <link rel="stylesheet" href="/docs/css/base.css" />
+  <link rel="stylesheet" href="/docs/css/layout.css" />
+  <link rel="stylesheet" href="/docs/css/navigation.css" />
 
   <!-- Lab Styles -->
-  <link rel="stylesheet" href="/css/pages/labs.css" />
+  <link rel="stylesheet" href="/docs/css/pages/labs.css" />
 </head>
 
 <body>
 
-  <!-- Global Navigation -->
-  <nav class="stc-nav">
-    <!-- standard nav include -->
-  </nav>
+  <!-- REQUIRED: PRIMARY PAGE H1 -->
+  <h1>AWS Network Security Basics</h1>
+
+  <!-- REQUIRED: OBJECTIVE LINE -->
+  <p>
+    Learn how AWS network security controls traffic using VPC boundaries,
+    Security Groups, and Network ACLs to enforce least-privilege access.
+  </p>
+
+  <!-- REQUIRED: WHAT YOU’LL LEARN -->
+  <h2>What You’ll Learn</h2>
+  <ul>
+    <li>How VPCs establish network isolation in AWS</li>
+    <li>How Security Groups control instance-level traffic</li>
+    <li>How Network ACLs enforce subnet-level rules</li>
+  </ul>
 
   <!-- =========================
-       LAB HEADER (TRUST ANCHOR)
+       OVERVIEW (CANONICAL)
   ========================= -->
-  <header class="lab-hero">
-    <h1>AWS Network Security Basics: VPC, Security Groups, and NACLs</h1>
-
-    <div class="lab-meta">
-      <span class="tag aws">AWS</span>
-      <span class="tag network">Network</span>
-      <span class="tag l1">L1</span>
-      <span class="tag time">35–50 mins</span>
-    </div>
-
-    <p class="lab-intro">
-      This lab introduces AWS network security fundamentals and explains how VPCs,
-      Security Groups, and Network ACLs protect resources.
+  <section class="lab-section">
+    <h2>Overview</h2>
+    <p>
+      In this lab, you will explore how AWS network security layers work together
+      to control inbound and outbound traffic using VPCs, Security Groups, and Network ACLs.
     </p>
-
-    <a href="#start" class="lab-start-btn">
-      Start Lab →
-    </a>
-  </header>
-
-  <!-- =========================
-       WHAT YOU’LL BUILD
-  ========================= -->
-  <section class="lab-section">
-    <h2>What You’ll Build</h2>
-    <ul>
-      <li>A basic VPC network boundary</li>
-      <li>Security Group rules to allow and deny traffic</li>
-      <li>Network ACL rules for subnet-level control</li>
-      <li>Verification of network access behavior</li>
-    </ul>
   </section>
 
   <!-- =========================
-       PREREQUISITES
-  ========================= -->
-  <section class="lab-section">
-    <h2>Prerequisites</h2>
-    <ul>
-      <li>An AWS account</li>
-      <li>Access to the AWS Management Console</li>
-      <li>Basic understanding of EC2 instances</li>
-    </ul>
-  </section>
-
-  <!-- =========================
-       LAB STEPS START
+       STEPS (CANONICAL)
   ========================= -->
   <section class="lab-section" id="start">
-    <h2>Lab Steps</h2>
+    <h2>Steps</h2>
 
-    <!-- =========================
-         STEP 1
-    ========================= -->
     <h3>Step 1 — Understand Network Boundaries (VPC)</h3>
-
-    <h4>Objective</h4>
     <p>
-      Understand what a VPC is and why network boundaries matter.
+      A VPC is your isolated network environment in AWS that defines IP ranges,
+      routing, and connectivity boundaries.
     </p>
 
-    <h4>Simple Explanation</h4>
-    <p>
-      A VPC is your private network inside AWS.
-    </p>
-
-    <p>
-      Anything inside the VPC:
-    </p>
-
-    <ul>
-      <li>Is isolated from the internet by default</li>
-      <li>Only allows traffic you explicitly permit</li>
-    </ul>
-
-    <p>
-      This is the first line of defense in Zero Trust networking.
-    </p>
-
-    <!-- =========================
-         STEP 2
-    ========================= -->
     <h3>Step 2 — Control Traffic with Security Groups</h3>
-
-    <h4>Objective</h4>
-    <p>
-      Use Security Groups to allow only required traffic.
-    </p>
-
-    <h4>Actions</h4>
     <ol>
       <li>Go to EC2 → Security Groups</li>
       <li>Create a new security group</li>
-      <li>
-        Allow inbound SSH (port 22) from your IP address
-      </li>
-      <li>
-        Leave all other inbound traffic denied (default behavior)
-      </li>
+      <li>Allow inbound SSH (port 22) from your IP address</li>
+      <li>Leave all other inbound traffic denied by default</li>
     </ol>
 
-    <h4>Why This Matters</h4>
-    <p>
-      Security Groups are stateful firewalls:
-    </p>
-
-    <ul>
-      <li>If traffic is allowed in, return traffic is allowed out</li>
-      <li>Least privilege is enforced by default</li>
-    </ul>
-
-    <!-- =========================
-         STEP 3
-    ========================= -->
-    <h3>Step 3 — Add Subnet-Level Protection with NACLs</h3>
-
-    <h4>Objective</h4>
-    <p>
-      Understand how Network ACLs provide an additional control layer.
-    </p>
-
-    <h4>Actions</h4>
+    <h3>Step 3 — Add Subnet-Level Protection with Network ACLs</h3>
     <ol>
       <li>Go to VPC → Network ACLs</li>
       <li>Create a Network ACL for your subnet</li>
       <li>Add rules to allow required traffic</li>
       <li>Explicitly deny unwanted ports</li>
     </ol>
-
-    <h4>Why This Matters</h4>
-    <p>
-      Network ACLs are stateless:
-    </p>
-
-    <ul>
-      <li>Every direction must be explicitly allowed</li>
-      <li>They act as a guardrail against misconfigured Security Groups</li>
-    </ul>
-
   </section>
 
-  <!-- Footer -->
-  <footer class="site-footer">
-    <!-- standard footer -->
-  </footer>
+  <!-- =========================
+       VALIDATION (CANONICAL)
+  ========================= -->
+  <section class="lab-section">
+    <h2>Validation</h2>
+    <ul>
+      <li>Instances are reachable only on explicitly allowed ports</li>
+      <li>Security Group rules enforce least-privilege access</li>
+      <li>Network ACL rules affect traffic at the subnet level</li>
+    </ul>
+  </section>
+
+  <!-- =========================
+       TEARDOWN (CANONICAL)
+  ========================= -->
+  <section class="lab-section">
+    <h2>Teardown</h2>
+    <ul>
+      <li>Remove test Security Group rules if no longer needed</li>
+      <li>Delete test Network ACLs created for this lab</li>
+      <li>Confirm no unnecessary network access remains open</li>
+    </ul>
+  </section>
 
 </body>
 </html>
