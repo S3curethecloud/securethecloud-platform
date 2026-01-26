@@ -11,198 +11,106 @@
   />
 
   <!-- Design System -->
-  <link rel="stylesheet" href="/design-system/tokens.css" />
-  <link rel="stylesheet" href="/design-system/typography.css" />
-  <link rel="stylesheet" href="/design-system/layouts.css" />
-  <link rel="stylesheet" href="/design-system/components.css" />
-  <link rel="stylesheet" href="/design-system/motion.css" />
+  <link rel="stylesheet" href="/docs/design-system/tokens.css" />
+  <link rel="stylesheet" href="/docs/design-system/typography.css" />
+  <link rel="stylesheet" href="/docs/design-system/layouts.css" />
+  <link rel="stylesheet" href="/docs/design-system/components.css" />
+  <link rel="stylesheet" href="/docs/design-system/motion.css" />
 
   <!-- Global Styles -->
-  <link rel="stylesheet" href="/css/base.css" />
-  <link rel="stylesheet" href="/css/layout.css" />
-  <link rel="stylesheet" href="/css/navigation.css" />
+  <link rel="stylesheet" href="/docs/css/base.css" />
+  <link rel="stylesheet" href="/docs/css/layout.css" />
+  <link rel="stylesheet" href="/docs/css/navigation.css" />
 
   <!-- Lab Styles -->
-  <link rel="stylesheet" href="/css/pages/labs.css" />
+  <link rel="stylesheet" href="/docs/css/pages/labs.css" />
 </head>
 
 <body>
 
-  <!-- Global Navigation -->
-  <nav class="stc-nav">
-    <!-- standard nav include -->
-  </nav>
+  <!-- REQUIRED: PRIMARY PAGE H1 -->
+  <h1>Secure Identity Federation and Network Access</h1>
+
+  <!-- REQUIRED: OBJECTIVE LINE -->
+  <p>
+    Learn how to enforce Zero Trust access by combining federated workforce identity,
+    least-privilege permission sets, and AWS network controls with auditable outcomes.
+  </p>
+
+  <!-- REQUIRED: WHAT YOU’LL LEARN -->
+  <h2>What You’ll Learn</h2>
+  <ul>
+    <li>How federated identity and network controls jointly authorize access</li>
+    <li>How permission sets enforce least privilege across AWS accounts</li>
+    <li>How CloudTrail provides audit evidence for identity and network decisions</li>
+  </ul>
 
   <!-- =========================
-       LAB HEADER (TRUST ANCHOR)
+       OVERVIEW (CANONICAL)
   ========================= -->
-  <header class="lab-hero">
-    <h1>Secure Identity Federation and Network Access</h1>
-
-    <div class="lab-meta">
-      <span class="tag aws">AWS</span>
-      <span class="tag composite">Composite</span>
-      <span class="tag l2">L2</span>
-      <span class="tag time">75–105 mins</span>
-    </div>
-
-    <p class="lab-intro">
-      This lab combines workforce identity federation with AWS network controls
-      to enforce Zero Trust access based on identity, network boundaries, and
-      audit evidence.
+  <section class="lab-section">
+    <h2>Overview</h2>
+    <p>
+      In this composite lab, you will combine workforce identity federation with AWS
+      network controls to enforce Zero Trust access based on identity, location, and
+      verifiable audit evidence.
     </p>
-
-    <a href="#start" class="lab-start-btn">
-      Start Lab →
-    </a>
-  </header>
-
-  <!-- =========================
-       WHAT YOU’LL BUILD
-  ========================= -->
-  <section class="lab-section">
-    <h2>What You’ll Build</h2>
-    <ul>
-      <li>Federated workforce access into AWS</li>
-      <li>Permission sets enforcing least privilege</li>
-      <li>Network boundaries restricting access paths</li>
-      <li>Audit trails proving identity- and network-based decisions</li>
-    </ul>
   </section>
 
   <!-- =========================
-       PREREQUISITES
-  ========================= -->
-  <section class="lab-section">
-    <h2>Prerequisites</h2>
-    <ul>
-      <li>Completion of L1 IAM, Network, and Logging labs</li>
-      <li>Completion of AWS ↔ Entra Federation lab</li>
-      <li>An AWS account with IAM Identity Center enabled</li>
-    </ul>
-  </section>
-
-  <!-- =========================
-       LAB STEPS START
+       STEPS (CANONICAL — COMPOSITE RULE)
   ========================= -->
   <section class="lab-section" id="start">
-    <h2>Lab Steps</h2>
+    <h2>Steps</h2>
 
-    <!-- =========================
-         STEP 1
-    ========================= -->
-    <h3>Step 1 — Define Identity & Network Trust Boundaries</h3>
-
-    <h4>Objective</h4>
-    <p>
-      Decide how federated identity and network controls work together.
-    </p>
-
-    <h4>Key Decisions</h4>
-    <ul>
-      <li>Identity decides who may attempt access</li>
-      <li>Network decides from where access is allowed</li>
-      <li>Both must agree for access to succeed</li>
-    </ul>
-
-    <h4>Why This Matters</h4>
-    <p>
-      Zero Trust requires multiple independent controls.
-    </p>
-
-    <!-- =========================
-         STEP 2
-    ========================= -->
-    <h3>Step 2 — Configure Federated Access & Permission Sets</h3>
-
-    <h4>Actions</h4>
     <ol>
-      <li>Use Entra ID (or your IdP) as the identity provider</li>
-      <li>Map groups to IAM Identity Center permission sets</li>
-      <li>Grant access to specific AWS accounts only</li>
-      <li>Avoid direct user permissions</li>
-    </ol>
-
-    <h4>Outcome</h4>
-    <ul>
-      <li>Access is identity-driven</li>
-      <li>Least privilege is enforced centrally</li>
-    </ul>
-
-    <!-- =========================
-         STEP 3
-    ========================= -->
-    <h3>Step 3 — Apply Network Controls to Federated Resources</h3>
-
-    <h4>Actions</h4>
-    <ol>
-      <li>Launch an EC2 instance in a VPC</li>
-      <li>Attach a Security Group allowing:
-        <ul>
-          <li>SSH / HTTPS only from approved IP ranges</li>
-        </ul>
+      <li>
+        Define identity and network trust boundaries, determining who may attempt access
+        and from where access is allowed.
       </li>
-      <li>Apply a Network ACL as a subnet guardrail</li>
+      <li>
+        Configure federated access using an external identity provider and map groups
+        to IAM Identity Center permission sets.
+      </li>
+      <li>
+        Apply network controls such as Security Groups and Network ACLs to restrict
+        access paths.
+      </li>
+      <li>
+        Test access scenarios to validate allowed and denied conditions.
+      </li>
+      <li>
+        Review CloudTrail logs to confirm identity and network enforcement decisions.
+      </li>
+      <li>
+        Evaluate the resulting Zero Trust posture.
+      </li>
     </ol>
-
-    <h4>Outcome</h4>
-    <p>
-      Identity alone is insufficient. Network boundaries must also allow traffic.
-    </p>
-
-    <!-- =========================
-         STEP 4
-    ========================= -->
-    <h3>Step 4 — Attempt Access Scenarios</h3>
-
-    <ul>
-      <li>Federated user from allowed IP → Success</li>
-      <li>Federated user from disallowed IP → Denied</li>
-      <li>Non-federated identity → Denied</li>
-    </ul>
-
-    <p>
-      <strong>Outcome:</strong> Access requires both identity and network approval.
-    </p>
-
-    <!-- =========================
-         STEP 5
-    ========================= -->
-    <h3>Step 5 — Validate with CloudTrail</h3>
-
-    <h4>Actions</h4>
-    <ul>
-      <li>Review CloudTrail events for federated role assumptions</li>
-      <li>Review network-related API calls</li>
-      <li>Review denied access attempts</li>
-    </ul>
-
-    <p>
-      <strong>Outcome:</strong> Decisions are auditable and attributable.
-    </p>
-
-    <!-- =========================
-         STEP 6
-    ========================= -->
-    <h3>Step 6 — Review Zero Trust Posture</h3>
-
-    <h4>Checks</h4>
-    <ul>
-      <li>No standing credentials</li>
-      <li>No public network exposure</li>
-      <li>All access is time-bound and auditable</li>
-    </ul>
-
-    <p>
-      <strong>Outcome:</strong> Zero Trust is enforced end-to-end.
-    </p>
-
   </section>
 
-  <!-- Footer -->
-  <footer class="site-footer">
-    <!-- standard footer -->
-  </footer>
+  <!-- =========================
+       VALIDATION (CANONICAL)
+  ========================= -->
+  <section class="lab-section">
+    <h2>Validation</h2>
+    <ul>
+      <li>Access succeeds only when identity and network conditions are met</li>
+      <li>Denied attempts are visible in CloudTrail</li>
+      <li>Permission sets enforce least privilege across accounts</li>
+    </ul>
+  </section>
+
+  <!-- =========================
+       TEARDOWN (CANONICAL)
+  ========================= -->
+  <section class="lab-section">
+    <h2>Teardown</h2>
+    <ul>
+      <li>Remove test permission sets or group assignments</li>
+      <li>Delete temporary Security Group and Network ACL rules</li>
+      <li>Confirm no unnecessary access paths remain</li>
+    </ul>
+  </section>
 
 </body>
 </html>
