@@ -203,7 +203,7 @@ function updateActiveSortButtons() {
 }
 
 /* =========================
-   LAB CARD RENDER
+   LAB CARD RENDER (FIXED UX)
 ========================= */
 
 function renderLabs(labs) {
@@ -215,7 +215,7 @@ function renderLabs(labs) {
   labsGrid.innerHTML = labs
     .map(
       lab => `
-        <article class="lab-card">
+        <article class="lab-card" data-href="${lab.path}">
           <h3 class="lab-title">${lab.title}</h3>
 
           <div class="lab-meta">
@@ -236,12 +236,19 @@ function renderLabs(labs) {
 
           <p class="lab-summary">${lab.summary}</p>
 
-          <a class="lab-cta" href="${lab.path}">
+          <div class="lab-card-footer">
             Open Lab →
-          </a>
+          </div>
         </article>
       `
     )
     .join("");
+
+  // Make entire card clickable
+  document.querySelectorAll(".lab-card").forEach(card => {
+    card.addEventListener("click", () => {
+      window.location.href = card.dataset.href;
+    });
+  });
 }
 

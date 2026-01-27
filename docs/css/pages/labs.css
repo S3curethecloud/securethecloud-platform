@@ -59,6 +59,33 @@
   gap: var(--sp-6);
 }
 
+/* =====================================
+   LAB CARD UX AFFORDANCE FIX
+   ===================================== */
+
+.lab-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.lab-card-footer {
+  margin-top: auto;
+  padding-top: 0.75rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #2563eb; /* blue-600 */
+}
+
+.lab-card:hover {
+  transform: translateY(-2px);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+.lab-card:hover .lab-card-footer {
+  text-decoration: underline;
+}
+
 /* =========================
    LAB CARD
 ========================= */
@@ -472,3 +499,22 @@
 .lab-content ol {
   margin-left: 1.25rem;
 }
+
+/* =====================================================
+   LAB CARD FOOTER AFFORDANCE (AUTHORITATIVE)
+   ===================================================== */
+
+.lab-card {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+}
+
+.lab-card-footer {
+  margin-top: auto;
+  padding-top: 0.75rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #2563eb; /* blue-600 */
+}
+
