@@ -7,7 +7,7 @@
   <title>STC Shield | SecureTheCloud</title>
   <meta
     name="description"
-    content="STC Shield is an API-first security engine designed to model, classify, and reason about cloud risk across identity, data, network, and audit domains."
+    content="STC Shield is a multi-cloud identity attack-path detection engine for AWS, Azure, and GCP."
   />
 
   <!-- Design System -->
@@ -25,7 +25,7 @@
 <body>
 
   <!-- =========================
-       GLOBAL NAV
+       GLOBAL NAV (SHIELD-CENTERED · CANONICAL)
   ========================= -->
   <header class="stc-nav">
     <div class="stc-nav-inner">
@@ -35,18 +35,20 @@
         </a>
       </div>
 
-      <!-- 🔒 CANONICAL NAV (ROOT-BASED) -->
       <nav class="stc-nav-menu">
         <a href="/">Home</a>
-        <a href="/labs/">Labs</a>
         <a href="/shield/">Shield</a>
-        <a href="/ai/">AI</a>
-        <a href="/azure-admin/">Dashboard</a>
+        <a
+          href="https://dash.cloudflare.com/15405b0703a8372dfa942f9e685a2903/pages/view/stc-intelligence-core"
+          target="_blank"
+          rel="noopener"
+        >AI</a>
         <a
           href="https://www.youtube.com/@SecureTheCloud-dev"
           target="_blank"
           rel="noopener"
         >Media</a>
+        <a href="/consulting/">Consulting</a>
       </nav>
 
       <button class="stc-nav-toggle" aria-expanded="false">☰</button>
@@ -61,9 +63,9 @@
     <section class="shield-hero">
       <h1>STC Shield</h1>
 
-      <p class="shield-intro">
-        STC Shield is an API-first security engine designed to model, classify,
-        and reason about cloud risk across identity, data, network, and audit domains.
+      <p class="page-intro">
+        STC Shield is a multi-cloud identity attack-path detection engine that exposes
+        how identities can be abused across AWS, Azure, and GCP — before attackers do.
       </p>
 
       <a
@@ -72,53 +74,54 @@
         rel="noopener"
         class="stc-btn"
       >
-        Launch Shield Demo →
+        Launch STC Shield Console
       </a>
-    </section>
 
-    <section class="shield-section">
-      <h2>What STC Shield Is</h2>
-      <ul>
-        <li>API-first security engine</li>
-        <li>Cloud-agnostic risk modeling</li>
-        <li>Zero Trust aligned by design</li>
-        <li>Built for automation, not dashboards</li>
-      </ul>
-    </section>
-
-    <section class="shield-section">
-      <h2>What STC Shield Is Not</h2>
-      <ul>
-        <li>Not a SIEM</li>
-        <li>Not a CSPM clone</li>
-        <li>Not a point-in-time scanner</li>
-        <li>Not tightly coupled to this website</li>
-      </ul>
-    </section>
-
-    <section class="shield-section">
-      <h2>How Shield Fits the Platform</h2>
-      <p>
-        SecureTheCloud.dev is the learning and presentation layer.
-        STC Shield is the execution and reasoning layer.
+      <p class="cta-note">
+        Live identity risk view. Expired cloud sessions are blocked by design.
       </p>
+    </section>
 
+    <section class="shield-section">
+      <h2>What Shield Does</h2>
+      <p>
+        STC Shield continuously analyzes live cloud identity configurations to detect
+        dangerous trust relationships, privilege escalation paths, and federated access
+        risks. It models identity relationships as attack paths, assigns risk severity,
+        and produces operator-ready visualizations and executive-grade reports across
+        AWS, Azure, and GCP.
+      </p>
+    </section>
+
+    <section class="shield-section">
+      <h2>Core Capabilities</h2>
       <ul>
-        <li>Labs teach the primitives</li>
-        <li>Shield models the risk</li>
-        <li>Academy connects theory to practice</li>
-        <li>Consulting applies it in real environments</li>
+        <li><strong>Identity Trust Discovery</strong> — Detects SSO, SAML, OIDC, and cross-account trust relationships</li>
+        <li><strong>Attack Path Modeling</strong> — Builds identity → role → privilege → resource paths attackers exploit</li>
+        <li><strong>Risk Classification</strong> — Assigns CRITICAL / HIGH / MEDIUM / LOW severity with reasoning</li>
+        <li><strong>Visual Graph Analysis</strong> — Renders identity relationships as explorable graphs</li>
+        <li><strong>Security Reporting</strong> — Generates markdown-ready executive and technical reports</li>
+        <li><strong>Multi-Cloud Coverage</strong> — AWS, Azure, and GCP supported natively</li>
       </ul>
     </section>
 
     <section class="shield-section">
-      <h2>How to Use Shield</h2>
-      <ol>
-        <li>Learn a concept in Labs</li>
-        <li>Understand its risk domain</li>
-        <li>Visualize it in STC Shield</li>
-        <li>Apply controls intentionally</li>
-      </ol>
+      <h2>Who Shield Is For</h2>
+      <ul>
+        <li>Cloud Security Architects</li>
+        <li>Identity & Zero Trust Engineers</li>
+        <li>Security Consultants</li>
+        <li>Platform & Cloud Engineers with security responsibility</li>
+      </ul>
+    </section>
+
+    <section class="shield-section">
+      <h2>What Shield Is Not</h2>
+      <p>
+        STC Shield is not a SIEM, not a CSPM clone, and not a compliance checkbox tool.
+        It focuses specifically on identity attack paths — the fastest way attackers
+        move in modern cloud environments.
+      </p>
     </section>
 
   </main>
